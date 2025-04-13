@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import  useForm  from './hooks/useForm';
-import DataBase from './DataBase';
+import {DataBase} from './DataBase';
 
 import axios from "axios";
 import "./components.css";
