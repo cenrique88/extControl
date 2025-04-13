@@ -20,10 +20,10 @@ const DataBase = async () => {
 
 
 
-  return (
+  return {
     writeDB,
     
-  )
+  };
 }
 
-export default DataBase;
+export default DataBase
