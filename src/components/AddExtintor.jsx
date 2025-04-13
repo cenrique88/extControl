@@ -8,20 +8,22 @@ import "./components.css";
 
 const AddExtintor = () => {
 
-const [dataExtintor, setDataExtintor] = useState();
+// const dataList = ['id_extintor', 'ubicacion', 'tipo_extintor', 
+//                   'capacidad', 'recarga', 'f_vencimiento', 'estado_cartel', 
+//                   'estado_soporte_nicho', 'observaciones', 'imagen']
 const {writeDB} = useDataBase();
 
-    
 
-  
+
+
 
   // Hooks para manejar los elementos del formulario                                             
   const id_extintor =  useForm();
   const ubicacion = useForm();
   const tipo_extintor = useForm();
   const capacidad = useForm();
-  const recarga = useForm();
-  const f_vencimiento = useForm();
+  const recarga_cada = useForm();
+  const ultima_recarga = useForm(); 
   const estado_cartel = useForm();
   const estado_soporte_nicho = useForm();
   const observaciones = useForm();
@@ -33,9 +35,8 @@ const {writeDB} = useDataBase();
     ubicacion: ubicacion.inputValue,
     tipo_extintor: tipo_extintor.inputValue,
     capacidad: capacidad.inputValue,
-    recarga_cada: recarga.inputValue,
-    fecha_vencimiento: f_vencimiento.inputValue,
-    tiempo_faltante: f_vencimiento.inputValue,
+    recarga_cada: recarga_cada.inputValue,
+    ultima_recarga: ultima_recarga.inputValue,
     estado_cartel: estado_cartel.selectValue,
     estado_soporte_nicho: estado_soporte_nicho.selectValue,
     observaciones: observaciones.textArea
@@ -51,27 +52,13 @@ const clearAll = () => {
   ubicacion.clearInput();
   tipo_extintor.clearInput();
   capacidad.clearInput();
-  recarga.clearInput();
-  f_vencimiento.clearInput();
+  recarga_cada.clearInput();
+  ultima_recarga.clearInput(); // ESTO HAY QUE CAMBIARLO ES FECHA DE RECARGA Y AGREGAR FECHA DE VENCIMIENTO
   estado_cartel.clearSelect('Carteles');
   estado_soporte_nicho.clearSelect('Soportes');
   observaciones.clearTextArea();
   document.getElementById('imagen').value = null;  
 }
-
-// Funcion para calcular el tiempo restante para la recarga del extintor
-const handle_left_time = (f_vencimiento, recarga_cada) => {
-  const fv = new Date(f_vencimiento);
-  const rc = parseInt(recarga_cada);
-  const left_time = fv.setFullYear(fv.getFullYear()+  rc)
-  const hoy = Date.now();
-
-  // console.log(new Date(left_time));
-  //console.log(new Date(left_time) - new Date(hoy));
-  //console.log("Tiempo faltante: ", Math.floor((( left_time > hoy ? left_time - hoy : hoy - left_time) / (1000 * 60 * 60 * 24)) / 30 )  + " Meses")
-
-}
-
 
 
 //Funcion para guardar los datos del nuevo extintor en la base de datos y limpia tos los campos del formulario
@@ -119,14 +106,14 @@ const handleSubmit = () => {
         <input 
           type='number' 
           placeholder='Recarga cada' 
-          id='recarga' onChange={(event)=>{recarga.handleChangeInput(event)}} 
-          value={recarga.inputValue}
+          id='recarga' onChange={(event)=>{recarga_cada.handleChangeInput(event)}} 
+          value={recarga_cada.inputValue}
         />
         <input 
           type='date' 
-          placeholder='F. Vencimiento' 
-          id='fvenc' onChange={(event)=>{f_vencimiento.handleChangeInput(event)}} 
-          value={f_vencimiento.inputValue}
+          placeholder='Ultima Recarga' 
+          id='uRecarga' onChange={(event)=>{ultima_recarga.handleChangeInput(event)}} 
+          value={ultima_recarga.inputValue}
         />
 
         <select 
