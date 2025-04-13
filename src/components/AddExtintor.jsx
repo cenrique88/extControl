@@ -76,7 +76,7 @@ const handle_left_time = (f_vencimiento, recarga_cada) => {
 
 
 //Funcion para guardar los datos del nuevo extintor en la base de datos y limpia tos los campos del formulario
-const handleSubmit = async () => {
+const handleSubmit = () => {
   writeDB('extintores', allData);  
   clearAll();
 };
