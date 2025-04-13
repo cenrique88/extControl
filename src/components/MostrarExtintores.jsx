@@ -1,26 +1,24 @@
 import axios from "axios";
 import { useState, useEffect} from 'react'
+import useDataBase from "./hooks/useDataBase";
 
 
 const MostrarExtintores = () => {
 
+    const {getDB} = useDataBase();
+
+
     useEffect(() => {
-      handleData();
+        handleData();
     }, []);
     
     const [allExtintores, setAllExtintores] = useState();
 
     const handleData = async () => {
-        try{
-          const response = await axios.get("http://172.16.1.167:3000/extintores");
-          setAllExtintores(response.data);
-        } catch (error) {
-          console.error("Error obtener el datos:", error);        }
+        const data = await getDB("extintores");
+        setAllExtintores(data);
       };
 
-      //console.log(allExtintores);
-
-      
 
 
 

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import  useForm  from './hooks/useForm';
-import axios from "axios";
 import useDataBase from './hooks/useDataBase';
 import "./components.css";
 
@@ -84,19 +83,6 @@ const handleSubmit = () => {
 
 
 
-
-  // Codigo para desahbilitar la opcion cartel de la lista desplegable para usar como placeholder
-  const placeholderCarteles = ()=>{
-    const carteles = document.getElementById("carteles");
-    carteles.disabled = true;
-  }
-  const placeholderSoportes = ()=>{
-    const carteles = document.getElementById("soportes");
-    carteles.disabled = true;
-  }
-
-
-
   return (
     <>
     <div className="add-extintor">
@@ -145,7 +131,7 @@ const handleSubmit = () => {
 
         <select 
           id='menuCarteles' 
-          onClick={placeholderCarteles}
+          onClick={()=>estado_cartel.placeholderForSelect('carteles')}
           onChange={(event)=>{estado_cartel.handleChangeSelect(event)}}
           value={estado_cartel.selectValue}
           >
@@ -156,7 +142,7 @@ const handleSubmit = () => {
         </select>
         <select 
           id='menuSoportes' 
-          onClick={placeholderSoportes}
+          onClick={()=>estado_soporte_nicho.placeholderForSelect('soportes')}
           onChange={(event)=>{estado_soporte_nicho.handleChangeSelect(event)}}
           value={estado_soporte_nicho.selectValue}
           >

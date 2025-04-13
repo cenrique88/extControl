@@ -46,6 +46,12 @@ function useForm() {
     setInputValue(event.target.files[0]);
   };
 
+  // Codigo para desahbilitar la opcion cartel de la lista desplegable para usar como placeholder
+  const placeholderForSelect = (id,)=>{
+    const select = document.getElementById(id);
+    select.disabled = true;
+  }
+
 
 
   return {
@@ -60,6 +66,7 @@ function useForm() {
     clearInput,
     clearSelect,
     clearTextArea,
+    placeholderForSelect,
   };
 }
 
