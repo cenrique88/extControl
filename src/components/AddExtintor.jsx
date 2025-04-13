@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import  useForm  from './hooks/useForm';
-import {DataBase} from './DataBase';
-
 import axios from "axios";
+import useDataBase from './hooks/useDataBase';
 import "./components.css";
 
 
@@ -11,7 +10,8 @@ import "./components.css";
 const AddExtintor = () => {
 
 const [dataExtintor, setDataExtintor] = useState();
-const {writeDB} = DataBase();
+const {writeDB} = useDataBase();
+
     
 
   
@@ -77,7 +77,7 @@ const handle_left_time = (f_vencimiento, recarga_cada) => {
 
 //Funcion para guardar los datos del nuevo extintor en la base de datos y limpia tos los campos del formulario
 const handleSubmit = () => {
-  writeDB('extintores', allData);  
+  writeDB("extintores", allData);  
   clearAll();
 };
 
