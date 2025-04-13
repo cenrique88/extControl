@@ -26,4 +26,4 @@ const DataBase = async () => {
   )
 }
 
-export default DataBase
+export default DataBase;
