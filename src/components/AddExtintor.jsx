@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import  useForm  from './hooks/useForm';
+import DataBase from './DataBase';
 
 import axios from "axios";
 import "./components.css";
@@ -10,6 +11,7 @@ import "./components.css";
 const AddExtintor = () => {
 
 const [dataExtintor, setDataExtintor] = useState();
+const {writeDB} = DataBase();
     
 
   
@@ -74,24 +76,8 @@ const handle_left_time = (f_vencimiento, recarga_cada) => {
 
 
 //Funcion para guardar los datos del nuevo extintor en la base de datos y limpia tos los campos del formulario
-const handleSubmit = async (data) => {
-  //console.log(f_vencimiento.inputValue);
-  //event.preventDefault();    
-  try{
-    const response = await axios.post("http://172.16.1.167:3000/extintores", allData);
-    console.log("Dato guardado:", response.data);
-  } catch (error) {
-    console.error("Error al guardar el dato:", error);
-  };
-  //alert("Extintor agregado correctamente");
-
-  // try{
-  //   const response = await axios.post("http://172.16.1.167:3000/upload", extintor_photo);
-  //   console.log("Foto Subida:", response.data);
-  // } catch (error) {
-  //   console.error("Error al Subir la Foto:", error);
-  // };
-
+const handleSubmit = async () => {
+  writeDB('extintores', allData);  
   clearAll();
 };
 
