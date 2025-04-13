@@ -13,7 +13,7 @@ const MostrarExtintores = () => {
 
     useEffect(() => {
         handleData();
-    }, []);
+    }, [pageEnd]);
     
     // funcion para obtener los datos de la base de datos y almacenarlos en el estado
     const [allExtintores, setAllExtintores] = useState();
@@ -128,8 +128,8 @@ const MostrarExtintores = () => {
             
 
         </div>
-            <button onClick={() => setPageInit(pageInit - 6)}>Anterior</button>
-            <button onClick={() => setPageInit(pageInit + 6)}>Siguiente</button>
+            <button onClick={() => {setPageInit(pageInit - 6), setPageEnd(pageEnd - 6)}}>Anterior</button>
+            <button onClick={() => {setPageInit(pageInit + 6), setPageEnd(pageEnd + 6)}}>Siguiente</button>
 
     </div>      
     </>
