@@ -6,6 +6,7 @@ import useDataBase from "./hooks/useDataBase";
 const MostrarExtintores = () => {
     const [pageInit, setPageInit] = useState(0);
     const [pageEnd, setPageEnd] = useState(6);
+    const [numeroPagina, setNumeroPagina] = useState(1);
 
 
     const {getDB} = useDataBase();
@@ -128,8 +129,32 @@ const MostrarExtintores = () => {
             
 
         </div>
-            <button onClick={() => {setPageInit(pageInit - 6), setPageEnd(pageEnd - 6)}}>Anterior</button>
-            <button onClick={() => {setPageInit(pageInit + 6), setPageEnd(pageEnd + 6)}}>Siguiente</button>
+        <div className='paginacion'>
+            <button onClick={() => {
+                if (pageInit <= 0){
+                    alert('No hay mas datos')
+                    return
+                } else {
+                    setPageInit(pageInit - 6), 
+                    setPageEnd(pageEnd - 6)
+                    setNumeroPagina(numeroPagina - 1)
+                }
+                }}>Anterior</button>
+
+            <p>{numeroPagina}</p>
+
+
+            <button id='next' onClick={() => {
+                if (pageEnd >= allExtintores.length){
+                    alert('No hay mas datos')
+                    return
+                } else {
+                    setPageInit(pageInit + 6), 
+                    setPageEnd(pageEnd + 6)
+                    setNumeroPagina(numeroPagina + 1)
+                }
+                }}>Siguiente</button>
+            </div>
 
     </div>      
     </>
