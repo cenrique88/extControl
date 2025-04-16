@@ -1,36 +1,119 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	margin: 0;
+	padding: 2rem;
+	text-align: center;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-
-
 input {
-  display: flex;
-  margin: 5px;
-  padding: 5px;
-  width: 90%;
-  max-width: 20em;
-  font-size: 14px;
+	display: flex;
+	margin: 5px;
+	padding: 5px;
+	width: 90%;
+	max-width: 20em;
+	font-size: 14px;
 }
 
 button {
-  padding: 5px;
-  margin: 5px;
-  background-color: #0284a8;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 0.5em;
-  cursor: pointer;
+	padding: 10px 0px 10px 0px;
+
+	background-color: #127593;
+	color: rgb(40, 40, 40);
+	border: none;
+	border-radius: 0.5em;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	font-size: larger;
 }
 
 select {
-  display: flex;
-  max-width: 20em;
-  width: 96%;
-  padding: 5px;
-  margin: 5px;
-  font-size: 14px;
+	display: flex;
+	max-width: 20em;
+	width: 96%;
+	padding: 5px;
+	margin: 5px;
+	font-size: 14px;
+}
+
+.container {
+	max-height: 1280px;
+	max-width: 720px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background-color: rgb(84, 195, 195);
+	padding: 2rem;
+	border-radius: 1em;
+}
+
+.modal-container > button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+}
+
+.button-container > button {
+	width: 6em;
+	height: 2em;
+}
+
+.modal-close-showextlist,
+.paginacion > button {
+	width: 5em;
+	height: 2em;
+	margin: 0.5em;
+}
+.modal-content {
+	width: 90%;
+	height: 90%;
+	background-color: rgb(55, 75, 107) !important;
+	border-radius: 10px; /* Opcional: redondear las esquinas */
+	box-shadow: 0 0 10px aquamarine; /* Opcional: añadir un efecto de sombra */
+}
+
+.modal-content > button {
+	width: 5em;
+	height: 2em;
+	margin: 0.5em;
+}
+
+.add-extintor {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-extintor > h2 {
+	font-size: 2em;
+	margin-bottom: 10%;
+	margin-top: 5%;
+	color: aquamarine;
+}
+
+.add-extintor > button {
+	width: 5em;
+	height: 2em;
+	margin: 0.5em;
 }
