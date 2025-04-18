@@ -9,7 +9,7 @@ const MostrarExtintores = () => {
     const [numeroPagina, setNumeroPagina] = useState(1);
 
 
-    const {getDB} = useDataBase();
+    const {getDB, editDB, deleteDB} = useDataBase();
 
 
     useEffect(() => {
@@ -96,7 +96,8 @@ const MostrarExtintores = () => {
                         <td key={extintor._id+6}>{`${new Date(extintor.ultima_recarga).getMonth()}/${new Date(extintor.ultima_recarga).getFullYear()%1000}`}</td>
                         <td key={extintor._id+7}>{handleF_Vencimiento(extintor.ultima_recarga, extintor.recarga_cada)}</td>
                         <td key={extintor._id+8}>{handle_left_time(extintor.ultima_recarga, extintor.recarga_cada)}</td>
-                        <td key={extintor._id+9}><button>*</button></td>
+                        <td key={extintor._id+10}><button>Edt</button></td>
+                        <td key={extintor._id+11}><button>Dlt</button></td>
                         {/* <td key={extintor._id+6}>{extintor.observaciones}</td> */}
                         {/* <td key={extintor._id+7}><img src={extintor.imagen} alt="Img del extintor" /></td>                   */}
                     </tr>
