@@ -29,16 +29,16 @@ const useDataBase = () => {
         };
     }   
 
-    // test******************************************************************
-  //   const getOneDB = async (collection, id_extintor)=>{
-  //     try{
-  //         const response = await axios.get(url + collection+ '/' + id_extintor);
-  //         return response.data;
-  //       } catch (error) {
-  //         console.error("Error obtener el datos:", error);
-  //     };
-  // } 
-  //***************************************************************************
+    // FUNCION PARA OBTENER UN ELEMENTO DE LA BASE DE DATOS
+    const getOneDB = async (collection, id_extintor)=>{
+      try{
+          const response = await axios.get(url + collection+ '/' + id_extintor);
+          return response.data;
+        } catch (error) {
+          console.error("Error obtener el datos:", error);
+      };
+  } 
+  
     
 
     // funcion para editar un dato en la base de datos
@@ -72,7 +72,7 @@ const useDataBase = () => {
     getDB,
     editDB,
     deleteDB,
-    //getOneDB,
+    getOneDB,
 
   }
 }

@@ -24,7 +24,7 @@ const MostrarExtintores = () => {
 
 
 
-    const {getDB, editDB, deleteDB, /*getOneDB*/} = useDataBase();
+    const {getDB, editDB, deleteDB, getOneDB} = useDataBase();
 
 
     useEffect(() => {
@@ -68,13 +68,17 @@ const MostrarExtintores = () => {
         }     
         
     const handleDeleteExt = async (id_extintor) => {
-        const data = await deleteDB('extintores', id_extintor)
-        handleData()
+        const confirm = window.confirm(`Desea eliminar el extintor ${id_extintor}?`);
+
+        if(confirm){
+            const data = await deleteDB('extintores', id_extintor)
+            handleData()
+        }
     }
 
-    const handleEditExt = async (id_extintor)=> {
-
-
+    const [sendExtintor, setSendExtintor] = useState();
+    const handleEditExt = async (id_ext)=> {
+        setSendExtintor(id_ext);
         openModalEditExt();
     }
 
@@ -88,11 +92,11 @@ const MostrarExtintores = () => {
   return (
     
     <>
-    <Modal 
-        isOpen={isOpenModalEditExt}
-        onClose={closeModalEditExt}
-        content={<EditarExtintor />}
-    />
+            <Modal 
+                isOpen={isOpenModalEditExt}
+                onClose={closeModalEditExt}
+                content={<EditarExtintor id_extintor={sendExtintor} />}
+            />
 
 
     
