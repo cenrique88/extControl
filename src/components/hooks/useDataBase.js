@@ -40,7 +40,7 @@ const useDataBase = () => {
   // } 
   //***************************************************************************
     
-  
+
     // funcion para editar un dato en la base de datos
     const editDB = async (collection, id, data)=>{
         try{
@@ -72,7 +72,7 @@ const useDataBase = () => {
     getDB,
     editDB,
     deleteDB,
-    getOneDB,
+    //getOneDB,
 
   }
 }
