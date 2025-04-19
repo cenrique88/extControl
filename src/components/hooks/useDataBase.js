@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const useDataBase = () => {
 
-    const url = 'http://172.16.1.167:3000/'
+    const url = 'http://localhost:3000/'
 
     // funcion para guardar un dato en la base de datos
     const writeDB = async(collection, data)=>{
@@ -28,7 +28,19 @@ const useDataBase = () => {
             console.error("Error obtener el datos:", error);
         };
     }   
+
+    // test******************************************************************
+  //   const getOneDB = async (collection, id_extintor)=>{
+  //     try{
+  //         const response = await axios.get(url + collection+ '/' + id_extintor);
+  //         return response.data;
+  //       } catch (error) {
+  //         console.error("Error obtener el datos:", error);
+  //     };
+  // } 
+  //***************************************************************************
     
+  
     // funcion para editar un dato en la base de datos
     const editDB = async (collection, id, data)=>{
         try{
@@ -39,14 +51,15 @@ const useDataBase = () => {
           };
     }
 
+
     // funcion para eliminar un dato en la base de datos
     const deleteDB = async (collection, id)=>{
         try{
             const response = await axios.delete(url + collection + '/' + id);
-            console.log("Dato eliminado:", response.data);
+            return response.data;
           } catch (error) {
             console.error("Error al eliminar el dato:", error);
-          };
+          }
     }
 
 
@@ -57,6 +70,9 @@ const useDataBase = () => {
   return {
     writeDB,
     getDB,
+    editDB,
+    deleteDB,
+    getOneDB,
 
   }
 }
