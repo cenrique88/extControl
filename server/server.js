@@ -34,6 +34,24 @@ app.get('/extintores', async (req, res) => {
   }
 });
 
+
+//test *******************************************************************
+// app.get('/extintores/:id_extintores', async (req, res) => {
+//   try {
+//     const { id_extintor } = req.params;
+//     const extintor = await Extintor.findOne(id_extintor);
+//     if (!extintor) {
+//       return res.status(404).json({ message: 'Extintor no encontrado' });
+//     }
+//     res.json(extintor);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error obteniendo extintores' });
+//   }
+// });
+//**************************************************************************
+
+
+//Añadir nuevo elemento a la Database
 app.post('/extintores', async (req, res) => {
   try {
     const nuevoExtintor = new Extintor(req.body);
@@ -41,6 +59,36 @@ app.post('/extintores', async (req, res) => {
     res.status(201).json(guardado);
   } catch (error) {
     res.status(500).json({ message: 'Error guardando extintor' });
+  }
+});
+
+
+// Edicion de Database
+app.put('/extintores/:id_extintor', async (req, res) => {
+  try {
+    const { id_extintor } = req.params;
+    const extintorActualizado = await Extintor.findOneAndUpdate(id_extintor, req.body, { new: true });
+    if (!extintorActualizado) {
+      return res.status(404).json({ message: 'Extintor no encontrado' });
+    }
+    res.json(extintorActualizado);
+  } catch (error) {
+    res.status(500).json({ message: 'Error actualizando extintor' });
+  }
+});
+
+
+//Eliminar Elemento de la Database
+app.delete('/extintores/:id_extintor', async (req, res) => {
+  try {
+    const { id_extintor } = req.params;
+    const extintorEliminado = await Extintor.findOneAndDelete({id_extintor});
+    if (!extintorEliminado) {
+      return res.status(404).json({ message: 'Extintor no encontrado' });
+    }
+    res.json({ message: 'Extintor eliminado' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error eliminando extintor' });
   }
 });
 
