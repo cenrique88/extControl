@@ -10,13 +10,16 @@ const {getOneDB} = useDataBase();
 
 
 const EditarExtintor = ({id_extintor}) => {
+
+    const [data, setData] = useState();
+
     console.log( id_extintor);
 
 
     const getData = async () => {
         const data = await getOneDB("extintores", id_extintor);
+        setData(data);
         console.log(data)
-
     }
 
     useEffect(() => {
@@ -24,7 +27,11 @@ const EditarExtintor = ({id_extintor}) => {
     
     }, []);  
 
-    
+
+        
+
+
+
 
 
   return (
