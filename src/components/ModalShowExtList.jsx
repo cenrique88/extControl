@@ -15,7 +15,11 @@ const ModalShowExtList = ({content, isOpen, onClose}) => {
     <>
     <div className="modal-overlay-showextlist">
         <div className="modal-content-showextlist">
-            <button onClick={onClose} className="modal-close-showextlist">close</button>
+          <div>
+            <button onClick={onClose} className="modal-close-showextlist">X</button>
+            <br/>
+          </div>
+            
             <br/>
 
                 {content}

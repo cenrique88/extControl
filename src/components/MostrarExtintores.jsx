@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react'
 import useDataBase from "./hooks/useDataBase";
 import Modal from './Modal';
 import EditarExtintor from "./EditarExtintor";
+import Card from "./card";
 
 
 const MostrarExtintores = () => {
@@ -98,7 +99,7 @@ const MostrarExtintores = () => {
                 content={<EditarExtintor id_extintor={sendExtintor} />}
             />
 
-
+            <Card />
     
     <div>
         <div>

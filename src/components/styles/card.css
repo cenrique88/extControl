@@ -1,0 +1,22 @@
+
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto; /* Desplazamiento horizontal */
+    gap: 16px; /* Separación entre tarjetas */
+    scroll-snap-type: x mandatory; /* Permite un scroll más suave */
+    padding: 10px;
+  }
+  
+  .card {
+    min-width: 250px; /* Ancho de la tarjeta */
+    height: 150px; /* Altura de la tarjeta */
+    background-color: #f4f4f4; /* Color de fondo */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordes redondeados */
+    flex-shrink: 0; /* Evita que las tarjetas se reduzcan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start; /* Ajusta la tarjeta al scroll */
+  }
