@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const useDataBase = () => {
 
-    const url = 'http://localhost:3000/'
+    const url = 'http://172.16.1.167:3000/'
 
     // funcion para guardar un dato en la base de datos
     const writeDB = async(collection, data)=>{
