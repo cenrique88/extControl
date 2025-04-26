@@ -41,13 +41,14 @@ const MostrarExtintores = () => {
 
    
       // funcion para obtener la fecha de vencimiento de un extintor
-      const handleF_Vencimiento = (f_vencimiento, recarga_cada) => {
-        const fv = new Date(f_vencimiento);
-        const rc = parseInt(recarga_cada);
-        const getTime= fv.setFullYear(fv.getFullYear()+  rc)
+    //   const handleF_Vencimiento = (f_vencimiento, recarga_cada) => {
+    //     const fv = new Date(f_vencimiento);
+    //     const rc = parseInt(recarga_cada);
+    //     const getTime= fv.setFullYear(fv.getFullYear()+  rc)
         
-        return `${new Date(getTime).getMonth()}/${new Date(getTime).getFullYear()%1000}`
-      }
+    //     return `${new Date(getTime).getMonth()}/${new Date(getTime).getFullYear()%1000}`
+    //   }
+    
       // funcion para obtener el tiempo restante para la proxima recarga de un extintor
       const handle_left_time = (f_vencimiento, recarga_cada) => {
         const fv = new Date(f_vencimiento);
@@ -99,69 +100,53 @@ const MostrarExtintores = () => {
                 content={<EditarExtintor id_extintor={sendExtintor} />}
             />
 
-            <Card />
+            
     
     <div>
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Ubicacion</th>
-                        <th>Tipo</th>
-                        <th>Cap.</th>
-                        <th>Rec Cada</th>
-                        <th>Ultima Recarga</th>
-                        <th>Fecha Venc</th>
-                        <th>Tiempo Faltante</th>
-                        <th>Acc</th>
-                        {/* <th>Obs</th> */}
-                        {/* <th>Imagen</th> */}
-                    </tr>
-                </thead>
-                <tbody>
                     
             {
                 allExtintores && allExtintores.length <= 6 
                 ?
-                allExtintores && allExtintores.map((extintor, index) => (                     
-                    <tr key={extintor._id}>
-                        <td key={extintor._id+1}>{extintor.id_extintor}</td>
-                        <td key={extintor._id+2}>{extintor.ubicacion}</td>
-                        <td key={extintor._id+3}>{extintor.tipo_extintor}</td>
-                        <td key={extintor._id+4}>{extintor.capacidad}</td>
-                        <td key={extintor._id+5}>{extintor.recarga_cada}</td>
-                        <td key={extintor._id+6}>{`${new Date(extintor.ultima_recarga).getMonth()}/${new Date(extintor.ultima_recarga).getFullYear()%1000}`}</td>
-                        <td key={extintor._id+7}>{handleF_Vencimiento(extintor.ultima_recarga, extintor.recarga_cada)}</td>
-                        <td key={extintor._id+8}>{handle_left_time(extintor.ultima_recarga, extintor.recarga_cada)}</td>
-                        <td key={extintor._id+10}><button onClick={()=>{handleEditExt(extintor.id_extintor)}}>Edt</button> <button onClick={()=>{handleDeleteExt(extintor.id_extintor)}}>Dlt</button></td>
+                allExtintores && allExtintores.map((extintor, index) => (
+                    
+                    <Card props={extintor} key={extintor._id}/>
+                    
+                    // <tr key={extintor._id}>
+                    //     <td key={extintor._id+1}>{extintor.id_extintor}</td>
+                    //     <td key={extintor._id+2}>{extintor.ubicacion}</td>
+                    //     <td key={extintor._id+3}>{extintor.tipo_extintor}</td>
+                    //     <td key={extintor._id+4}>{extintor.capacidad}</td>
+                    //     <td key={extintor._id+5}>{extintor.recarga_cada}</td>
+                    //     <td key={extintor._id+6}>{`${new Date(extintor.ultima_recarga).getMonth()}/${new Date(extintor.ultima_recarga).getFullYear()%1000}`}</td>
+                    //     <td key={extintor._id+7}>{handleF_Vencimiento(extintor.ultima_recarga, extintor.recarga_cada)}</td>
+                    //     <td key={extintor._id+8}>{handle_left_time(extintor.ultima_recarga, extintor.recarga_cada)}</td>
+                    //     <td key={extintor._id+10}><button onClick={()=>{handleEditExt(extintor.id_extintor)}}>Edt</button> <button onClick={()=>{handleDeleteExt(extintor.id_extintor)}}>Dlt</button></td>
                         
-                    </tr>
+                    // </tr>
                 ))
                 :
                 allExtintores && allExtintores.map((extintor, index) => {
                     
                     if (index >= pageInit && index <= pageEnd) {
-                        return(                                        
-                    <tr key={extintor._id}>
-                        <td key={extintor._id+1}>{extintor.id_extintor}</td>
-                        <td key={extintor._id+2}>{extintor.ubicacion}</td>
-                        <td key={extintor._id+3}>{extintor.tipo_extintor}</td>
-                        <td key={extintor._id+4}>{extintor.capacidad}</td>
-                        <td key={extintor._id+5}>{extintor.recarga_cada}</td>
-                        <td key={extintor._id+6}>{`${new Date(extintor.ultima_recarga).getMonth()}/${new Date(extintor.ultima_recarga).getFullYear()%1000}`}</td>
-                        <td key={extintor._id+7}>{handleF_Vencimiento(extintor.ultima_recarga, extintor.recarga_cada)}</td>
-                        <td key={extintor._id+8}>{handle_left_time(extintor.ultima_recarga, extintor.recarga_cada)}</td>
-                        <td key={extintor._id+9}><button onClick={()=>{handleEditExt(extintor.id_extintor)}}>Edt</button> <button onClick={()=>{handleDeleteExt(extintor.id_extintor)}} >Dlt</button></td>
+                        return(  
+                            <Card props={extintor} key={extintor._id}/>                                      
+                    // <tr key={extintor._id}>
+                    //     <td key={extintor._id+1}>{extintor.id_extintor}</td>
+                    //     <td key={extintor._id+2}>{extintor.ubicacion}</td>
+                    //     <td key={extintor._id+3}>{extintor.tipo_extintor}</td>
+                    //     <td key={extintor._id+4}>{extintor.capacidad}</td>
+                    //     <td key={extintor._id+5}>{extintor.recarga_cada}</td>
+                    //     <td key={extintor._id+6}>{`${new Date(extintor.ultima_recarga).getMonth()}/${new Date(extintor.ultima_recarga).getFullYear()%1000}`}</td>
+                    //     <td key={extintor._id+7}>{handleF_Vencimiento(extintor.ultima_recarga, extintor.recarga_cada)}</td>
+                    //     <td key={extintor._id+8}>{handle_left_time(extintor.ultima_recarga, extintor.recarga_cada)}</td>
+                    //     <td key={extintor._id+9}><button onClick={()=>{handleEditExt(extintor.id_extintor)}}>Edt</button> <button onClick={()=>{handleDeleteExt(extintor.id_extintor)}} >Dlt</button></td>
 
-                    </tr>
+                    // </tr>
                     )}
                 })                                
                 
             }
-
-            </tbody>
-            </table>
             
 
         </div>

@@ -9,11 +9,12 @@
 }
 
 .card {
+  margin-bottom: 5%;
   display: grid;
   grid-template-rows: repeat(7, 1fr);
   grid-template-columns: repeat(4, 1fr);  
   min-width: 250px; /* Ancho de la tarjeta */
-  height: 150px; /* Altura de la tarjeta */
+  height: 160px; /* Altura de la tarjeta */
   background-color: #242438; /* Color de fondo */
   border: 1px solid #ffffff;
   border-radius: 8px; /* Bordes redondeados */
@@ -23,34 +24,152 @@
 }
 
 .id {
-  background-color: red;
+  /* background-color: red; */
+  grid-row: 1 /span 3;
+  grid-column: 1 ;
+
+  padding: 0px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 32px;
+  font-weight: bold;  
+}
+
+.indicador-ok {  
+  background-color: rgb(2, 171, 2);
+  color: black;
+  font-weight: bold;
+  display: flex;
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.indicador-revisar {  
+  background-color: rgb(255, 242, 0);
+  color: black;
+  font-weight: bold;
+  display: flex;
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.indicador-vencido {  
+  background-color: rgb(250, 0, 0);
+  color: black;
+  font-weight: bold;
+  display: flex;
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
   
 }
 
+.indicador-container {
+  grid-row: 1 /span 3;
+  grid-column: 2 /span 3;
+  display: flex;
+  
+  /* background-color: #ffffff;   */
+  align-items: start;
+  justify-content: end;
+}
+
+
+
 .ubicacion {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+  grid-row: 4 /span 1;
+  grid-column: 1 /span 4;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .tipo {
-  background-color: green;
+  /* background-color: green; */
+  grid-row: 5 /span 1;
+  grid-column: 1 /span 2;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start;  
 }
 
 .capacidad {
-  background-color: orangered;
+  /* background-color: orangered; */
+  grid-row: 5 /span 1;
+  grid-column: 3 /span 2;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start;  
 }
 
 .recarga-cada {
-  background-color: yellow;
+  /* background-color: yellow; */
+  grid-row: 7 /span 1;
+  grid-column: 1 /span 2;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start;
 }
 
 .ultima-recarga {
-  background-color: lime;
+  /* background-color: lime; */
+  grid-row: 6 /span 1;
+  grid-column: 1 /span 2;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start; 
 }
 
 .fecha-vencimiento {
-  background-color: saddlebrown;
+  /* background-color: saddlebrown; */
+  grid-row: 6 /span 1;
+  grid-column: 3 /span 2;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start;
 }
 
 .tiempo-faltante {
-  background-color: maroon;
+  /* background-color: maroon; */
+  grid-row: 7 /span 1;
+  grid-column: 3 /span 2;
+
+  padding: 3px;
+  padding-left: 20px;
+  align-items: start;
+  justify-content: start;
+  text-align: start;
 }
