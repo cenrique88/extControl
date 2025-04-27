@@ -37,7 +37,7 @@
 }
 
 
-.modal-overlay-showextlist {
+.modal-overlay-showextlist {  
   position: fixed;
   top: 10px;
   left: 10px;
@@ -45,12 +45,19 @@
   width: 95%;
   height: 95%;
   background-color: transparent;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
 
 .modal-content-showextlist {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  /*gap: 16px;  /* Separación entre tarjetas */
+  /*scroll-snap-type: y mandatory; /* Permite un scroll más suave */
+
+
   background: rgb(7, 3, 48);
   padding: 3%;  
   border-radius: 5px;

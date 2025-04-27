@@ -103,7 +103,7 @@ const MostrarExtintores = () => {
             
     
     <div>
-        <div>
+        <div >
                     
             {
                 allExtintores && allExtintores.length <= 6 

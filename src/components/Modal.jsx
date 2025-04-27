@@ -1,5 +1,6 @@
 
 import "./components.css";
+import "./styles/card.css";
 
 
 
@@ -18,7 +19,9 @@ const Modal = ({content, isOpen, onClose}) => {
             <button onClick={onClose} className="modal-close">close</button>
             <br/>
 
+            <div>
                 {content}
+            </div>
         
         </div>  
     </div>    

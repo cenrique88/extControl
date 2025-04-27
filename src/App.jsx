@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { useState } from "react";
 import AddExtintor from "./components/addExtintor";
 import Modal from "./components/Modal";

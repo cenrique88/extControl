@@ -2,9 +2,10 @@
 
 .scroll-container {
   display: flex;
-  overflow-x: auto; /* Desplazamiento horizontal */
+  flex-direction: column;
+  overflow-y: auto;
   gap: 16px; /* Separación entre tarjetas */
-  scroll-snap-type: x mandatory; /* Permite un scroll más suave */
+  scroll-snap-type: y mandatory; /* Permite un scroll más suave */
   padding: 10px;
 }
 
