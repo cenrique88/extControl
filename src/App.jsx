@@ -1,11 +1,20 @@
 import "./App.css";
-
+import "./components/styles/navBarRouter.css";
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { useState } from "react";
+//Rutas de las paginas
+import Home from "./components/Home";
+import QrScanner from "./components/QrScanner";
+import ShowExt from "./components/ShowExt";
+import AddExt from "./components/AddExt";
+
+
 import AddExtintor from "./components/addExtintor";
 import Modal from "./components/Modal";
 import MostrarExtintores from "./components/MostrarExtintores";
 import ModalShowExtList from "./components/ModalShowExtList";
 import Html5QrcodePlugin from "./components/Html5QrcodeScanner";
+
 
 function App() {
 	const [isOpenModalAddExt, setIsOpenModalAddExt] = useState(false);
@@ -38,6 +47,25 @@ function App() {
 	};
 
 	return (
+		<Router>
+			<nav>
+				<ul>
+					<li>
+						<Link to="/" >
+							<img className="iconImg" src="src/icon/home.png" alt="Home" />
+						</Link>
+					</li>
+					<li>
+						<Link to="/qrscanner" ><img className="iconImg" src="src/icon/qrscanner.png" alt="qrscann" /></Link>
+					</li>
+					<li>
+						<Link to="/showext" ><img className="iconImg" src="src/icon/mostrarext.png" alt="Mostrar Extintores" /></Link>
+					</li>
+					<li>
+						<Link to="/addext" ><img className="iconImg" src="src/icon/addext.png" alt="add ext" /></Link>
+					</li>
+				</ul>
+			</nav>
 		<>
 			<div className='container'>
 				<h2>Control de Extintores</h2>
@@ -71,6 +99,13 @@ function App() {
 				}
 			/>
 		</>
+		<Routes>
+			<Route path="/" element={<Home/>} />
+			<Route path="/qrscanner" element={<QrScanner/>} />
+			<Route path="/showext" element={<ShowExt/>} />
+			<Route path="/addext" element={<AddExt/>} />
+		</Routes>
+		</Router>
 	);
 }
 
