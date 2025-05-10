@@ -1,0 +1,38 @@
+
+/* grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr); */
+
+    grid-row: 6 /span 1;
+    grid-column: 3/span 1 ;
+
+
+     display: flex;
+    flex-direction: column;
+
+
+    position: fixed;
+    bottom: 16%;
+    right: 22%;
+
+
+La propiedad position: relative en CSS te permite ajustar la posición de un elemento en relación con su posición original en el documento. Cuando un elemento tiene position: relative, puedes usar top, right, bottom y left para moverlo sin afectar el flujo de los demás elementos.
+Ejemplo básico:
+.box {
+  position: relative;
+  top: 20px;  /* Mueve el elemento 20px hacia abajo */
+  left: 30px; /* Mueve el elemento 30px hacia la derecha */
+  width: 100px;
+  height: 100px;
+  background-color: coral;
+}
+
+
+<div class="box">Elemento</div>
+
+
+Explicación:
+- position: relative; hace que el elemento pueda moverse respecto a su posición original.
+- top: 20px; lo mueve 20 píxeles hacia abajo.
+- left: 30px; lo mueve 30 píxeles hacia la derecha.
+- No afecta a los elementos vecinos, solo cambia la posición dentro de su espacio original.
+Si necesitas posicionarlo dentro de un contenedor o en relación con otros elementos, podemos usar position: absolute, position: fixed o position: sticky. ¿Te gustaría ver más ejemplos? 🚀

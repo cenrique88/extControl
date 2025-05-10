@@ -1,0 +1,85 @@
+import "./styles/Controles.css";
+import "./styles/Components.css";
+import {useState} from 'react';
+
+
+
+
+
+const Controles = () => {
+
+    const [filter, setFilter] = useState(
+        <select 
+            id='filter'
+            className="control-filter"
+            onChange={()=>handleSearch(document.getElementById('filter').value)}
+        >
+
+            <option>Buscar por:</option>
+            <option>Fecha</option>
+            <option>ID</option>
+        </select>
+    );
+
+    const handleSearch = (value)=> {
+        //arreglar esto que da un dia mas en el calendario para bloquear hasta la fecha actual
+        const hoy = new Date().toISOString().split("T")[0];
+
+        if(value=="ID"){
+            setFilter(
+                <input 
+                type="text"
+                placeholder=" Ej: B08"
+                ></input>
+            )
+        }
+        else{
+            console.log(hoy)
+            setFilter(
+                <input 
+                type="date"
+                max={hoy}
+                required
+                ></input>
+            )
+        }
+    }
+
+
+
+  return (
+    
+    <>
+    <div className="controles-container">
+        {
+        filter
+        }
+
+
+
+        <div className="card-control">
+           <p>Control: 10/10/2025</p> 
+        </div>
+        <div className="card-control">
+           <p>Control: 10/10/2025</p> 
+        </div>
+        <div className="card-control">
+           Control: 10/10/2025
+        </div>
+
+
+
+        <button className="add-button">
+            +
+        </button>
+
+        
+       
+
+
+    </div>      
+    </>
+  )
+}
+
+export default Controles

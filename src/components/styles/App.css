@@ -1,0 +1,55 @@
+#root {
+	background-color: white;
+	height: 100vh;
+	width: 100vw;
+	max-height: 1280px;
+	max-width: 720px;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 40px 20px 0px;
+}
+
+nav {
+    display: flex;
+    height: 10%;
+	width: 100%;
+    background-color: #213468;
+    color: white;
+    padding: 20px 40px 20px 0px;
+  }
+  nav ul{
+	display: flex;
+    list-style: none;
+    align-items: center;
+	align-content: center;
+  }
+  nav ul li a{
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	font-weight: bold;
+	color: whitesmoke;
+	margin-right: 10px;
+	align-items: center;
+	align-content: center;
+  }
+
+  nav ul li :focus {
+    /* text-decoration: underline; */
+	 color: #52a7cc
+  }
+
+
+  .logo-img {
+	margin-left: -25px;
+	margin-right: 15px;
+	width: 100px;
+	height: 60px;
+  }
+
+  .menu-img {
+	margin-left: 0px;
+	width: 20px;
+	height: 20px;
+  }
+

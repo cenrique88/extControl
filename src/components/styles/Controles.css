@@ -1,0 +1,38 @@
+
+.controles-container {
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 74%;
+    align-items: center;
+    gap: 5px;
+    
+    
+}
+
+
+.card-control {
+    display: flex;
+    background-color: #52a7cc;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 3rem;
+
+    margin-top: 10%;
+    margin-bottom: -5%;
+
+}
+    
+   
+
+
+
+
+/* #52a7cc */

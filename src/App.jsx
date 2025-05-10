@@ -1,111 +1,120 @@
-import "./App.css";
-import "./components/styles/navBarRouter.css";
+import "./components/styles/App.css";
+
+//Dependencias de las paginas de rutas...
+import Home from "./components/Home";
+import Clientes from "./components/Clientes";
+import Controles from "./components/Controles";
+import Extintor from "./components/Extintor";
+
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { useState } from "react";
-//Rutas de las paginas
-import Home from "./components/Home";
-import QrScanner from "./components/QrScanner";
-import ShowExt from "./components/ShowExt";
-import AddExt from "./components/AddExt";
-
-
-import AddExtintor from "./components/addExtintor";
-import Modal from "./components/Modal";
-import MostrarExtintores from "./components/MostrarExtintores";
-import ModalShowExtList from "./components/ModalShowExtList";
-import Html5QrcodePlugin from "./components/Html5QrcodeScanner";
 
 
 function App() {
-	const [isOpenModalAddExt, setIsOpenModalAddExt] = useState(false);
-	const openModalAddExt = () => {
-		setIsOpenModalAddExt(true);
-	};
-	const closeModalAddExt = () => {
-		setIsOpenModalAddExt(false);
-	};
+	const [menuHome, setMenuHome] = useState("/src/img/home.png");
+	const [menuCliente, setMenuCliente] = useState("/src/img/clientes.png");
+	const [menuControles, setMenuControles] = useState("/src/img/qr-rev1.png");
+	const [menuExtintor, setMenuExtintor] = useState("/src/img/extintor.png");
 
-	const [isOpenModalShowExt, setIsOpenModalShowExt] = useState(false);
-	const openModalShowExt = () => {
-		setIsOpenModalShowExt(true);
-	};
-	const closeModalShowExt = () => {
-		setIsOpenModalShowExt(false);
-	};
 
-	const [isOpenModalScanner, setIsOpenModalScanner] = useState(false);
-	const openModalScanner = () => {
-		setIsOpenModalScanner(true);
-	};
-	const closeModalScanner = () => {
-		setIsOpenModalScanner(false);
-	};
 
-	const onNewScanResult = (decodedText, decodedResult) => {
-		// handle decoded results here
-		console.log(`Decoded text: ${decodedText}`, decodedResult);
-	};
+	const onSelectMenu = (e)=> {
+		let id = e.target.id
+		if(id == 'home'){
+			setMenuHome("/src/img/home-blue.png")
+		}
+		else{
+			setMenuHome("/src/img/home.png")
+		}
+
+		if(id == 'clientes'){
+			setMenuCliente("/src/img/clientes-blue.png")
+		}
+		else{
+			setMenuCliente("/src/img/clientes.png")
+		}
+		
+		if(id == 'controles'){
+			setMenuControles("/src/img/qr-rev1-blue.png")
+		}
+		else{
+			setMenuControles("/src/img/qr-rev1.png")
+		}
+
+		if(id == 'extintores'){
+			setMenuExtintor("/src/img/extintor-blue.png")
+		}
+		else{
+			setMenuExtintor("/src/img/extintor.png")
+		}
+
+	}
+	
+
+
+
 
 	return (
+		<>
 		<Router>
 			<nav>
 				<ul>
 					<li>
-						<Link to="/" >
-							<img className="iconImg" src="src/icon/home.png" alt="Home" />
+						 <img className= "logo-img" src="/src/img/marrero01.png" /> 
+					</li>
+					<li>
+						<Link to="/"  id='home' onClick={(e)=>onSelectMenu(e)}>
+							<img 
+								id='home'
+								className="menu-img" 
+								src={menuHome}
+								alt="Home" 
+								/>
+								
+							Home
 						</Link>
 					</li>
 					<li>
-						<Link to="/qrscanner" ><img className="iconImg" src="src/icon/qrscanner.png" alt="qrscann" /></Link>
+						<Link to="/clientes" id='clientes' onClick={(e)=>onSelectMenu(e)}>
+							<img 
+								id='clientes'
+								className="menu-img" 
+								src={menuCliente}
+								alt="Home" />
+							Clientes
+						</Link>
 					</li>
 					<li>
-						<Link to="/showext" ><img className="iconImg" src="src/icon/mostrarext.png" alt="Mostrar Extintores" /></Link>
+						<Link id='controles' to="/controles" onClick={(e)=>onSelectMenu(e)}>
+						<img 
+							id='controles'
+							className="menu-img" 
+							src={menuControles} 
+							alt="Home" />
+							Controles
+						</Link>
 					</li>
 					<li>
-						<Link to="/addext" ><img className="iconImg" src="src/icon/addext.png" alt="add ext" /></Link>
+						<Link id='extintores' to="/showext" onClick={(e)=>onSelectMenu(e)}>
+							<img 
+								id='extintores'
+								className="menu-img" 
+								src={menuExtintor} 
+								alt="Home" />
+							Extintor
+						</Link>
 					</li>
 				</ul>
-			</nav>
-		<>
-			<div className='container'>
-				<h2>Control de Extintores</h2>
-				<button onClick={openModalAddExt}>Agregar Extintor</button>
-				<br />
-				<button onClick={openModalShowExt}>Mostrar Extintores</button>
-				<br />
-				<button onClick={openModalScanner}>Escanear QR</button>
-			</div>
+			</nav>		
 
-			<Modal
-				isOpen={isOpenModalAddExt}
-				onClose={closeModalAddExt}
-				content={<AddExtintor />}
-			/>
-			<ModalShowExtList
-				isOpen={isOpenModalShowExt}
-				onClose={closeModalShowExt}
-				content={<MostrarExtintores />}
-			/>
-			<Modal
-				isOpen={isOpenModalScanner}
-				onClose={closeModalScanner}
-				content={
-					<Html5QrcodePlugin
-						fps={10}
-						qrbox={300}
-						disableFlip={false}
-						qrCodeSuccessCallback={onNewScanResult}
-					/>
-				}
-			/>
-		</>
 		<Routes>
 			<Route path="/" element={<Home/>} />
-			<Route path="/qrscanner" element={<QrScanner/>} />
-			<Route path="/showext" element={<ShowExt/>} />
-			<Route path="/addext" element={<AddExt/>} />
+			<Route path="/clientes" element={<Clientes />} />
+			<Route path="/controles" element={<Controles />} />
+			<Route path="/showext" element={<Extintor/>} />
 		</Routes>
 		</Router>
+		</>
 	);
 }
 

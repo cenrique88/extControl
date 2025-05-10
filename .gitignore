@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+echo "server.js" >> .gitignore
+git add .gitignore
+git commit -m "Ignorar archivo de server para no cambiar la ip publica"
+
+
