@@ -1,7 +1,6 @@
 import "./styles/Modal.css";
 
 
-window.
 
 
 const Modal = ({content, isOpen, onClose}) => {
