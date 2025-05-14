@@ -14,12 +14,18 @@
     top: 18%;
     left: 10%;
 
-
     background-color: #fcdca9;
     border-radius: 10px;
     
-    height: 40%;
+    height: 20rem;
     width: 71%;
+}
+
+.modal h2 {
+    position: fixed;
+    left: 17%;
+    top: 19%;
+    font-weight:900;
 }
 
 .close-modal-button {

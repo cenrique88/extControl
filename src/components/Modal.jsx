@@ -12,6 +12,7 @@ const Modal = ({content, isOpen, onClose}) => {
   return (
     <div className='modal-container'>
         <div className='modal'>
+          <h2>Nuevo Cliente</h2>
             <button className='close-modal-button' onClick={onClose}>x</button> 
             {
             content

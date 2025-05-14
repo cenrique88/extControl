@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const url = "mongodb://localhost:27017/database";
+const url = "mongodb://172.16.1.167:27017/database";
 //const url = "mongodb+srv://extcontrolgithub:WhSGoKRTq0BDHuG9@cluster0.fwrdwty.mongodb.net/"
 
 const connectDB = async () => {

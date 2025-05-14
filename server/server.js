@@ -105,7 +105,7 @@ app.get('/clientes', async (req, res) => {
 // MANEJO DEL POST PARA NUEVO CLIENTE EN LA BASE DE DATOS CLIENTES:
 app.post('/clientes', async (req, res) => {
   try {
-    const nuevoCliente = new Cliente(req.body);
+    const nuevoCliente = new Clientes(req.body);
     const saved = await nuevoCliente.save();
     res.status(201).json(saved);
   } catch (error) {

@@ -1,15 +1,33 @@
 import "./styles/Components.css";
 import "./styles/Clientes.css"
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Modal from "./Modal";
+import FormCliente from "./FormCliente";
+import CardClient from "./CardClient";
+import useDataBase from "./hooks/useDataBase";
+
 
 
 
 
 const Clientes = () => {
-  const [showAdd, setShowAdd] = useState();
+  const {getDB}= useDataBase()
 
+  const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
+
+  useEffect(() => {
+    handleData()
+  }, [showAddCliente])
+
+  const handleData = async () => {
+    const data = await getDB("clientes");
+    if(data){
+      setGetClients(data);
+  }
+}
+
+
   const openModalAddClient = (prop)=> {
     if(prop){
       document.getElementById('add-button').style.visibility = "hidden";
@@ -32,7 +50,7 @@ const Clientes = () => {
       <Modal 
         isOpen={showAddCliente}
         onClose={()=>openModalAddClient(false)}
-        content={<p>hola</p>}
+        content={<FormCliente />}
       />
 
 
@@ -42,21 +60,10 @@ const Clientes = () => {
         placeholder=" Buscar"
       ></input>
       </div>
-      <div className="card-container">
 
-        <div className="client-card">
-          <img src='/src/img/m-azul.png' />
-          <div className="text-container">
-          <p><b>Nombre:</b></p>
-          <p><i>Carlos Enrique Silva</i></p>
-          <p><b>E-mail:</b></p>
-          <p><i>cenrique@gmail.com</i></p>
-          </div>
-          
-        </div>
-        
-
-      </div>
+      {
+        getClients && getClients.map((client) =>  <CardClient key={client._id} name={client.nombre_cliente} email={client.email} />)
+      }    
 
       <button id="add-button" className="add-button" onClick={()=>openModalAddClient(true)}>
             +
