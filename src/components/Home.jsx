@@ -28,7 +28,7 @@ const Home = () => {
       <div className="home-card">
         <ul>
               {
-                dataList.map( (element) => (<li>{element}</li>))
+                dataList.map( (element, index) => (<li key={index}>{element}</li>))
               }
         </ul>
 
