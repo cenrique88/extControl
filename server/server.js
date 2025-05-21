@@ -112,7 +112,7 @@ app.post('/clientes', async (req, res) => {
     res.status(500).json({ message: 'Error guardando el Cliente' });
   }
 });
-
+//MANEJO DEL GET PARA OBTENER UN CLIENTE SOLO
 app.get('/clientes/:nombre_cliente', async (req, res) => {
   try {
     const { nombre_cliente } = req.params;
@@ -125,8 +125,19 @@ app.get('/clientes/:nombre_cliente', async (req, res) => {
     res.status(500).json({ message: 'Error obteniendo Cliente' });
   }
 });
-
-
+//MANEJO DE LA ELIMINACION DE UN CLIENTE DE LA BASE DE DATOS CLIENTES:
+app.delete('/clientes/:nombre_cliente', async (req, res) => {
+  try {
+    const { nombre_cliente } = req.params;
+    const clienteEliminado = await Clientes.findOneAndDelete({nombre_cliente});
+    if (!clienteEliminado) {
+      return res.status(404).json({ message: 'Cliente no encontrado' });
+    }
+    res.json({ message: 'Cliente eliminado' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error eliminando Cliente' });
+  }
+});
 
 
 
