@@ -6,6 +6,147 @@
 	flex-direction: column;
 }
 
+.card-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.client-card {
+	display: flex;
+	align-items: start;
+	margin-top: 10%;
+	margin-bottom: -5%;
+	background-color: #52a7cc;
+	width: 18rem;
+	height: 8rem;
+	border-radius: 10px;
+	padding-left: 20px;
+}
+.client-card img {
+	margin-top: 20px;
+	height: 58px;
+	width: 60px;
+	border-radius: 50%;
+}
+
+.client-card p {
+	color: white;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+}
+.text-container {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+
+.text-container p {
+	padding-top: 5px;
+	margin: 0px;
+}
+
+.client-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    align-items: start;
+    margin-top: 10%;
+    margin-bottom: -5%;
+    background-color: #52a7cc;
+    width: 18rem;
+    height: 8rem;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+.client-card-logo img {
+    grid-column: 1/span 1;
+    grid-row: 1;
+    margin-top: 10px;
+    height: 54px;
+    width: 56px;
+    border-radius: 50%;
+}
+
+.text-nombre {
+
+    margin-left: 3%;
+    grid-column: 2/span 3;
+    grid-row: 1;
+}
+.text-nombre p {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    margin: 0px;
+} 
+.text-email {
+
+    margin-top: -3%;
+    margin-left: 3%;
+    grid-column: 2/span 4;
+    grid-row: 2;
+}
+.text-email p {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    margin: 0px;
+}
+
+
+.client-card-delete {
+    grid-column: 5;
+    grid-row: 1;
+    padding-top: 25%;
+   display: flex;
+   align-items: end;
+   justify-content: center;
+}
+.client-card-delete img {
+    height: 30px;
+    width: 30px;
+
+}
+.client-card-edit{
+   grid-column: 5;
+   grid-row: 2;
+   display: flex;
+   align-items: end;
+   padding-top: 15%;
+   justify-content: center;
+}
+.client-card-edit img{
+    height: 30px;
+    width: 30px;
+}
+
+/* .text-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+    grid-column: 2/ span 3;
+    grid-row: 1/span 2 ;
+
+}
+
+.text-container p {
+    color: white;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    margin: 0px;
+} */
+
 
 .form-cliente {
 	display: flex;
