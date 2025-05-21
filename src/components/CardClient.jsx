@@ -13,6 +13,7 @@ const CardClient = ({name, email}) => {
     <div className="client-card">
     <img src='/src/img/m-azul.png' />
     <div className="text-container">
+      <img src='/src/img/eliminar.png' />
     <p><b>Nombre:</b></p>
     <p><i>{name}</i></p>
     <p><b>E-mail:</b></p>
