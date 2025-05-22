@@ -1,21 +1,11 @@
 
-import useDataBase from "./hooks/useDataBase.js";
 import "./styles/Clientes.css"
 
 
-const CardClient = ({name, email}) => {
+const CardClient = ({name, email, deleteClient}) => {
 
-  const {deleteDB} = useDataBase();
+  
 
-
-
-  const handleDelete = () => {
-    const alerta = confirm("Esta eliminando a un cliente, ¿desea continuar?")
-    if(alerta){
-      deleteDB('clientes', name);
-    }
-    console.log("Cliente eliminado", name)
-  }
 
 
   return (
@@ -39,7 +29,7 @@ const CardClient = ({name, email}) => {
     
     </div> 
     <div className="client-card-delete">
-      <img src='/src/img/eliminar.png' onClick={handleDelete}/>
+      <img src='/src/img/eliminar.png' onClick={()=>deleteClient(name)}/>
     </div>
     <div className="client-card-edit">
       <img src='/src/img/edit-3.png'/>

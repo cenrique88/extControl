@@ -34,8 +34,8 @@ input::placeholder {
 
 .add-button {
     position: fixed;
-    bottom: 16%;
-    right: 22%;
+    bottom: 10%;
+    right: 10%;
 
     width: 4rem;
     height: 4rem;

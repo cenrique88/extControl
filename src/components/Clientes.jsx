@@ -11,7 +11,7 @@ import useDataBase from "./hooks/useDataBase";
 
 
 const Clientes = () => {
-  const {getDB}= useDataBase()
+  const {getDB, deleteDB}= useDataBase()
 
   const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
@@ -26,6 +26,16 @@ const Clientes = () => {
       setGetClients(data);
   }
 }
+
+const handleDelete = (client) => {
+    const alerta = confirm("Esta eliminando a un cliente, ¿desea continuar?")
+    if(alerta){
+      deleteDB('clientes', client);
+    }
+    console.log("Cliente eliminado", client)
+    handleData();
+  }
+
 
 
   const openModalAddClient = (prop)=> {
@@ -62,7 +72,11 @@ const Clientes = () => {
       </div>
 
       {
-        getClients && getClients.map((client) =>  <CardClient key={client._id} name={client.nombre_cliente} email={client.email} />)
+        getClients && getClients.map((client) =>  <CardClient 
+                                                      key={client._id} 
+                                                      name={client.nombre_cliente} 
+                                                      email={client.email} 
+                                                      deleteClient={handleDelete} />)          
       }    
 
       <button id="add-button" className="add-button" onClick={()=>openModalAddClient(true)}>

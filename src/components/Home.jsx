@@ -1,8 +1,27 @@
 import "./styles/Home.css";
 import "./styles/Components.css";
+import useDataBase from "./hooks/useDataBase.js";
+import {useState, useEffect} from "react";
 
 const Home = () => {
-	const data = [{ name: "Carlos Enrique", email: "cenrique@gmail.com" }];
+	const {getDB} = useDataBase();
+	const [dataClient, setDataClient] = useState([]);
+
+	useEffect(() => {
+	  getData();
+	}, [])
+	
+	
+
+	const getData = async () => {
+		const data = await getDB("clientes");
+
+		if (data){
+			setDataClient(data)
+		}
+	}
+
+
 	const dataList = ["Total de Extintores", "Con Problemas", "Proximos a Vencer", "data4"];
 
 	return (
@@ -11,8 +30,8 @@ const Home = () => {
 				<div className='home-select'>
 					<select>
 						<option>Selecciona Cliente</option>
-						{data.map((client) => (
-							<option>{client.name}</option>
+						{dataClient.map((client) => (
+							<option>{client.nombre_cliente}</option>
 						))}
 					</select>
 				</div>
