@@ -1,11 +1,15 @@
 import "./styles/Home.css";
 import "./styles/Components.css";
 import useDataBase from "./hooks/useDataBase.js";
-import {useState, useEffect} from "react";
+import AppContext from "./AppContext";
+import {useState, useEffect, useContext} from "react";
+
 
 const Home = () => {
 	const {getDB} = useDataBase();
 	const [dataClient, setDataClient] = useState([]);
+	const {selectedClient, setSelectedClient} = useContext(AppContext)
+
 
 	useEffect(() => {
 	  getData();
@@ -28,10 +32,10 @@ const Home = () => {
 		<>
 			<div className='home-container'>
 				<div className='home-select'>
-					<select>
-						<option>Selecciona Cliente</option>
+					<select value={selectedClient} onChange={(e)=>{setSelectedClient(e.target.value)}}>
+							<option>Selecciona Cliente</option>	
 						{dataClient.map((client) => (
-							<option>{client.nombre_cliente}</option>
+							<option key={client._id}>{client.nombre_cliente}</option>
 						))}
 					</select>
 				</div>
