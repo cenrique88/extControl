@@ -1,36 +1,37 @@
 
 
-.modal-container {
+.modal-container-ext {
     position: fixed;
-    padding: 200px;
-
+    left: 0;
+    padding: 100px;
     height: 100% ;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.66);
 }
 
-.modal {
+.modal-ext {
     position: fixed;
-    top: 18%;
+    top: 15%;
     left: 12%;
 
     background-color: #fcdca9;
     border-radius: 10px;
     
-    height: 20rem;
-    width: 71%;
+    height: 36rem;
+    width: 75%;
 }
 
-.modal h2 {
+.modal-ext h2 {
     position: fixed;
     left: 17%;
-    top: 19%;
+    top: 14%;
     font-weight:900;
 }
 
-.close-modal-button {
+
+.close-modal-button-ext {
     position: relative;
-    top: 5%;
+    top: 2%;
     left: 83%;
 
 
@@ -49,5 +50,3 @@
     height: 35px;
     width: 35px;
 }
-
-

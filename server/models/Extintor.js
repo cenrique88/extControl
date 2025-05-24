@@ -9,8 +9,6 @@ const extintorSchema = new mongoose.Schema({
   capacidad: { type: String, required: true },
   recarga_cada: { type: Number, required: true },
   ultima_recarga: { type: Date, required: true },
-  estado_cartel: { type: String, required: true },
-  estado_soporte_nicho: { type: String, required: true },
   observaciones: { type: String },
 });
 
