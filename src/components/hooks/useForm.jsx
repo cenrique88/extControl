@@ -12,7 +12,7 @@ function useForm() {
   // Maneja el cambio de valor del input y actualiza el estado
   const handleChangeInput = (event) => {
     event.preventDefault();
-    setInputValue(event.target.value);
+    setInputValue(event.target.value.toUpperCase());
   };
 
   //Lleva el valor del input a un string vacio
@@ -33,7 +33,7 @@ function useForm() {
   // Maneja el cambio de valor del textarea y actualiza el estado
   const handleChangeTextArea = (event) => {
     event.preventDefault();
-    setTextArea(event.target.value);
+    setTextArea(event.target.value.toUpperCase());
   }
   // Lleva el valor del textarea a un string vacio
   const clearTextArea = () => {

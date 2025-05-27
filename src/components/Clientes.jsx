@@ -16,9 +16,6 @@ const Clientes = () => {
   const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
 
-  useEffect(() => {
-    handleData()
-  }, [showAddCliente])
 
   const handleData = async () => {
     const data = await getDB("clientes");
@@ -31,10 +28,14 @@ const handleDelete = (client) => {
     const alerta = confirm("Esta eliminando a un cliente, ¿desea continuar?")
     if(alerta){
       deleteDB('clientes', client);
+      
     }
     console.log("Cliente eliminado", client)
-    handleData();
   }
+
+  useEffect(() => {
+    handleData()
+  }, [showAddCliente, handleDelete])
 
 
 

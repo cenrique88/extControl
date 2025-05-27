@@ -29,3 +29,45 @@
 	color: white;
 	font-size: 14px;
 }
+
+.ext-card {
+	display: flex;
+	margin-top: 5%;
+	width: 19rem;
+	height: 5rem;
+	border-radius: 10px;
+	align-items: center;
+	background-color:#52a7cc;
+	color: white;
+	font-size: 20px;
+}
+
+.logo-ext-card {
+	margin: 5%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+
+.button-img-ext{
+	width: 30px;
+	height: 30px;
+	margin: 5%;
+}
+
+.ext-id {
+	margin: 5%;
+}
+
+.scroll-container {
+	width: 320px;
+  	height: 500px;
+  	overflow-y: auto; 
+	border: none;
+  	padding: 10px;
+
+
+	background-color: burlywood;
+
+}

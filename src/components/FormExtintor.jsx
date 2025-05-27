@@ -1,15 +1,17 @@
 
-import {useState} from "react";
+import {useState, useContext, useEffect} from "react";
 import "./styles/Extintores.css"
-import useDataBase from "./hooks/useDataBase";
+
+import AppContext from "./AppContext";
 import useForm from "./hooks/useForm";
 import Notify from "./Notify";
 
 
 
 
-const FormExtintor = () => {
-    const {writeDB} = useDataBase();
+const FormExtintor = ({writeDB, getDB, saveExtintor}) => {
+    const {selectedClient} = useContext(AppContext);
+    const [getDataClient, setDataClient] = useState([]);
 
     const id_extintor = useForm();
     const client = useForm();
@@ -20,6 +22,32 @@ const FormExtintor = () => {
     const ultima_recarga = useForm();
     const observaciones = useForm();
 
+    const data_ext = {
+        id_extintor:id_extintor.inputValue,
+        cliente:client.selectValue,
+        ubicacion:ubicacion.inputValue,
+        tipo_extintor:tipo_extintor.inputValue,
+        capacidad:tipo_extintor.inputValue,
+        recarga_cada:recarga_cada.inputValue,
+        ultima_recarga:ultima_recarga.inputValue,//cambiar esto es date
+        observaciones:observaciones.textArea,
+    }
+
+
+    useEffect(() => {
+     getClientes();
+    }, [])
+
+    const getClientes = async () => {
+		const data = await getDB("clientes");
+
+		if (data){
+			setDataClient(data)
+		}
+	}
+
+    
+    
 
 
 
@@ -34,7 +62,14 @@ const FormExtintor = () => {
             onChange={id_extintor.handleChangeInput}
         />
 
-        <select>
+        <select 
+            id='select-cliente-ext'
+            onChange={(e)=>{client.handleChangeSelect(e)}}
+        >
+            <option selected value={selectedClient ? selectedClient : 'Selecciona Cliente' }>{selectedClient ? selectedClient : 'Selecciona Cliente' }</option>
+            {getDataClient.map((client) => (
+							<option key={client._id}>{client.nombre_cliente}</option>
+						))}
 
         </select>
 
@@ -60,7 +95,7 @@ const FormExtintor = () => {
         />
 
         <input 
-            type="text" 
+            type="number" 
             placeholder="Recarga Cada"
             value={recarga_cada.inputValue}
             onChange={recarga_cada.handleChangeInput}
@@ -69,20 +104,22 @@ const FormExtintor = () => {
         <input 
             type="date" 
             placeholder="Ultima Recarga"
+            value={ultima_recarga.inputValue}
+            onChange={(e)=>{ultima_recarga.handleChangeInput(e)}}
         />
 
         <textarea
-					placeholder='Observaciones'
-					id='observaciones'
-					rows='4'
-					cols='35'
-					onChange={(e) => {
-						observaciones.handleChangeTextArea(e);
+			placeholder='Observaciones'
+			id='observaciones'
+			rows='4'
+			cols='35'
+			onChange={(e) => {
+					observaciones.handleChangeTextArea(e);
 					}}
 					value={observaciones.textArea}
 		/>
 
-        <button>
+        <button onClick={()=>saveExtintor(data_ext)}>
             Guardar
         </button>
 
