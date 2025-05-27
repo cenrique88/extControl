@@ -1,4 +1,8 @@
 
+.search-bar {
+	margin-top: 5%;
+
+}
 
 .form-extintor {
 	display: flex;
@@ -61,13 +65,18 @@
 }
 
 .scroll-container {
+	margin-top: 5%;
 	width: 320px;
   	height: 500px;
   	overflow-y: auto; 
 	border: none;
-  	padding: 10px;
+  	align-items: center;
+	justify-content: center;
+}
 
-
-	background-color: burlywood;
-
+.footer-select {
+	margin-top: 5%;
+	width: 300px;
+	height: 60px;
+	background-color: chartreuse;
 }

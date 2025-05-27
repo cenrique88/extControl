@@ -1,4 +1,4 @@
-import "./styles/Components.css";
+import "./styles/Extintores.css";
 import {useState, useEffect} from 'react';
 import FormExtintor from "./FormExtintor";
 import ModalExt from "./ModalExt";
@@ -68,7 +68,8 @@ const Extintor = () => {
             +
       </button>
 
-      <input 
+      <input
+      className="search-bar" 
         type="text"
         placeholder="implementacion de la busqueda por filtro!!!"/>  
 
@@ -77,9 +78,11 @@ const Extintor = () => {
           {
             getDataExtintor && getDataExtintor.map((ext) => (<ExtintorCard key={ext._id} id={ext.id_extintor} />))
           }
-          
         </div>
-       
+       <div className="footer-select">
+        aqui se implementara la seleccion de extintores por letras
+
+       </div>
 
 
     </div>
