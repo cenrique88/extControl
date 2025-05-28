@@ -11,10 +11,9 @@
 
 .modal-qr {
     position: fixed;
-    top: 25%;
+    top: 10%;
     left: 15%;
     border-radius: 10px;
-    
     height: 20rem;
     width: 71%;
 }
@@ -25,7 +24,7 @@
 
 .close-modal-button-qr {
     position: relative;
-    top: -10%;
+    top: 5%;
     left: 90%;
     display: flex;
     padding: 4px;

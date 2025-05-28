@@ -85,7 +85,7 @@ const Controles = () => {
         content={
             <QrScan1 
             fps={10}
-            qrbox={250}
+            qrbox={150}
             disableFlip={false}
             qrCodeSuccessCallback={onNewScanResult}
             /> 

@@ -8,7 +8,7 @@ import axios from 'axios';
 const useDataBase = () => {
     const url = `http://172.16.1.167:3000/`
     //const url = `http://192.168.1.105:3000/`
-   // const url = `https://l5j8k7cr-5173.brs.devtunnels.ms/`
+    //const url = `https://l5j8k7cr-3000.brs.devtunnels.ms/`
 
     // funcion para guardar un dato en la base de datos
     const writeDB = async(collection, data)=>{
