@@ -1,12 +1,18 @@
 import "./styles/Controles.css";
 import "./styles/Components.css";
 import {useState} from 'react';
+import QrScan from "./QrScan";
+import QrScan1 from "./QrScan1";
 
 
 
 
 
 const Controles = () => {
+    const onNewScanResult = (decodedText, decodedResult) => {
+        console.log(decodedResult);
+        console.log(decodedText);
+    };
 
     const [filter, setFilter] = useState(
         <select 
@@ -57,7 +63,7 @@ const Controles = () => {
 
 
 
-        <div className="card-control">
+        {/* <div className="card-control">
            <p>Control: 10/10/2025</p> 
         </div>
         <div className="card-control">
@@ -65,7 +71,7 @@ const Controles = () => {
         </div>
         <div className="card-control">
            Control: 10/10/2025
-        </div>
+        </div> */}
 
 
 
@@ -73,8 +79,15 @@ const Controles = () => {
             +
         </button>
 
-        
-       
+
+        {/* <QrScan />       */}
+
+        <QrScan1 
+            fps={10}
+            qrbox={250}
+            disableFlip={false}
+            qrCodeSuccessCallback={onNewScanResult}
+        />
 
 
     </div>      
