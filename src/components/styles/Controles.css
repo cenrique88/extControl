@@ -1,5 +1,4 @@
 .controles-container {
-	padding-top: 10%;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -24,3 +23,21 @@
 }
 
 /* #52a7cc */
+
+.add-button-qr {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #0a0078;
+    color: white;
+    font-size: 40px;
+}
+
+.fliter-bar {
+margin-top: 10%;
+}

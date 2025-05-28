@@ -1,18 +1,39 @@
 import "./styles/Controles.css";
-import "./styles/Components.css";
+import "./styles/ModalQr.css"
 import {useState} from 'react';
 import QrScan from "./QrScan";
 import QrScan1 from "./QrScan1";
+import ModalQr from "./ModalQr";
 
 
 
 
 
 const Controles = () => {
+    const [showQr, setShowQr] = useState(false);
+
     const onNewScanResult = (decodedText, decodedResult) => {
-        console.log(decodedResult);
-        console.log(decodedText);
+        //console.log(decodedResult);
+        //console.log(decodedText);
+        alert(decodedText)
     };
+
+
+    const openModalQr = (prop)=> {
+    if(prop){
+      document.getElementById('add-button-qr').style.visibility = "hidden";
+    }
+    else{
+      document.getElementById('add-button-qr').style.visibility = "visible";
+    }
+
+    setShowQr(prop);
+  }
+
+
+
+
+
 
     const [filter, setFilter] = useState(
         <select 
@@ -57,10 +78,25 @@ const Controles = () => {
     
     <>
     <div className="controles-container">
+
+        <ModalQr 
+        isOpen={showQr}
+        onClose={()=>openModalQr(false)}
+        content={
+            <QrScan1 
+            fps={10}
+            qrbox={250}
+            disableFlip={false}
+            qrCodeSuccessCallback={onNewScanResult}
+            /> 
+        }
+      />
+
+        <div className="fliter-bar">
         {
         filter
         }
-
+        </div>
 
 
         {/* <div className="card-control">
@@ -75,19 +111,16 @@ const Controles = () => {
 
 
 
-        <button className="add-button">
+        <button 
+            className="add-button"
+            id="add-button-qr"
+            onClick={()=>openModalQr(true)}            
+            >
             +
         </button>
 
 
         {/* <QrScan />       */}
-
-        <QrScan1 
-            fps={10}
-            qrbox={250}
-            disableFlip={false}
-            qrCodeSuccessCallback={onNewScanResult}
-        />
 
 
     </div>      
