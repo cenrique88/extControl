@@ -34,6 +34,7 @@
 	font-size: 14px;
 }
 
+
 .ext-card {
 	display: flex;
 	margin-top: 5%;
@@ -45,6 +46,47 @@
 	color: white;
 	font-size: 20px;
 }
+
+.ext-card-open {
+	display: flex;
+	margin-top: 5%;
+	width: 19rem;
+	height: 10rem;
+	border-radius: 10px;
+	/* align-items: center; */
+	background-color:#52a7cc;
+	color: white;
+	font-size: 20px;
+}
+.ext-card-open .button-img-ext {
+	visibility: hidden;
+	position: fixed;
+}
+.ext-card-open h1 {
+	visibility: hidden;
+	position: fixed;
+}
+.ext-card .ext-card-is-open {
+	visibility: hidden;
+	position: fixed;
+}
+
+.ext-card-is-open {
+	font-size: 12px;
+	
+}
+.ext-card-is-open p {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+
+
+
+
 
 .logo-ext-card {
 	margin: 5%;

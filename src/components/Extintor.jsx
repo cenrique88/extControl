@@ -76,7 +76,7 @@ const Extintor = () => {
 
         <div className="scroll-container">
           {
-            getDataExtintor && getDataExtintor.map((ext) => (<ExtintorCard key={ext._id} id={ext.id_extintor} />))
+            getDataExtintor && getDataExtintor.map((ext) => (<ExtintorCard key={ext._id} extintor={ext} />))
           }
         </div>
        <div className="footer-select">
