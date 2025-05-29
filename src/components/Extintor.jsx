@@ -1,10 +1,11 @@
 import "./styles/Extintores.css";
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import FormExtintor from "./FormExtintor";
 import ModalExt from "./ModalExt";
 import useDataBase from "./hooks/useDataBase";
 import ExtintorCard from "./ExtintorCard";
 import Notify from "./Notify";
+import AppContext from "./AppContext";
 
 
 
@@ -12,6 +13,7 @@ const Extintor = () => {
   const [showAddExt, setShowAddExt] = useState(false);
   const [getDataExtintor, setDataExtintor] = useState(null);
   const [showNotify, setShowNotify] = useState(false);
+  const {selectedClient, setSelectedClient} = useContext(AppContext)
 
   const {writeDB, getDB} = useDataBase();
 
@@ -36,9 +38,23 @@ const Extintor = () => {
 
   const getAllExtintor = async () => {
 		const data = await getDB("extintores");
-		if (data){
-			setDataExtintor(data);
-		}
+    const temp = [];
+    if(data){
+      data.map((extintor)=>{extintor.cliente == selectedClient ? temp.push(extintor) : ''})
+    }
+
+     // MANEJO DE LOS EXTINTORERS POR CLIENTES
+		if (temp.length != 0){
+			setDataExtintor(temp);
+		} else {
+      if(selectedClient != 'Select Client'){
+        alert("No hay nada para mostrar en este cliente")
+        }
+      else{
+        alert("Seleccione cliente")
+        }
+      
+    }
 	}
 
   const saveExtintor = async (data_ext) => {

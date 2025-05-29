@@ -33,7 +33,7 @@ const Home = () => {
 			<div className='home-container'>
 				<div className='home-select'>
 					<select value={selectedClient} onChange={(e)=>{setSelectedClient(e.target.value)}}>
-							<option>Selecciona Cliente</option>	
+							<option value="Select Client">Selecciona Cliente</option>	
 						{dataClient.map((client) => (
 							<option key={client._id}>{client.nombre_cliente}</option>
 						))}
