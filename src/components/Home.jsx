@@ -26,7 +26,7 @@ const Home = () => {
 	}
 
 
-	const dataList = ["Total de Extintores", "Con Problemas", "Proximos a Vencer", "data4"];
+	const dataList = ["Total de Extintores", "Con Problemas", "Proximos a Vencer", "Ultima Revision"];
 
 	return (
 		<>

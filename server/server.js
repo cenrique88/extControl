@@ -37,7 +37,6 @@ app.get('/extintores', async (req, res) => {
     res.status(500).json({ message: 'Error obteniendo extintores' });
   }
 });
-
 //MANEJO DEL GET DE UN EXTINTOR DE LA BASE DE DATOS EXTINTORES:
 app.get('/extintores/:id_extintor', async (req, res) => {
   try {
@@ -51,7 +50,6 @@ app.get('/extintores/:id_extintor', async (req, res) => {
     res.status(500).json({ message: 'Error obteniendo extintores' });
   }
 });
-
 //MANEJO DEL POST PARA NUEVO ESTINTOR DE LA BASE DE DATOS EXTINTORES:
 app.post('/extintores', async (req, res) => {
   try {
@@ -62,7 +60,6 @@ app.post('/extintores', async (req, res) => {
     res.status(500).json({ message: 'Error guardando extintor' });
   }
 });
-
 // MANEJO DE LA EDICION DE UN EXTINTOR EN LA BASE DE DATOS EXTINTORES:
 app.put('/extintores/:id_extintor', async (req, res) => {
   try {
@@ -76,7 +73,6 @@ app.put('/extintores/:id_extintor', async (req, res) => {
     res.status(500).json({ message: 'Error actualizando extintor' });
   }
 });
-
 // MANEJO DE LA ELIMINACION DE UN EXTINTOR DE LA BASE DE DATOS EXTINTORES:
 app.delete('/extintores/:id_extintor', async (req, res) => {
   try {
@@ -101,7 +97,6 @@ app.get('/clientes', async (req, res) => {
     res.status(500).json({ message: 'Error obteniendo Clientes' });
   }
 });
-
 // MANEJO DEL POST PARA NUEVO CLIENTE EN LA BASE DE DATOS CLIENTES:
 app.post('/clientes', async (req, res) => {
   try {
@@ -140,8 +135,51 @@ app.delete('/clientes/:nombre_cliente', async (req, res) => {
 });
 
 
-
-
+//MANEJO DEL GET DE LAS REVISIONES EN LA BASE DE DATOS REVISIONES
+app.get('/revisiones', async (req, res) => {
+  try {
+    const revision = await Revisiones.find();
+    res.json(revision);
+  } catch (error) {
+    res.status(500).json({ message: 'Error obteniendo revisiones' });
+  }
+});
+//MANEJO DEL GET DE UNA REVISION EN LA BASE DE DATOS REVISIONES
+app.get('/revisiones/:fecha_revision', async (req, res) => {
+  try {
+    const { fecha_revision } = req.params;
+    const revision = await Revisiones.findOne({fecha_revision});
+    if (!revision) {
+      return res.status(404).json({ message: 'Revision no Encontrada' });
+    }
+    res.json(revision);
+  } catch (error) {
+    res.status(500).json({ message: 'Error obteniendo Revision' });
+  }
+});
+//MANEJO DEL POST PARA LAS REVISONES EN LA BASE DE DATOS REVISIONES
+app.post('/revisiones', async (req, res) => {
+  try {
+    const nuevaRevision = new Revisiones(req.body);
+    const saved = await nuevaRevision.save();
+    res.status(201).json(saved);
+  } catch (error) {
+    res.status(500).json({ message: 'Error guardando la Revision' });
+  }
+});
+//MANEJO DE LA ELIMINACION DE UNA REVISION EN LA BASE DE DATOS REVISIONES 
+app.delete('/revisiones/:fecha_revision', async (req, res) => {
+  try {
+    const { fecha_revision } = req.params;
+    const revisionEliminado = await Revisiones.findOneAndDelete({fecha_revision});
+    if (!revisionEliminado) {
+      return res.status(404).json({ message: 'Revision no Encontrada' });
+    }
+    res.json({ message: 'Revision eliminada' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error eliminando Revision' });
+  }
+});
 
 
 
