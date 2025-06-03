@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
+const user = 'extcontrolapp';
+const pass = 'N0PcbQNWDfmjGkmF';
+
 //const url = "mongodb://172.16.1.167:27017/database";
-//const url = "mongodb://192.168.1.105:27017/database";
-const url = "mongodb+srv://extcontrolgithub:WhSGoKRTq0BDHuG9@cluster0.fwrdwty.mongodb.net/"
+const url = `mongodb+srv://${user}:${pass}@app.mvtv3jd.mongodb.net/?retryWrites=true&w=majority&appName=app`;
 
 const connectDB = async () => {
 	try {
