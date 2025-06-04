@@ -15,12 +15,12 @@ const FormCliente = () => {
 
 
   const saveData = () => {
-    const data = {nombre_cliente:name.inputValue, email:email.inputValue}
+    const data = {nombre_cliente:name.inputValue, email:email.emailValue}
     const rtrn = writeDB("clientes", data);
     console.log({rtrn})
     setShowNotify(true)
     name.clearInput();
-    email.clearInput();
+    email.clearEmail();
   }
 
   const [showNotify, setShowNotify] = useState(false);
@@ -45,8 +45,8 @@ const FormCliente = () => {
         <input 
             type="email" 
             placeholder="E-mail"
-            value={email.inputValue}
-            onChange={email.handleChangeInput}
+            value={email.emailValue}
+            onChange={email.handleChangeEmail}
         ></input>
 
         <button

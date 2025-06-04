@@ -2,6 +2,7 @@ import {useState} from 'react'
 
 function useForm() {
   const [inputValue, setInputValue] = useState('');
+  const [emailValue, setEmailValue] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [textArea, setTextArea] = useState('');
   const [imageValue, setImageValue] = useState('');
@@ -18,6 +19,17 @@ function useForm() {
   //Lleva el valor del input a un string vacio
   const clearInput = () => {
     setInputValue("");
+  }
+
+  // Maneja el cambio de valor del input y actualiza el estado
+  const handleChangeEmail = (event) => {
+    event.preventDefault();
+    setEmailValue(event.target.value.toLowerCase());
+  };
+
+  //Lleva el valor del input a un string vacio
+  const clearEmail = () => {
+    setEmailValue("");
   }
 
   //Maneja el valor de los selects y actualiza el estado
@@ -57,6 +69,8 @@ function useForm() {
   return {
     inputValue,
     selectValue,
+    handleChangeEmail,
+    emailValue,
     textArea,
     imageValue,
     handleChangeInput,
@@ -66,6 +80,7 @@ function useForm() {
     clearInput,
     clearSelect,
     clearTextArea,
+    clearEmail,
     placeholderForSelect,
   };
 }
