@@ -3,30 +3,45 @@ import "./styles/Components.css";
 import useDataBase from "./hooks/useDataBase.js";
 import AppContext from "./AppContext";
 import {useState, useEffect, useContext} from "react";
+import Extintor from "./Extintor";
 
 
 const Home = () => {
 	const {getDB} = useDataBase();
 	const [dataClient, setDataClient] = useState([]);
+	const [dataExtintores, setDataExtintores] = useState([]);
 	const {selectedClient, setSelectedClient} = useContext(AppContext)
 
 
 	useEffect(() => {
-	  getData();
-	}, [])
+	  getDataClient();
+	  getDataExtintores();
+	}, [dataClient])
 	
 	
 
-	const getData = async () => {
+	const getDataClient = async () => {
 		const data = await getDB("clientes");
-
 		if (data){
-			setDataClient(data)
+			setDataClient(data);
+		}
+	}
+
+	const getDataExtintores = async () => {
+		const data = await getDB("extintores");
+		if (data) {
+			const temp = [];
+			data.map((extintor) => {
+				if(extintor.cliente == selectedClient) {
+					temp.push(extintor);
+				}
+			})
+			setDataExtintores(temp);
 		}
 	}
 
 
-	const dataList = ["Total de Extintores", "Con Problemas", "Proximos a Vencer", "Ultima Revision"];
+	const dataList = [`Total de Extintores: ${dataExtintores.length}`, "Vencidos", "Proximos a Vencer", "Ultima Revision"];
 
 	return (
 		<>

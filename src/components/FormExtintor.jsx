@@ -9,12 +9,13 @@ import Notify from "./Notify";
 
 
 
-const FormExtintor = ({writeDB, getDB, saveExtintor}) => {
+const FormExtintor = ({getDB, saveExtintor}) => {
     const {selectedClient} = useContext(AppContext);
     const [getDataClient, setDataClient] = useState([]);
+    const [selectedOption, setSelectedOption] = useState(selectedClient);
 
     const id_extintor = useForm();
-    const client = useForm();
+    //const client = useForm(); fue necesario cambiarlo por un hook useState por mal funcionamiento
     const ubicacion = useForm();
     const tipo_extintor = useForm();
     const capacidad = useForm();
@@ -24,7 +25,7 @@ const FormExtintor = ({writeDB, getDB, saveExtintor}) => {
 
     const data_ext = {
         id_extintor:id_extintor.inputValue,
-        cliente:client.selectValue,
+        cliente:selectedOption,
         ubicacion:ubicacion.inputValue,
         tipo_extintor:tipo_extintor.inputValue,
         capacidad:tipo_extintor.inputValue,
@@ -46,11 +47,6 @@ const FormExtintor = ({writeDB, getDB, saveExtintor}) => {
 		}
 	}
 
-    
-    
-
-
-
 
 
   return (
@@ -64,11 +60,12 @@ const FormExtintor = ({writeDB, getDB, saveExtintor}) => {
 
         <select 
             id='select-cliente-ext'
-            onChange={(e)=>{client.handleChangeSelect(e)}}
+            onChange={(e)=>{setSelectedOption(e.target.value)}}
+            value={selectedOption}
         >
-            <option selected value={selectedClient ? selectedClient : 'Selecciona Cliente' }>{selectedClient ? selectedClient : 'Selecciona Cliente' }</option>
+
             {getDataClient.map((client) => (
-							<option key={client._id}>{client.nombre_cliente}</option>
+							<option selected={client.nombre_cliente == selectedClient} value={client.nombre_cliente} key={client._id}>{client.nombre_cliente}</option>
 						))}
 
         </select>
