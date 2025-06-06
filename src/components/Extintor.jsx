@@ -13,9 +13,10 @@ const Extintor = () => {
   const [showAddExt, setShowAddExt] = useState(false);
   const [getDataExtintor, setDataExtintor] = useState(null);
   const [showNotify, setShowNotify] = useState(false);
+  const [msgNotify, setMsgNotify] = useState("");
   const {selectedClient, setSelectedClient} = useContext(AppContext)
 
-  const {writeDB, getDB} = useDataBase();
+  const {writeDB, getDB, deleteDB} = useDataBase();
 
 
   const openModalAddExtintor = (prop) => {
@@ -60,7 +61,24 @@ const Extintor = () => {
   const saveExtintor = async (data_ext) => {
          const ext = await writeDB("extintores", data_ext);
          getAllExtintor();
+         setMsgNotify("Extintor guardado");
          setShowNotify(true);
+    }
+
+    const deleteExtintor = async (id) => {
+      const alerta = confirm("Esta eliminando un extintor, ¿desea continuar?");
+      if(alerta){
+        const response = await deleteDB("extintores", id);
+        if(response){
+          getAllExtintor();
+          setMsgNotify("Extintor eliminado");
+          setShowNotify(true);
+        }
+      }      
+    }
+
+    const editExtintor = (id, data) => {
+      console.log("edit")
     }
 
 
@@ -71,7 +89,7 @@ const Extintor = () => {
     
   return (
     <div>
-      <Notify msg="Extintor Guardado" open={showNotify} close={onCloseNotify}/>
+      <Notify msg={msgNotify} open={showNotify} close={onCloseNotify}/>
 
       <ModalExt 
         isOpen={showAddExt}
@@ -92,7 +110,12 @@ const Extintor = () => {
 
         <div className="scroll-container">
           {
-            getDataExtintor && getDataExtintor.map((ext) => (<ExtintorCard key={ext._id} extintor={ext} />))
+            getDataExtintor && getDataExtintor.map((ext) => (<ExtintorCard 
+                                                              key={ext._id} 
+                                                              extintor={ext} 
+                                                              deleteExtintor={deleteExtintor} 
+                                                              editExtintor={editExtintor} 
+                                                              />))
           }
         </div>
        <div className="footer-select">

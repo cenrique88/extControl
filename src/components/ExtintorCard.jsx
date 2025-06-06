@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import "./styles/Extintores.css"
 
-const ExtintorCard = ({extintor}) => {
+const ExtintorCard = ({extintor, editExtintor, deleteExtintor}) => {
 
   const [openExt, setOpenExt] = useState("ext-card");
   const [content, setContent] = useState();
@@ -32,9 +32,9 @@ const ExtintorCard = ({extintor}) => {
             }
         
         >{extintor.id_extintor}</h1>
-        <div id="edit-ext-img"><img className="button-img-ext" src='/src/img/edit-3.png' onClick={()=>console.log('edit')}/></div>
+        <div id="edit-ext-img"><img className="button-img-ext" src='/src/img/edit-3.png' onClick={()=>editExtintor(extintor.id_extintor, "")}/></div>
         
-        <img id="del-ext-img" className="button-img-ext" src='/src/img/eliminar.png' onClick={()=>console.log('del')}/>
+        <img id="del-ext-img" className="button-img-ext" src='/src/img/eliminar.png' onClick={()=>deleteExtintor(extintor.id_extintor)}/>
         
         <div className="ext-card-is-open">
           <p>{extintor.id_extintor}</p>
