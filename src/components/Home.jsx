@@ -4,13 +4,17 @@ import useDataBase from "./hooks/useDataBase.js";
 import AppContext from "./AppContext";
 import {useState, useEffect, useContext} from "react";
 import Extintor from "./Extintor";
+import useDate from "./hooks/useDate";
 
 
 const Home = () => {
 	const {getDB} = useDataBase();
+	const fv = useDate();
+
 	const [dataClient, setDataClient] = useState([]);
 	const [dataExtintores, setDataExtintores] = useState([]);
 	const {selectedClient, setSelectedClient} = useContext(AppContext)
+	const [vencidos, setVencidos] = useState([]);
 
 
 	useEffect(() => {
@@ -41,7 +45,7 @@ const Home = () => {
 	}
 
 
-	const dataList = [`Total de Extintores: ${dataExtintores.length}`, "Vencidos", "Proximos a Vencer", "Ultima Revision"];
+	const dataList = [`Total de Extintores: ${dataExtintores.length}`, `Vencidos: ${vencidos.length}`, `Proximos a Vencer: `, `Ultima Revision: `];
 
 	return (
 		<>

@@ -6,6 +6,7 @@ import useDataBase from "./hooks/useDataBase";
 import ExtintorCard from "./ExtintorCard";
 import Notify from "./Notify";
 import AppContext from "./AppContext";
+import useDate from "./hooks/useDate";
 
 
 
@@ -16,6 +17,7 @@ const Extintor = () => {
   const [msgNotify, setMsgNotify] = useState("");
   const {selectedClient, setSelectedClient} = useContext(AppContext)
 
+  const fv = useDate();
   const {writeDB, getDB, deleteDB} = useDataBase();
 
 
@@ -81,6 +83,14 @@ const Extintor = () => {
       console.log("edit")
     }
 
+    // funcion para obtener la fecha de vencimiento de un extintor
+    const handleF_Vencimiento = (ultima_recarga, recarga_cada) => {
+      const fv = new Date(ultima_recarga);
+      const rc = parseInt(recarga_cada);
+      const getTime= fv.setFullYear(fv.getFullYear()+  rc)     
+      return `${new Date(getTime).getMonth()}/${new Date(getTime).getFullYear()%1000}`;
+    }
+
 
 
 
@@ -115,6 +125,7 @@ const Extintor = () => {
                                                               extintor={ext} 
                                                               deleteExtintor={deleteExtintor} 
                                                               editExtintor={editExtintor} 
+                                                              handleF_Vencimiento={fv.handleF_Vencimiento}
                                                               />))
           }
         </div>

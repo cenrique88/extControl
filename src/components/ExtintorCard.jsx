@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import "./styles/Extintores.css"
 
-const ExtintorCard = ({extintor, editExtintor, deleteExtintor}) => {
+const ExtintorCard = ({extintor, editExtintor, deleteExtintor, handleF_Vencimiento}) => {
 
   const [openExt, setOpenExt] = useState("ext-card");
   const [content, setContent] = useState();
@@ -17,11 +17,17 @@ const ExtintorCard = ({extintor, editExtintor, deleteExtintor}) => {
 
   
   return (
-    <div tabIndex={0} className={openExt} onBlur={()=>setOpenExt("ext-card")} onClick={()=>(openExt == "ext-card-open") ? setOpenExt("ext-card") : ''} >
+    <div 
+        tabIndex={0} 
+        className={openExt} 
+        onBlur={()=>setOpenExt("ext-card")} 
+        onClick={()=>(openExt == "ext-card-open") ? setOpenExt("ext-card") : ''} 
+        >
+
         <img 
-            className="logo-ext-card" 
-            src="src/img/m-azul.png" 
-            onClick={ onTap}
+          className="logo-ext-card" 
+          src="src/img/m-azul.png" 
+          onClick={ onTap}
         />
         
         <h1 className="ext-id" 
@@ -39,10 +45,11 @@ const ExtintorCard = ({extintor, editExtintor, deleteExtintor}) => {
         <div className="ext-card-is-open">
           <p>{extintor.id_extintor}</p>
           <p>{extintor.ubicacion}</p>
-          <p>{extintor.tipo_extintor}</p>
+          {/* <p>{extintor.tipo_extintor}</p> */}
           <p>{extintor.capacidad}</p>
           <p>{extintor.recarga_cada}</p>
-          <p>FV:</p>
+          <p>{new Date(extintor.ultima_recarga).getMonth()}/{new Date(extintor.ultima_recarga).getFullYear()%1000}</p>
+          <p>{handleF_Vencimiento(extintor.ultima_recarga, extintor.recarga_cada)}</p>
           <p>{extintor.observaciones}</p>
 
         </div>
