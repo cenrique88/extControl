@@ -10,8 +10,11 @@ import Notify from "./Notify";
 
 const FormCliente = () => {
   const {writeDB} = useDataBase();
+  const juridic_name = useForm();
+  const address = useForm();
   const name = useForm();
   const email = useForm();
+  const phone = useForm();
 
 
   const saveData = () => {
@@ -38,15 +41,27 @@ const FormCliente = () => {
         <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify}/>
         <input 
             type="text" 
-            placeholder="Nombre Cliente"
+            placeholder="Nombre Juridico: "
+            value={juridic_name.inputValue}
+            onChange={juridic_name.handleChangeInput}
+        ></input>   
+        <input 
+            type="text" 
+            placeholder="Nombre: "
             value={name.inputValue}
             onChange={name.handleChangeInput}
-        ></input>   
+        ></input>
         <input 
             type="email" 
             placeholder="E-mail"
             value={email.emailValue}
             onChange={email.handleChangeEmail}
+        ></input>
+        <input 
+            type="text" 
+            placeholder="Direccion:"
+            value={address.inputValue}
+            onChange={address.handleChangeInput}
         ></input>
 
         <button

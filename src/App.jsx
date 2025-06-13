@@ -16,6 +16,7 @@ function App() {
 	return (
 		<>
 			<NavBar />
+			
 			<AppContext.Provider value={{ selectedClient, setSelectedClient}}>
 				<div className='container'>
 					<Routes>					

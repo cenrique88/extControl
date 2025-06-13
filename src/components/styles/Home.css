@@ -2,7 +2,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-top: 10%;
 	flex-direction: column;
 }
 
@@ -10,15 +9,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	color: white;
 	font-size: 20px;
 	font-weight: bold;
-	padding: 5px;
-	margin-top: 10%;
+	padding: 10px;
 	background-color: #52a7cc;
 	width: 18rem;
-	height: 22rem;
+	height: 25rem;
 	border-radius: 10px;
 }
 
