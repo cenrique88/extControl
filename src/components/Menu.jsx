@@ -13,9 +13,10 @@ const Menu = ({isOpen, setIsOpen, setSelectedMenu}) => {
 
 
 
+
   return (
 
-    <div tabIndex="0" className={`menu-container ${isOpen ? "open" : ""}`} onBlur={() => setIsOpen(false)}>
+    <div tabIndex="0" className={`menu-container ${isOpen ? "open" : ""}`} >
         
         <ul className='menu-list'>
             <li className='menu-item'>
@@ -32,7 +33,7 @@ const Menu = ({isOpen, setIsOpen, setSelectedMenu}) => {
             </li>
             <li className='menu-item'>
                 <Link id='controles' to='/controles' onClick={() => {setIsOpen(false); setSelectedMenu('Controles')}}>
-						<img id='controles' className='menu-img' src="/src/img/qr-rev1.png" alt='controles' />
+						<img id='controles' className='menu-img' src="/src/img/control.png" alt='controles' />
 						<span>Controles</span>
 					</Link>
             </li>

@@ -6,146 +6,97 @@
 	flex-direction: column;
 }
 
-.card-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
 .client-card {
-	display: flex;
-	align-items: start;
-	margin-top: 10%;
-	margin-bottom: -5%;
-	background-color: #52a7cc;
-	width: 18rem;
-	height: 8rem;
-	border-radius: 10px;
-	padding-left: 20px;
-}
-.client-card img {
-	margin-top: 20px;
-	height: 58px;
-	width: 60px;
-	border-radius: 50%;
-}
-
-.client-card p {
-	color: white;
-	font-size: 16px;
-	display: flex;
-	flex-direction: column;
-}
-.text-container {
-	display: flex;
-	flex-direction: column;
-	margin-left: 20px;
-}
-
-.text-container p {
-	padding-top: 5px;
-	margin: 0px;
-}
-
-.client-card {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
     margin-top: 10%;
     margin-bottom: -5%;
     background-color: #52a7cc;
     width: 18rem;
-    height: 8rem;
+    height: 5rem;
     border-radius: 10px;
     padding-left: 15px;
+    color: white;
 }
-.client-card-logo img {
-    grid-column: 1/span 1;
-    grid-row: 1;
-    margin-top: 10px;
-    height: 54px;
-    width: 56px;
+.client-card p {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.client-card img {
+    margin-left: -5px;
+    height: 56px;
+    width: 58px;
     border-radius: 50%;
 }
-
-.text-nombre {
-
-    margin-left: 3%;
-    grid-column: 2/span 3;
-    grid-row: 1;
+.client-card button {
+    visibility: hidden;
 }
-.text-nombre p {
-    color: white;
-    font-size: 16px;
+
+
+
+.client-card.open {
+    position: fixed;
     display: flex;
-    flex-direction: column;
-    padding-top: 5px;
-    margin: 0px;
-} 
-.text-email {
-
-    margin-top: -3%;
-    margin-left: 3%;
-    grid-column: 2/span 4;
-    grid-row: 2;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
+    margin-top: 20rem;
+    margin-bottom: -5%;
+    background-color: #52a7cc;
+    width: 18rem;
+    height: 35rem;
+    border-radius: 10px;
+    padding-left: 15px;
+    color: white;    
 }
-.text-email p {
-    color: white;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    padding-top: 5px;
-    margin: 0px;
+.client-card.open img {
+    margin-left: -5px;
+    margin-top: 12px;
+    height: 56px;
+    width: 58px;
+    border-radius: 50%;
 }
-
-
-.client-card-delete {
-    grid-column: 5;
-    grid-row: 1;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.client-card.open p {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 26.5px;
 }
-.client-card-delete img {
-	align-self: center;
-    height: 30px;
-    width: 30px;
-
+.client-card.open button {
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    top: 37rem;
+    padding: 30px;
+    visibility: visible;
+    position: fixed;
+    background-size: 35px 35px !important;
+    background-repeat: no-repeat;
+    background-position: center;  
 }
-.client-card-edit{
-
-   grid-column: 5;
-   grid-row: 2;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-.client-card-edit img{
-    height: 30px;
-    width: 30px;
+.button1 {
+    left: 13%;
+    background-image:url("/src/img/control.png");
 }
 
-/* .text-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-
-    grid-column: 2/ span 3;
-    grid-row: 1/span 2 ;
-
+.button2 {
+    left: 32%;
+    background-image:url("/src/img/extintor.png");
+}
+.button3 {
+    left: 51%;
+    background-image:url("/src/img/informe2.png");
+}
+.button4 {
+    left: 70%;
+    background-image:url("/src/img/incidencia.png");
 }
 
-.text-container p {
-    color: white;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    padding-top: 5px;
-    margin: 0px;
-} */
+
+
+
 
 
 .form-cliente {

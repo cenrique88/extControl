@@ -75,9 +75,8 @@ const handleDelete = (client) => {
       {
         getClients && getClients.map((client) =>  <CardClient 
                                                       key={client._id} 
-                                                      name={client.nombre_cliente} 
-                                                      email={client.email} 
-                                                      deleteClient={handleDelete} />)          
+                                                      client={client} 
+                                                       />)          
       }    
 
       <button id="add-button" className="add-button" onClick={()=>openModalAddClient(true)}>

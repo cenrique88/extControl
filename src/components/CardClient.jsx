@@ -1,34 +1,53 @@
 
-import "./styles/Clientes.css"
+import "./styles/Clientes.css";
+import {useState, useeffect} from 'react';
 
 
-const CardClient = ({name, email, deleteClient}) => {
+const CardClient = ({client}) => {
 
-  
+  const [isOpenCard, setIsOpenCard] = useState(false);
+
+  const ifCardOpen = () => {
+    setIsOpenCard(!isOpenCard);
+    if(isOpenCard) {
+      document.getElementById('add-button').style.visibility = "visible";
+    } else {
+    document.getElementById('add-button').style.visibility = "hidden";
+  }
+}
+
+
+
 
 
 
   return (
-    
-    <div className="client-card">
-      <div className="client-card-logo">
-        <img src='/src/img/m-azul.png' />
-        </div>
-    
-      <div className="text-nombre">
 
-        <p><i>{name}</i></p>
-      </div>
-      
-    {/* <div className="client-card-delete">
-      <img src='/src/img/eliminar.png' onClick={()=>deleteClient(name)}/>
-    </div>
-    <div className="client-card-edit">
-      <img src='/src/img/edit-3.png'/>
-    </div> */}
-         
+    <div
+      tabIndex="0"
+      className={`client-card ${isOpenCard ? "open" : ""}`}
+      onClick={
+        (e) => {
+          (e.target.localName != "button") 
+          ? 
+          ifCardOpen()
+          :
+          null }}>
+
+        <img src='/src/img/m-azul.png' />
+        <p>{client.nombre_cliente}</p>
+
+        <div className="button-container">
+          <button className='button1'></button>
+        <button className='button2'></button>
+        <button className='button3'></button>
+        <button className='button4'></button>
+
+        </div>
+        
     </div>
   )
 }
 
 export default CardClient
+
