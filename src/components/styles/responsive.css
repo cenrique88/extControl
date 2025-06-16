@@ -1,0 +1,27 @@
+/* ----------------------------
+   Archivo: responsive.css
+   Propósito: Media queries para que el diseño funcione en móviles
+   ---------------------------- */
+@media (max-width: 768px) {
+  .menu-container {
+    width: 100%;
+    left: -100%;
+    transform: translateX(100%);
+  }
+
+  .menu-container.open {
+    transform: translateX(0);
+  }
+
+  .menu-img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .home-card {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+    height: auto;
+  }
+}

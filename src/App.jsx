@@ -1,4 +1,7 @@
-import "./components/styles/App.css";
+//Estilos globales y responsivos
+import './components/styles/global.css';      
+import './components/styles/responsive.css';  
+import './components/styles/App.css';
 
 //Dependencias de las paginas de rutas...
 import Home from "./components/Home";
