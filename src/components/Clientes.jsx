@@ -50,7 +50,6 @@ const handleDelete = (client) => {
     setShowAddCliente(prop);
   }
 
-
     
   return (
     <>
