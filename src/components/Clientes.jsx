@@ -51,9 +51,6 @@ const handleDelete = (client) => {
   }
 
 
-
-
-
     
   return (
     <>
