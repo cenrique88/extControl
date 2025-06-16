@@ -25,3 +25,16 @@
     height: auto;
   }
 }
+/* ----------------------------
+   Estilos para pantallas grandes (escritorio)
+   Corrige el menú desplazado a la mitad de la pantalla
+   ---------------------------- */
+@media (min-width: 770px) {
+  .menu-container {
+    position: static;           /* Lo ubica normalmente dentro del layout */
+    transform: none !important; /* Cancela cualquier desplazamiento */
+    width: 250px;               /* Ancho fijo para el menú */
+    height: 100vh;              /* Toda la altura de la pantalla */
+    border-radius: 0;           /* Elimina bordes redondeados si los hubiera */
+  }
+}
