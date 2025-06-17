@@ -1,40 +1,57 @@
 /* ----------------------------
-   Archivo: responsive.css
-   Propósito: Media queries para que el diseño funcione en móviles
+   responsive.css universal (mobile-first forzado)
    ---------------------------- */
-@media (max-width: 768px) {
-  .menu-container {
-    width: 100%;
-    left: -100%;
-    transform: translateX(100%);
-  }
 
-  .menu-container.open {
-    transform: translateX(0);
-  }
-
-  .menu-img {
-    width: 24px;
-    height: 24px;
-  }
-
-  .home-card {
-    width: 90%;
-    font-size: 16px;
-    padding: 10px;
-    height: auto;
-  }
+/* Menú lateral siempre oculto por defecto */
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100vh;
+  background-color: #213468;
+  transform: translateX(-100%); /* Fuera de pantalla a la izquierda */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  border-radius: 0 10px 10px 0;
 }
-/* ----------------------------
-   Estilos para pantallas grandes (escritorio)
-   Corrige el menú desplazado a la mitad de la pantalla
-   ---------------------------- */
-@media (min-width: 770px) {
-  .menu-container {
-    position: static;           /* Lo ubica normalmente dentro del layout */
-    transform: none !important; /* Cancela cualquier desplazamiento */
-    width: 250px;               /* Ancho fijo para el menú */
-    height: 100vh;              /* Toda la altura de la pantalla */
-    border-radius: 0;           /* Elimina bordes redondeados si los hubiera */
-  }
+
+/* Menú cuando está abierto */
+.menu-container.open {
+  transform: translateX(0); /* Visible con animación */
+}
+
+/* Botón de menú (3 rayitas) */
+.menu-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Animación del botón al abrir */
+.menu-button.open {
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Íconos del menú */
+.menu-img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Tarjeta principal */
+.home-card {
+  width: 90%;
+  font-size: 16px;
+  padding: 10px;
+  height: auto;
+}
+
+/* Container general si lo usás */
+.container {
+  width: 90%;
+  margin: auto;
 }

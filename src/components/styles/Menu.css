@@ -1,58 +1,49 @@
 
 
+/* ------------------------------------
+   Archivo: Menu.css
+   Propósito: Estilos base del menú lateral
+   ------------------------------------ */
+
+/* Contenedor principal del menú */
 .menu-container {
-    position: fixed;
-    top: 5%;
-    left: -320px;
-    width: 70%;
-    height: 85%;
-    border-radius: 0 0 10px 0px;
-    transition: transform 0.3s ease-in-out;
-    /*visibility: hidden;*/
-
-
-    background-color: #213468;
+  background-color: #213468; /* Azul institucional */
+  transition: transform 0.3s ease-in-out;
+  z-index: 999; /* Asegura que esté por encima del contenido */
 }
 
-
+/* Menú abierto (controlado por la clase 'open') */
 .menu-container.open {
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(320px);
-    /*visibility: visible;*/
+  transform: translateX(0); /* Anula desplazamiento lateral */
 }
 
-
-
-
+/* Lista de elementos del menú */
 .menu-list {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-	align-content: center;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
+/* Cada ítem del menú */
 .menu-item {
-    display: flex;
-    margin-top: 10%;
-    font-weight: bold;
-    align-items: center;
-    
-
+  display: flex;
+  margin-top: 10%;
+  font-weight: bold;
+  align-items: center;
 }
 
+/* Estilo para los enlaces del menú */
 .menu-item a {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 14rem;
-
-    
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 14rem;
 }
 
+/* Tamaño de los íconos del menú */
 .menu-img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
