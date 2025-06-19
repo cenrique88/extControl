@@ -4,6 +4,7 @@ import Menu from "./Menu"; // Menú lateral con opciones
 import "./styles/NavBar.css"; // Estilos específicos del navBar
 
 function NavBar() {
+
   // Estado para controlar si el menú lateral está abierto o cerrado
   const [isOpen, setIsOpen] = useState(false);
 
@@ -42,6 +43,7 @@ function NavBar() {
       />
     </>
   );
+
 }
 
 export default NavBar;
