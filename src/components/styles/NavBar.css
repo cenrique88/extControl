@@ -1,0 +1,32 @@
+/* -------------------------------------
+   NavBar.css
+   Propósito: Estilo de la barra superior (nav)
+   ------------------------------------- */
+
+nav {
+  position: sticky; /* Se mantiene visible al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Esto asegura que ocupe todo el ancho de la ventana */
+  height: 50px;
+  background-color: #213468;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  z-index: 100;
+  gap: 12px;
+}
+
+.menu-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.nav-title {
+  font-size: 20px;
+  font-weight: bold;
+}

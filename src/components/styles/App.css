@@ -1,3 +1,5 @@
+
+/* App.css limpio y enfocado solo en el contenedor principal */
 #root {
 	background-color: white;
 	height: 100vh;
@@ -50,48 +52,3 @@ nav ul li a span {
 	color: #52a7cc;
 } 
 */
-
-@media (max-width: 720px) {
-	.logo-img {
-		width: 380px;
-		height: 130px;
-	}
-	.menu-button {
-		width: 30px;
-		height: 30px;
-	}
-
-	.menu-button.open {
-		transform: rotate(90deg);
-		transform-origin: center;
-		transition: transform 0.3s ease-in-out;
-	}
-
-	nav {
-		height: 10%;
-	}
-}
-
-@media (min-width: 721px) {
-	.logo-img {
-		width: 380px;
-		height: 125px;
-	}
-	
-	nav {
-		flex-direction: row;
-		justify-content: center;
-	}
-	nav > ul {
-		margin: 10px;
-		gap: 50px;
-	}
-}
-
-
-
-
-.container {
-	height: 100%;
-	width: 80%;
-}

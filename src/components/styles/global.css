@@ -1,0 +1,24 @@
+/* Archivo: global.css */
+/* Estilos base y variables */
+
+:root {
+  --primary-color: #213468;
+  --highlight-color: #52a7cc;
+  --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background-color: #ffffff;
+  color: #04003d;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
