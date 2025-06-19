@@ -1,49 +1,62 @@
 
 
-/* ------------------------------------
-   Archivo: Menu.css
-   Propósito: Estilos base del menú lateral
-   ------------------------------------ */
-
-/* Contenedor principal del menú */
+/* Contenedor principal del menú lateral */
 .menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100vh;
   background-color: #213468; /* Azul institucional */
+  transform: translateX(-100%); /* Oculto por defecto */
   transition: transform 0.3s ease-in-out;
-  z-index: 999; /* Asegura que esté por encima del contenido */
+  z-index: 999; /* Sobre todo */
+  border-radius: 0 10px 10px 0;
+  padding-top: 1rem;
 }
 
-/* Menú abierto (controlado por la clase 'open') */
+/* Menú abierto */
 .menu-container.open {
-  transform: translateX(0); /* Anula desplazamiento lateral */
+  transform: translateX(0);
 }
 
-/* Lista de elementos del menú */
+/* Lista de ítems */
 .menu-list {
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  padding-left: 1rem;
+  gap: 1rem;
 }
 
 /* Cada ítem del menú */
 .menu-item {
   display: flex;
-  margin-top: 10%;
-  font-weight: bold;
   align-items: center;
+  font-weight: bold;
 }
 
-/* Estilo para los enlaces del menú */
+/* Enlaces del menú */
 .menu-item a {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  width: 14rem;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
-/* Tamaño de los íconos del menú */
+/* Íconos del menú */
 .menu-img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
+}
+
+/* Nombre de usuario al final */
+.menu-user {
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  color: white;
 }

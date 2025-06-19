@@ -1,57 +1,46 @@
-/* ----------------------------
-   responsive.css universal (mobile-first forzado)
-   ---------------------------- */
-
-/* Menú lateral siempre oculto por defecto */
+/* Menu lateral mobile */
 .menu-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 70%;
+  width: 60%;
+  max-width: 300px;
   height: 100vh;
-  background-color: #213468;
-  transform: translateX(-100%); /* Fuera de pantalla a la izquierda */
+  background-color: var(--primary-color);
+  transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 999;
   border-radius: 0 10px 10px 0;
 }
 
-/* Menú cuando está abierto */
 .menu-container.open {
-  transform: translateX(0); /* Visible con animación */
+  transform: translateX(0);
 }
 
-/* Botón de menú (3 rayitas) */
-.menu-button {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  margin: 10px;
+.menu-list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  gap: 1.2rem;
 }
 
-/* Animación del botón al abrir */
-.menu-button.open {
-  transform: rotate(90deg);
-  transform-origin: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Íconos del menú */
 .menu-img {
   width: 24px;
   height: 24px;
 }
 
-/* Tarjeta principal */
-.home-card {
-  width: 90%;
+.menu-item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
   font-size: 16px;
-  padding: 10px;
-  height: auto;
 }
 
-/* Container general si lo usás */
-.container {
-  width: 90%;
-  margin: auto;
+.menu-user {
+  font-size: 14px;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  opacity: 0.6;
 }
