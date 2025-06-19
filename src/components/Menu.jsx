@@ -82,7 +82,7 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
         </li>
 
         <li className="menu-user">
-          Nombre del usuario
+          <span>Nombre del usuario</span>
         </li>
       </ul>
     </div>

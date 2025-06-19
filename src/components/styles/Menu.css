@@ -58,5 +58,6 @@
   font-size: 14px;
   margin-top: 2rem;
   margin-left: 0.5rem;
-  color: white;
+  color: rgb(255, 255, 255);
+  text-decoration: none !important
 }
