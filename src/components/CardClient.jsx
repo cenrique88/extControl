@@ -12,9 +12,10 @@ const CardClient = ({client}) => {
 
 
   const handleMouseDown = (e) => {
+    console.log(e);
     timeRef.current = setTimeout( () => {
       setIsPressed(true);
-      console.log('presionado ' + timeRef.current);
+      console.log("pressed");
     }, 1000);
     
   };
@@ -22,11 +23,10 @@ const CardClient = ({client}) => {
   const handleMouseUp = (e) => {
     console.log(e)
     clearTimeout(timeRef.current);
-    setIsPressed(false);
 
     if(!isPressed){
       if(e.target.localName != "button") {
-      console.log('open card ' + timeRef.current)
+       console.log('open card ' + timeRef.current)
         setIsOpenCard(!isOpenCard);
           if(isOpenCard) {
             document.getElementById('add-button').style.visibility = "visible";
@@ -38,6 +38,7 @@ const CardClient = ({client}) => {
     
 
     console.log('soltado ' + timeRef.current)
+    //setIsPressed(false);
   }
 
 
@@ -65,9 +66,9 @@ const CardClient = ({client}) => {
     <div
       tabIndex="0"
       className={`client-card ${isOpenCard ? "open" : ""}`}
-      onMouseDown={handleMouseDown}
+      onMouseDown={(e)=>handleMouseDown(e)}
       onMouseUp={(e)=>handleMouseUp(e)}
-      onTouchStart={(e)=>{handleMouseDown(e)}}
+      onTouchStart={(e)=>handleMouseDown(e)}
       onTouchEnd={(e)=>handleMouseUp(e)}
      >
 

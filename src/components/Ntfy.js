@@ -3,5 +3,5 @@
 
 fetch('https://ntfy.sh/publicIP', {
           method: 'POST',
-          body: 
+          body: "TEXTO DE LA NOTIFICACION"
         })

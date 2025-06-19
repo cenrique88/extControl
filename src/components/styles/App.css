@@ -26,6 +26,7 @@ nav ul {
 	align-items: center;
 	align-content: center;
 	gap: 10px;
+	width: 50%;
 }
 
 nav ul li{

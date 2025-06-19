@@ -47,6 +47,22 @@ function NavBar() {
 					</Link>
 				</li> */}
 			</ul>
+			<button 
+				onClick={() => {console.log('delete ' + selectedMenu)}}
+				style={
+					{position:"fixed",
+					left: "85%",
+					width:"25px",
+					height:"25px",
+					backgroundImage:"url(/src/img/eliminar.png)",
+					backgroundSize:"cover",
+					backgroundPosition:"center",
+					backgroundRepeat:"no-repeat",
+					border: "none",
+					backgroundColor: "transparent",
+					cursor: "pointer",
+				}}
+					></button>			
 		</nav>
 	);
 }
