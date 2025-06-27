@@ -1,0 +1,21 @@
+
+
+{
+"name": "Control de Extintores",
+"short_name": "ControlExtintores",
+"start_url": "/",
+"display": "standalone",
+"icons": [
+    {
+      "src": "src/img/m-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/img/m-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+

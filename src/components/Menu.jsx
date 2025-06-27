@@ -5,7 +5,7 @@ import {AppContext} from "./AppContext";
 import {useContext, useState} from "react";
 
 const Menu = ({ isOpen, setIsOpen}) => {
-   const {setSelectedPage} = useContext(AppContext);
+  const {setSelectedPage} = useContext(AppContext);
 
 
   return (

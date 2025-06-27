@@ -1,14 +1,22 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
+import {useNavigate} from "react-router-dom";
+import {useLocation} from "react-router"
 import "./styles/Clientes.css"
 import useDataBase from "./hooks/useDataBase";
 import useForm from "./hooks/useForm";
 import Notify from "./Notify";
+
+import {AppContext} from "./AppContext.jsx";
 
 
 
 
 
 const AddNewClient = () => {
+  const {setSelectedPage} = useContext(AppContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const {writeDB} = useDataBase();
   const nombre_juridico = useForm();
@@ -17,19 +25,24 @@ const AddNewClient = () => {
   const email = useForm();
 
 
+console.log(location.pathname.slice(1 , location.pathname.length));
+
   const saveData = () => {
     const data = {nombre_cliente:nombre_cliente.inputValue, 
                   email:email.emailValue,
                   nombre_juridico:nombre_juridico.inputValue,
                   direccion:direccion.inputValue
                 }
-    const rtrn = writeDB("clientes/add-client", data);
-    console.log({rtrn})
+    writeDB("clientes/add-client", data);
     setShowNotify(true)
     nombre_cliente.clearInput();
     email.clearEmail();
     nombre_juridico.clearInput();
     direccion.clearInput();
+
+    navigate("/clientes");
+    setSelectedPage("Clientes");
+
   }
 
   const [showNotify, setShowNotify] = useState(false);
