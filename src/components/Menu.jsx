@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import "./styles/Menu.css";
 
-const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
+import {AppContext} from "./AppContext";
+import {useContext, useState} from "react";
+
+const Menu = ({ isOpen, setIsOpen}) => {
+   const {setSelectedPage} = useContext(AppContext);
+
+
   return (
     <div
       tabIndex="0"
@@ -15,7 +21,7 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
             id="home"
             onClick={() => {
               setIsOpen(false);
-              setSelectedMenu("Home");
+              setSelectedPage("Home");
             }}
           >
             <img className="menu-img" src="/src/img/home.png" alt="Home" />
@@ -29,7 +35,7 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
             id="clientes"
             onClick={() => {
               setIsOpen(false);
-              setSelectedMenu("Clientes");
+              setSelectedPage("Clientes");
             }}
           >
             <img
@@ -47,7 +53,7 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
             id="controles"
             onClick={() => {
               setIsOpen(false);
-              setSelectedMenu("Controles");
+              setSelectedPage("Controles");
             }}
           >
             <img

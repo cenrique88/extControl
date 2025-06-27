@@ -1,10 +1,9 @@
 import "./styles/Home.css";
 import "./styles/Components.css";
-import AppContext from "./AppContext";
-import { useContext } from "react";
+
 
 const Home = () => {
-  const { selectedClient, setSelectedClient } = useContext(AppContext);
+
 
   return (
     <div className="home-container">
