@@ -29,6 +29,7 @@ function App() {
 						<Route path='/clientes' element={<Clientes />} />
 						<Route path='/controles' element={<Controles />} />
 						<Route path='/showext' element={<Extintor />} />
+
 					</Routes>
 				</div>
 			</AppContext.Provider>
