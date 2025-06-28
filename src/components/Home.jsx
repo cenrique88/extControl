@@ -24,8 +24,8 @@ const Home = () => {
             Próximos a Vencer
             <br />
             0
-          </li>
-          <li>
+          </li >
+          <li className="list-end">
             Vencidos
             <br />
             0

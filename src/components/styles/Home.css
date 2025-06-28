@@ -43,3 +43,9 @@
   border-bottom: 1px solid white;
   padding-bottom: 10px;
 }
+
+.list-end {
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: none !important;
+}
