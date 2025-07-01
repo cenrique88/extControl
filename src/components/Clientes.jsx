@@ -1,20 +1,27 @@
 import "./styles/Components.css";
 import "./styles/Clientes.css"
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import Modal from "./Modal";
 import FormCliente from "./FormCliente";
 import CardClient from "./CardClient";
 import useDataBase from "./hooks/useDataBase";
+import AddNewClient from "./AddNewClient";
+
+import { Link } from "react-router-dom";
+import {AppContext} from "./AppContext";
+
 
 
 
 
 
 const Clientes = () => {
+  const {setSelectedPage} = useContext(AppContext);
   const {getDB, deleteDB}= useDataBase()
 
   const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
+
 
 
   const handleData = async () => {
@@ -60,7 +67,6 @@ const handleDelete = (client) => {
         content={<FormCliente />}
       />
 
-
       <div>
       <input 
         type="text"
@@ -73,11 +79,18 @@ const handleDelete = (client) => {
                                                       key={client._id} 
                                                       client={client} 
                                                        />)          
-      }    
+      }  
 
-      <button id="add-button" className="add-button" onClick={()=>openModalAddClient(true)}>
-            +
-        </button>     
+      <Link 
+          className="add-button"
+          to="/clientes/add-client"
+          id="add-client"
+          onClick={()=>{setSelectedPage("Clientes / Nuevo Cliente")}}
+          >+</Link>
+
+      {/* <button id="add-button" className="add-button" >       
+            
+      </button>      */}
 
     </div>
       
