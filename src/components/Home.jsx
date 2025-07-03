@@ -1,5 +1,6 @@
 import "./styles/Home.css";
 import "./styles/Components.css";
+import Login from "./Login.jsx";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <Login />
       <img
         className="logo-img"
         src="/src/img/logo-blue-banner.png"
