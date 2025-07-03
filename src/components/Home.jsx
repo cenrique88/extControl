@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Login />
+      
       <img
         className="logo-img"
         src="/src/img/logo-blue-banner.png"
@@ -28,11 +28,13 @@ const Home = () => {
             0
           </li >
           <li className="list-end">
-            Vencidos
+            Vencidosssss
             <br />
             0
           </li>
         </ul>
+
+        <Login />
       </div>
     </div>
   );
