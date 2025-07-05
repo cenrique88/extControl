@@ -1,19 +1,18 @@
 // Estilos globales y responsivos
-import './components/styles/global.css';
-import './components/styles/App.css';
-import './components/styles/responsive.css';
+import './app/styles/global.css';
+import './app/styles/App.css';
+import './app/styles/responsive.css';
 
 // Dependencias de las páginas
-import Home from "./components/Home";
-import Login from './components/Login';
-import Clientes from "./components/Clientes";
-import Controles from "./components/Controles";
-import Extintor from "./components/Extintor";
-import NavBar from "./components/NavBar";
-import AddNewClient from "./components/AddNewClient";
+import Home from "./app/components/Home.jsx";
+import Clientes from "./clientes/components/Clientes";
+import Controles from "./controles/components/Controles.jsx";
+import Extintor from "./extintores/components/Extintor";
+import NavBar from "./app/components/NavBar.jsx";
+import AddNewClient from "./clientes/components/AddNewClient";
 
 
-import {AppContext} from "./components/AppContext.jsx";
+import {AppContext} from "./app/components/AppContext.jsx";
 import {useContext} from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,17 +21,16 @@ function App() {
 
 	const {showNavbar} = useContext(AppContext);
 
-  
-  
+
+
 
 	return (
 		<>
-				{showNavbar && <NavBar />}
+				<NavBar />
 			
 				<div className='container'>
 					<Routes>					
-						<Route path='/' element={<Login />} />
-						<Route path='/home' element={<Home />} />
+						<Route path='/' element={<Home />} />
 						<Route path='/clientes/*' element={<Clientes />} />
 						<Route path='/controles' element={<Controles />} />
 						<Route path='/showext' element={<Extintor />} />

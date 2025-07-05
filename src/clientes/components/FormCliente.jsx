@@ -1,8 +1,10 @@
 import {useState} from "react";
-import "./styles/Clientes.css"
-import useDataBase from "./hooks/useDataBase";
-import useForm from "./hooks/useForm";
-import Notify from "./Notify";
+
+import "../styles/Clientes.css"
+
+import useDataBase from "../../hooks/useDataBase";
+import useForm from "../../hooks/useForm";
+import Notify from "../../app/components/Notify";
 
 
 

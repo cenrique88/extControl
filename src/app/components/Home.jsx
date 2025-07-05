@@ -1,6 +1,6 @@
-import "./styles/Home.css";
-import "./styles/Components.css";
-import Login from "./Login.jsx";
+import "../styles/Home.css";
+import "../styles/Components.css";
+
 
 
 const Home = () => {
