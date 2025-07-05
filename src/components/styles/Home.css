@@ -3,10 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  gap: 2rem;
+  padding: 2rem;
   width: 100%;
-  padding: 1rem;
-  box-sizing: border-box;
 }
 
 /* Logo institucional */
@@ -21,13 +20,15 @@
 .home-card {
   width: 100%;
   max-width: 300px;
-  padding: 1.5rem;
-  border-radius: 10px;
-  background-color: #3ab3e7;
-  color: white;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  border-radius: 15px;
+  background-color: #3d8cbd;
+  color: #ddd;
   font-size: 18px;
   font-weight: bold;
   box-sizing: border-box;
+  box-shadow: 0 0 20px 3px #72728f;
+  text-align: center;
 }
 
 /* Lista dentro de la tarjeta */
@@ -38,14 +39,10 @@
 }
 
 .home-card ul li {
-  margin: 20px 0;
-  text-align: left;
-  border-bottom: 1px solid white;
+  margin: 30px 0;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
-.list-end {
-  text-align: left;
-  padding-bottom: 10px;
-  border-bottom: none !important;
-}
+.home-card ul li:last-child {
+  border-bottom: none;

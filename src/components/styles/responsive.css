@@ -1,22 +1,30 @@
-/* Menu lateral mobile */
+/* ===== Menú lateral tipo hamburguesa para móviles ===== */
+
 .menu-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 60%;
   max-width: 300px;
+
+  /* Altura segura para móviles (dvh para iOS modernos) */
   height: 100vh;
+  height: 100dvh;
+
   background-color: var(--primary-color);
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   border-radius: 0 10px 10px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Cuando el menú está abierto */
 .menu-container.open {
   transform: translateX(0);
 }
 
+/* Lista del menú */
 .menu-list {
   margin-top: 50px;
   display: flex;
@@ -25,22 +33,34 @@
   gap: 1.2rem;
 }
 
+/* Íconos del menú */
 .menu-img {
   width: 24px;
   height: 24px;
 }
 
+/* Ítem del menú */
 .menu-item a {
   display: flex;
   align-items: center;
   gap: 12px;
   font-weight: bold;
   font-size: 16px;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  color: #eee;
 }
 
+.menu-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Información del técnico */
 .menu-user {
   font-size: 14px;
   margin-left: 1rem;
   margin-top: 2rem;
   opacity: 0.6;
 }
+
