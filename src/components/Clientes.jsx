@@ -12,7 +12,7 @@ import AddNewClient from "./AddNewClient";
 import { Link } from "react-router-dom";
 import {AppContext} from "./AppContext";
 
-
+const Clientes = () => {
 
   const {setSelectedPage} = useContext(AppContext);
   const {getDB, deleteDB}= useDataBase()
