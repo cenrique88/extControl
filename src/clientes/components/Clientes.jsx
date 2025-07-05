@@ -13,10 +13,14 @@ import {useLocation} from "react-router"
 import { Link } from "react-router-dom";
 import {AppContext} from "../../app/components/AppContext";
 
+<<<<<<< HEAD:src/clientes/components/Clientes.jsx
 
 const Clientes = () => {
 
   const navigate = useNavigate();
+=======
+const Clientes = () => {
+>>>>>>> 3d5b17d24dcb7939679c67b9552ebe8235942f2a:src/components/Clientes.jsx
 
   const {setSelectedPage} = useContext(AppContext);
   const {getDB, deleteDB}= useDataBase()
