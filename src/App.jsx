@@ -5,30 +5,34 @@ import './components/styles/responsive.css';
 
 // Dependencias de las páginas
 import Home from "./components/Home";
+import Login from './components/Login';
 import Clientes from "./components/Clientes";
 import Controles from "./components/Controles";
 import Extintor from "./components/Extintor";
 import NavBar from "./components/NavBar";
 import AddNewClient from "./components/AddNewClient";
 
-// Contexto y React
-import AppContext from "./components/AppContext";
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+
+import {AppContext} from "./components/AppContext.jsx";
+import {useContext} from "react";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 
-	const [selectedClient, setSelectedClient] = useState('Select Client');
+	const {showNavbar} = useContext(AppContext);
+
   
   
+
 	return (
 		<>
-			<AppProvider>
-				<NavBar />
+				{showNavbar && <NavBar />}
 			
 				<div className='container'>
 					<Routes>					
-						<Route path='/' element={<Home />} />
+						<Route path='/' element={<Login />} />
+						<Route path='/home' element={<Home />} />
 						<Route path='/clientes/*' element={<Clientes />} />
 						<Route path='/controles' element={<Controles />} />
 						<Route path='/showext' element={<Extintor />} />
@@ -37,7 +41,6 @@ function App() {
 
 					</Routes>
 				</div>
-			</AppProvider>
 		</>
 	);
 }

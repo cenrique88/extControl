@@ -32,11 +32,14 @@ const CardClient = ({ client }) => {
     <div
       tabIndex="0"
       className={`client-card ${isOpenCard ? "open" : ""}`}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-    >
-      <img src="/src/img/m-azul.png" alt="Logo cliente" />
-      <p>{client.nombre_cliente}</p>
+
+      onMouseDown={(e)=>handleMouseDown(e)}
+      onMouseUp={(e)=>handleMouseUp(e)}
+     >
+
+        <img src='/src/img/m-azul.png' />
+        <p>{client.nombre_cliente}</p>
+
 
       {isOpenCard && (
         <div className="button-container">
