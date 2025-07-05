@@ -3,16 +3,18 @@
 /* Contenedor principal del menú lateral */
 .menu-container {
   position: fixed;
-  top: 0;
+  top: 60px;
   left: 0;
-  width: 70%;
+  width: 250px;
+  max-width: 90vw;
   height: 100vh;
-  background-color: #213468; /* Azul institucional */
+  background-color: #003063; /* Azul institucional */
   transform: translateX(-100%); /* Oculto por defecto */
   transition: transform 0.3s ease-in-out;
   z-index: 999; /* Sobre todo */
   border-radius: 0 10px 10px 0;
   padding-top: 1rem;
+  box-shadow: 0 0 40px #0000.5; /* Sombra para destacar */
 }
 
 /* Menú abierto */
@@ -41,9 +43,21 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: #eee;
   text-decoration: none;
   font-size: 1rem;
+
+  padding: 0.8rem 1.2rem;        /* más área de clic y fondo */
+  border-radius: 8px;            /* bordes redondeados */
+  width: 100%;                   /* ocupar todo el ancho del menú */
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+/* Al pasar el mouse: fondo azul más claro o translúcido */
+.menu-item a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
 }
 
 /* Íconos del menú */
@@ -56,8 +70,18 @@
 .menu-user {
   font-weight: 300;
   font-size: 14px;
-  margin-top: 2rem;
-  margin-left: 0.5rem;
-  color: rgb(255, 255, 255);
-  text-decoration: none !important
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: #ddd;
+  text-decoration: none;
+  display: flex;
 }
+  .menu-logout {
+font-weight: 3000;
+  font-size: 14px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: #ddd;
+  text-decoration: none;
+  display: flex;
+  }

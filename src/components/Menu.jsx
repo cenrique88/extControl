@@ -18,7 +18,7 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
               setSelectedMenu("Home");
             }}
           >
-            <img className="menu-img" src="/src/img/home.png" alt="Home" />
+            <img className="menu-img" src="/src/img/home 3D.png" alt="Home" />
             <span>Home</span>
           </Link>
         </li>
@@ -34,7 +34,7 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
           >
             <img
               className="menu-img"
-              src="/src/img/clientes.png"
+              src="/src/img/clientes 3D.png"
               alt="Clientes"
             />
             <span>Clientes</span>
@@ -43,30 +43,19 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
 
         <li className="menu-item">
           <Link
-            to="/controles"
-            id="controles"
+            to="/Configuración"
+            id="configuración"
             onClick={() => {
               setIsOpen(false);
-              setSelectedMenu("Controles");
+              setSelectedMenu("Configuración");
             }}
           >
             <img
               className="menu-img"
-              src="/src/img/control.png"
-              alt="Controles"
+              src="/src/img/configuraciones 3D.png"
+              alt="Configuración"
             />
-            <span>Controles</span>
-          </Link>
-        </li>
-
-        <li className="menu-item">
-          <Link>
-            <img
-              className="menu-img"
-              src="/src/img/informe2.png"
-              alt="Informes"
-            />
-            <span>Informes</span>
+            <span>Configuración</span>
           </Link>
         </li>
 
@@ -84,9 +73,15 @@ const Menu = ({ isOpen, setIsOpen, setSelectedMenu }) => {
         <li className="menu-user">
           <span>Nombre del usuario</span>
         </li>
+
+      <li className="menu-logout">
+        <Link to="/logout">
+          <span>Cerrar sesión</span>
+        </Link>
+      </li>
       </ul>
     </div>
   );
-};
+}
 
 export default Menu;

@@ -1,18 +1,18 @@
 .cliente-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding-top: 10%;
-	flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    flex-direction: column;
 }
 
+/* Tarjeta cerrada */
 .client-card {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
-    margin-top: 10%;
-    margin-bottom: -5%;
+    justify-content: flex-start;
+    margin: 0.5rem 0;
     background-color: #52a7cc;
     width: 18rem;
     height: 5rem;
@@ -20,104 +20,120 @@
     padding-left: 15px;
     color: white;
 }
+
+.client-card img {
+    height: 56px;
+    width: 58px;
+    border-radius: 50%;
+    margin-left: -5px;
+}
+
 .client-card p {
     font-size: 18px;
     margin-left: 10px;
 }
 
-.client-card img {
-    margin-left: -5px;
-    height: 56px;
-    width: 58px;
-    border-radius: 50%;
-}
 .client-card button {
     visibility: hidden;
 }
 
-
-
+/* Tarjeta expandida */
 .client-card.open {
-    position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    justify-content: start;
-    margin-top: 20rem;
-    margin-bottom: -5%;
-    background-color: #52a7cc;
-    width: 18rem;
-    height: 35rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #3d8cbd;
+    width: 100%;
+    max-width: 18rem;
+    padding: 1rem;
     border-radius: 10px;
-    padding-left: 15px;
-    color: white;    
+    color: #eee;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
+
 .client-card.open img {
-    margin-left: -5px;
     margin-top: 12px;
-    height: 56px;
-    width: 58px;
-    border-radius: 50%;
 }
+
 .client-card.open p {
     font-size: 18px;
     margin-left: 10px;
     margin-top: 26.5px;
 }
+
 .client-card.open button {
-    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #eee;
     border-radius: 50%;
     background-color: transparent;
-    top: 37rem;
-    padding: 30px;
-    visibility: visible;
-    position: fixed;
-    background-size: 35px 35px !important;
+    background-size: 60% 60%;
     background-repeat: no-repeat;
-    background-position: center;  
-}
-.button1 {
-    left: 13%;
-    background-image:url("/src/img/control.png");
+    background-position: center;
+    visibility: visible;
+    padding: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+/* Efecto hover */
+.client-card.open button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto clic */
+.client-card.open button:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Iconos de acción */
+.button1 {
+    background-image: url("/src/img/control.png");
+}
 .button2 {
-    left: 32%;
-    background-image:url("/src/img/extintor.png");
+    background-image: url("/src/img/extintor.png");
 }
 .button3 {
-    left: 51%;
-    background-image:url("/src/img/informe2.png");
+    background-image: url("/src/img/informe2.png");
 }
 .button4 {
-    left: 70%;
-    background-image:url("/src/img/incidencia.png");
+    background-image: url("/src/img/incidencia.png");
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
 
-
-
-
-
+/* Formulario */
 .form-cliente {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
 }
 
 .form-cliente input {
-	width: 15rem;
-	margin-top: 3%;
+    width: 15rem;
+    margin-top: 3%;
 }
 
 .form-cliente button {
-	margin-top: 15%;
-	width: 6rem;
-	height: 2rem;
-	border-radius: 10%;
-	border: none;
-	background-color: #0a0078;
-	color: white;
-	font-size: 14px;
+    margin-top: 15%;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 10%;
+    border: none;
+    background-color: #3d8cbd;
+    color: #eee;
+    font-size: 14px;
 }
+
