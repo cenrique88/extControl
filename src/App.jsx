@@ -5,7 +5,6 @@ import './components/styles/responsive.css';
 
 // Dependencias de las páginas
 import Home from "./components/Home";
-import Login from './components/Login';
 import Clientes from "./components/Clientes";
 import Controles from "./components/Controles";
 import Extintor from "./components/Extintor";
@@ -27,12 +26,11 @@ function App() {
 
 	return (
 		<>
-				{showNavbar && <NavBar />}
+				 <NavBar />
 			
 				<div className='container'>
 					<Routes>					
-						<Route path='/' element={<Login />} />
-						<Route path='/home' element={<Home />} />
+						<Route path='/' element={<Home />} />
 						<Route path='/clientes/*' element={<Clientes />} />
 						<Route path='/controles' element={<Controles />} />
 						<Route path='/showext' element={<Extintor />} />

@@ -31,7 +31,7 @@ const Login = () => {
 
     const onButtonLogin = () => {
         handleLogin(user.inputValue, pass.inputValue);
-        navigate('/home');
+        navigate('/');
         setShowNavbar(true);
 
     }
