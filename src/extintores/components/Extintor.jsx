@@ -1,12 +1,12 @@
-import "./styles/Extintores.css";
+import "../styles/Extintores.css";
+
 import {useState, useEffect, useContext} from 'react';
 import FormExtintor from "./FormExtintor";
-import ModalExt from "./ModalExt";
-import useDataBase from "./hooks/useDataBase";
+import useDataBase from "../../hooks/useDataBase";
 import ExtintorCard from "./ExtintorCard";
-import Notify from "./Notify";
-import AppContext from "./AppContext";
-import useDate from "./hooks/useDate";
+import Notify from "../../app/components/Notify";
+import AppContext from "../../app/components/AppContext";
+import useDate from "../../hooks/useDate";
 
 
 
@@ -36,7 +36,7 @@ const Extintor = () => {
   }
 
   useEffect(() => {
-     getAllExtintor();
+      getAllExtintor();
     }, [])
 
   const getAllExtintor = async () => {
@@ -61,10 +61,10 @@ const Extintor = () => {
 	}
 
   const saveExtintor = async (data_ext) => {
-         const ext = await writeDB("extintores", data_ext);
-         getAllExtintor();
-         setMsgNotify("Extintor guardado");
-         setShowNotify(true);
+        const ext = await writeDB("extintores", data_ext);
+        getAllExtintor();
+        setMsgNotify("Extintor guardado");
+        setShowNotify(true);
     }
 
     const deleteExtintor = async (id) => {
@@ -129,10 +129,10 @@ const Extintor = () => {
                                                               />))
           }
         </div>
-       <div className="footer-select">
-        aqui se implementara la seleccion de extintores por letras
+          <div className="footer-select">
+          aqui se implementara la seleccion de extintores por letras
 
-       </div>
+        </div>
 
 
     </div>

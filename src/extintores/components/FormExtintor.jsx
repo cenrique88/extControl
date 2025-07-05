@@ -1,10 +1,10 @@
 
 import {useState, useContext, useEffect} from "react";
-import "./styles/Extintores.css"
+import "../styles/Extintores.css"
 
-import AppContext from "./AppContext";
-import useForm from "./hooks/useForm";
-import Notify from "./Notify";
+import AppContext from "../../app/components/AppContext";
+import useForm from "../../hooks/useForm";
+import Notify from "../../app/components/Notify";
 
 
 
@@ -36,7 +36,7 @@ const FormExtintor = ({getDB, saveExtintor}) => {
 
 
     useEffect(() => {
-     getClientes();
+        getClientes();
     }, [])
 
     const getClientes = async () => {
@@ -122,7 +122,7 @@ const FormExtintor = ({getDB, saveExtintor}) => {
 
         
     </div>
-  )
+    )
 }
 
 export default FormExtintor

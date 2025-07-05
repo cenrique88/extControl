@@ -1,12 +1,14 @@
 import {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import {useLocation} from "react-router"
-import "./styles/Clientes.css"
-import useDataBase from "./hooks/useDataBase";
-import useForm from "./hooks/useForm";
-import Notify from "./Notify";
 
-import {AppContext} from "./AppContext.jsx";
+import "../styles/Clientes.css"
+
+import useDataBase from "../../hooks/useDataBase";
+import useForm from "../../hooks/useForm";
+import Notify from "../../app/components/Notify.jsx";
+
+import {AppContext} from "../../app/components/AppContext.jsx";
 
 
 

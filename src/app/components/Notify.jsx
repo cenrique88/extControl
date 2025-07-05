@@ -1,7 +1,7 @@
 
 
 import {useEffect} from 'react';
-import "./styles/notify.css";
+import "../styles/notify.css";
 
 
 const Notify = ({msg, open, close}) => {

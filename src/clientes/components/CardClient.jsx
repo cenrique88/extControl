@@ -1,6 +1,9 @@
 
-import "./styles/Clientes.css";
+import "../styles/Clientes.css";
+
 import { useState, useRef } from 'react';
+
+
 
 const CardClient = ({ client }) => {
   const [isOpenCard, setIsOpenCard] = useState(false);

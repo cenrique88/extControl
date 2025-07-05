@@ -1,6 +1,7 @@
 
 import Menu from "./Menu";
-import "./styles/NavBar.css"; 
+import "../styles/NavBar.css"; 
+
 import {AppContext} from "./AppContext";
 import {useContext, useState} from "react";
 

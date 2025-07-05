@@ -1,20 +1,22 @@
-import "./styles/Components.css";
+import "../styles/Clientes.css";
 
-import "./styles/Clientes.css"
 import {useState, useEffect, useContext} from 'react';
 
-import Modal from "./Modal";
 import FormCliente from "./FormCliente";
 import CardClient from "./CardClient";
-import useDataBase from "./hooks/useDataBase";
+import useDataBase from "../../hooks/useDataBase";
 import AddNewClient from "./AddNewClient";
 
+import {useNavigate} from "react-router-dom";
+import {useLocation} from "react-router"
+
 import { Link } from "react-router-dom";
-import {AppContext} from "./AppContext";
+import {AppContext} from "../../app/components/AppContext";
 
 
 const Clientes = () => {
 
+  const navigate = useNavigate();
 
   const {setSelectedPage} = useContext(AppContext);
   const {getDB, deleteDB}= useDataBase()
@@ -43,23 +45,8 @@ const Clientes = () => {
     handleData();
   }, [showAddCliente]);
 
-  const openModalAddClient = (prop) => {
-    const btn = document.getElementById('add-button');
-    if (btn) {
-      btn.style.visibility = prop ? "hidden" : "visible";
-    }
-    setShowAddCliente(prop);
-  };
-
   return (
     <div className="container cliente-container">
-      {/* Modal para agregar cliente */}
-      <Modal
-        isOpen={showAddCliente}
-        onClose={() => openModalAddClient(false)}
-        content={<FormCliente />}
-      />
-
 
       {/* Input de búsqueda */}
       <div className="search-wrapper">
@@ -82,7 +69,7 @@ const Clientes = () => {
       <button
         id="add-button"
         className="add-button"
-        onClick={() => openModalAddClient(true)}
+        onClick={() => navigate("/clientes/add-client")}
       >
         +
       </button>

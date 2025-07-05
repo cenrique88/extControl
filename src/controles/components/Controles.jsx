@@ -1,9 +1,9 @@
-import "./styles/Controles.css";
-import "./styles/ModalQr.css"
+import "../styles/Controles.css";
+
 import {useState} from 'react';
 import QrScan from "./QrScan";
 import QrScan1 from "./QrScan1";
-import ModalQr from "./ModalQr";
+
 
 
 
@@ -21,14 +21,14 @@ const Controles = () => {
 
     const openModalQr = (prop)=> {
     if(prop){
-      document.getElementById('add-button-qr').style.visibility = "hidden";
+        document.getElementById('add-button-qr').style.visibility = "hidden";
     }
     else{
-      document.getElementById('add-button-qr').style.visibility = "visible";
+        document.getElementById('add-button-qr').style.visibility = "visible";
     }
 
     setShowQr(prop);
-  }
+    }
 
 
 
