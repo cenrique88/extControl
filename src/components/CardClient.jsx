@@ -68,8 +68,6 @@ const CardClient = ({client}) => {
       className={`client-card ${isOpenCard ? "open" : ""}`}
       onMouseDown={(e)=>handleMouseDown(e)}
       onMouseUp={(e)=>handleMouseUp(e)}
-      onTouchStart={(e)=>handleMouseDown(e)}
-      onTouchEnd={(e)=>handleMouseUp(e)}
      >
 
         <img src='/src/img/m-azul.png' />

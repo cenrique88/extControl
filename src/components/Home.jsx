@@ -28,13 +28,11 @@ const Home = () => {
             0
           </li >
           <li className="list-end">
-            Vencidosssss
+            Vencidos
             <br />
             0
           </li>
         </ul>
-
-        <Login />
       </div>
     </div>
   );
