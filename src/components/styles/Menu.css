@@ -36,6 +36,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
+
 }
 
 /* Enlaces del menú */
@@ -46,6 +47,7 @@
   color: #eee;
   text-decoration: none;
   font-size: 1rem;
+
 
   padding: 0.8rem 1.2rem;        /* más área de clic y fondo */
   border-radius: 8px;            /* bordes redondeados */
@@ -58,6 +60,7 @@
 .menu-item a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
+
 }
 
 /* Íconos del menú */

@@ -1,16 +1,26 @@
 import "./styles/Components.css";
-import "./styles/Clientes.css";
-import { useState, useEffect } from 'react';
+
+import "./styles/Clientes.css"
+import {useState, useEffect, useContext} from 'react';
+
 import Modal from "./Modal";
 import FormCliente from "./FormCliente";
 import CardClient from "./CardClient";
 import useDataBase from "./hooks/useDataBase";
+import AddNewClient from "./AddNewClient";
 
-const Clientes = () => {
-  const { getDB, deleteDB } = useDataBase();
+import { Link } from "react-router-dom";
+import {AppContext} from "./AppContext";
+
+
+
+  const {setSelectedPage} = useContext(AppContext);
+  const {getDB, deleteDB}= useDataBase()
+
 
   const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
+
 
   const handleData = async () => {
     const data = await getDB("clientes");
@@ -47,6 +57,7 @@ const Clientes = () => {
         onClose={() => openModalAddClient(false)}
         content={<FormCliente />}
       />
+
 
       {/* Input de búsqueda */}
       <div className="search-wrapper">

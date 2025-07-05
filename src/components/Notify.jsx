@@ -8,7 +8,7 @@ const Notify = ({msg, open, close}) => {
     
 
     useEffect(() => {
-      setInterval(close, 3000);
+        setInterval(close, 3000);
     }, [])
     
     if (open != true) return null;

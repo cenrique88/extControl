@@ -43,6 +43,6 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
+
 .home-card ul li:last-child {
   border-bottom: none;
-}
