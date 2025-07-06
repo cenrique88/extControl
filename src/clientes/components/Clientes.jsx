@@ -13,6 +13,7 @@ import { AppContext } from "../../app/components/AppContext";
 
 const Clientes = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { setSelectedPage } = useContext(AppContext);
   const { getDB, deleteDB } = useDataBase();
 
@@ -29,6 +30,7 @@ const Clientes = () => {
     }
   };
 
+
   const handleDelete = (client) => {
     const alerta = confirm("Esta eliminando a un cliente, ¿desea continuar?");
     if (alerta) {
@@ -44,6 +46,7 @@ const Clientes = () => {
 
   useEffect(() => {
     handleData();
+    setSelectedPage(location.pathname == '/clientes' ? 'Clientes' : '/' );  
   }, [showAddCliente]);
 
   return (
