@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: 6rem;
     flex-direction: column;
 }
 
@@ -18,17 +18,17 @@
     height: 5rem;
     border-radius: 10px;
     padding-left: 15px;
-    color: white;
+    color: #fff;
 }
 
-.client-card img {
+.client-card.closed img {
     height: 56px;
     width: 58px;
     border-radius: 50%;
     margin-left: -5px;
 }
 
-.client-card p {
+.client-card.closed p {
     font-size: 18px;
     margin-left: 10px;
 }
@@ -49,7 +49,7 @@
     border-radius: 10px;
     color: #eee;
     height: 18rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 3px #72728f;
     position: relative;
 }
 
@@ -91,10 +91,10 @@
     background-image: url("/src/img/extintor.png");
 }
 .button3 {
-    background-image: url("/src/img/informe2.png");
+    background-image: url("/src/img/incidencias_3D.png");
 }
 .button4 {
-    background-image: url("/src/img/incidencia.png");
+    background-image: url("/src/img/informe2.png");
 }
 
 .button-container {
@@ -151,7 +151,7 @@
 /* Nombre del cliente (hasta 16 caracteres con ellipsis) */
 .client-info p {
     font-size: 18px;
-    color: white;
+    color: #fff;
     flex: 1; /* se adapta al ancho disponible */
     white-space: nowrap;
     overflow: hidden;
@@ -162,7 +162,7 @@
 /* Datos secundarios (dirección y teléfono) */
 .client-data {
     font-size: 14px;
-    color: white;
+    color: #fff;
     max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -170,10 +170,15 @@
 }
 
 .search-wrapper {
+    position: fixed;
+    top: 70px; /* o ajustá este valor según la altura de tu header */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
     width: 100%;
     max-width: 18rem;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 }
 
 .input-search {
@@ -183,3 +188,90 @@
     border: none;
     font-size: 16px;
 }
+
+.card-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.card-checkbox-derecha {
+    position: absolute;
+    right: -28px;
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #52a7cc;
+    background-color: white;
+    appearance: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card-checkbox-derecha:checked {
+    background-color: #52a7cc;
+    content: "✔";
+}
+
+.card-checkbox-derecha:checked::before {
+    content: "✔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Botón flotante centrado abajo */
+.btn-eliminar-multiple {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #003366; /* azul oscuro */
+    color: white;
+    padding: 0.7rem 1.5rem;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    white-space: nowrap;         /* Fuerza una sola línea */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.btn-eliminar-multiple:hover {
+    background-color: #c9302c;
+    transform: translateX(-50%) scale(1.05);
+}
+
+.btn-eliminar-multiple:active {
+    background-color: #ac2925;
+    transform: translateX(-50%) scale(0.98);
+}
+
+/* Espacio invisible que evita que se tapen las cards */
+.espacio-para-boton {
+    height: 100px;
+}
+
+@media (max-width: 400px) {
+    .btn-eliminar-multiple {
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    }
+}
+
+
