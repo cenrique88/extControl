@@ -38,7 +38,7 @@ const CardClient = ({ client }) => {
 
       onMouseDown={(e)=>handleMouseDown(e)}
       onMouseUp={(e)=>handleMouseUp(e)}
-     >
+    >
 
         <img src='/src/img/m-azul.png' />
         <p>{client.nombre_cliente}</p>
