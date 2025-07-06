@@ -1,7 +1,6 @@
 import "../styles/Clientes.css";
 import { useState, useEffect, useContext } from 'react';
 
-import FormCliente from "./FormCliente";
 import CardClient from "./CardClient";
 import useDataBase from "../../hooks/useDataBase";
 import AddNewClient from "./AddNewClient";
