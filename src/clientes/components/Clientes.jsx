@@ -1,31 +1,26 @@
 import "../styles/Clientes.css";
-
-import {useState, useEffect, useContext} from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import FormCliente from "./FormCliente";
 import CardClient from "./CardClient";
 import useDataBase from "../../hooks/useDataBase";
 import AddNewClient from "./AddNewClient";
 
-import {useNavigate} from "react-router-dom";
-import {useLocation} from "react-router"
-
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import {AppContext} from "../../app/components/AppContext";
-
-
+import { AppContext } from "../../app/components/AppContext";
 
 const Clientes = () => {
-
   const navigate = useNavigate();
-
-  const {setSelectedPage} = useContext(AppContext);
-  const {getDB, deleteDB}= useDataBase()
-
+  const { setSelectedPage } = useContext(AppContext);
+  const { getDB, deleteDB } = useDataBase();
 
   const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
 
+  //  Nuevo estado: cuál cliente está abierto
+  const [openClientId, setOpenClientId] = useState(null);
 
   const handleData = async () => {
     const data = await getDB("clientes");
@@ -40,6 +35,11 @@ const Clientes = () => {
       deleteDB('clientes', client);
     }
     console.log("Cliente eliminado", client);
+  };
+
+  //  Actualiza el cliente que está abierto
+  const handleToggle = (clientId) => {
+    setOpenClientId(prevId => (prevId === clientId ? null : clientId));
   };
 
   useEffect(() => {
@@ -63,6 +63,9 @@ const Clientes = () => {
         <CardClient
           key={client._id}
           client={client}
+          isOpen={openClientId === client._id}
+          onToggle={() => handleToggle(client._id)}
+          onClose={() => setOpenClientId(null)}
         />
       ))}
 
@@ -79,3 +82,4 @@ const Clientes = () => {
 };
 
 export default Clientes;
+

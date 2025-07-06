@@ -12,14 +12,14 @@
   transform: translateX(-100%); /* Oculto por defecto */
   transition: transform 0.3s ease-in-out;
   z-index: 999; /* Sobre todo */
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 2px 0 0;
   padding-top: 1rem;
-  box-shadow: 0 0 40px #0000.5; /* Sombra para destacar */
-}
+  }
 
 /* Menú abierto */
 .menu-container.open {
   transform: translateX(0);
+  box-shadow: 0 20px 20px 5px #72728f; /* Sombra para destacar */
 }
 
 /* Lista de ítems */
@@ -51,7 +51,7 @@
 
   padding: 0.8rem 1.2rem;        /* más área de clic y fondo */
   border-radius: 8px;            /* bordes redondeados */
-  width: 100%;                   /* ocupar todo el ancho del menú */
+  width: 220px;                   /* ocupar todo el ancho del menú */
   box-sizing: border-box;
   transition: background-color 0.2s ease;
 }
