@@ -2,8 +2,6 @@
 
 import { createContext, useState } from "react";
 
-
-
 export const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
@@ -13,25 +11,36 @@ export const AppProvider = ({children}) => {
     const [showNavbar, setShowNavbar] = useState(false);
     const [login, setLogin] = useState(false);
 
+    // NUEVOS: Modo eliminación y selección múltiple
+    const [modoEliminar, setModoEliminar] = useState(false);
+    const [clientesSeleccionados, setClientesSeleccionados] = useState([]);
+
     return (
         <AppContext.Provider value={{ 
-                                        selectedPage, 
-                                        setSelectedPage, 
-                                        navigate, 
-                                        setNavigate,
-                                        user,
-                                        setUser,
-                                        showNavbar,
-                                        setShowNavbar,
-                                        login,
-                                        setLogin
-                                        }} >
+            selectedPage, 
+            setSelectedPage, 
+            navigate, 
+            setNavigate,
+            user,
+            setUser,
+            showNavbar,
+            setShowNavbar,
+            login,
+            setLogin,
+
+            // NUEVOS estados globales
+            modoEliminar,
+            setModoEliminar,
+            clientesSeleccionados,
+            setClientesSeleccionados
+        }}>
             {children}
         </AppContext.Provider>
-    )
-}
+    );
+};
 
 export default AppContext;
+
 
 
 
