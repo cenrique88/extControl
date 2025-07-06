@@ -3,8 +3,11 @@ import "../styles/NavBar.css";
 
 import { AppContext } from "./AppContext";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+
+  const navigate = useNavigate();
   const { selectedPage, modoEliminar, setModoEliminar } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,7 +33,11 @@ function NavBar() {
 
         {selectedPage === "Clientes" && (
           <div className="navbar-actions">
-            <button className="navbar-icon" title="Agregar nuevo cliente">
+            <button 
+              className="navbar-icon" 
+              title="Agregar nuevo cliente"
+              onClick={() => navigate('/clientes/add-client')}
+              >
               <img src="/src/img/add.png" alt="Agregar" className="navbar-icon-img" />
             </button>
             <button className="navbar-icon" title="Editar cliente">
