@@ -1,14 +1,25 @@
 
 import "../styles/Clientes.css";
 
-import { useState, useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
-
-
-const CardClient = ({ client }) => {
-  const [isOpenCard, setIsOpenCard] = useState(false);
+const CardClient = ({ client, isOpen, onToggle, onClose }) => {
+  const cardRef = useRef(null);
   const [isPressed, setIsPressed] = useState(false);
   const timeRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && cardRef.current && !cardRef.current.contains(event.target)) {
+        onClose(); // ⬅️ Cierra si tocás fuera
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, onClose]);
 
   const handleMouseDown = (e) => {
     timeRef.current = setTimeout(() => {
@@ -21,11 +32,7 @@ const CardClient = ({ client }) => {
     clearTimeout(timeRef.current);
 
     if (!isPressed && e.target.localName !== "button") {
-      setIsOpenCard(!isOpenCard);
-      const addBtn = document.getElementById('add-button');
-      if (addBtn) {
-        addBtn.style.visibility = isOpenCard ? "visible" : "hidden";
-      }
+      onToggle(); // Alternar apertura
     }
 
     setIsPressed(false);
@@ -33,18 +40,23 @@ const CardClient = ({ client }) => {
 
   return (
     <div
+      ref={cardRef}
       tabIndex="0"
-      className={`client-card ${isOpenCard ? "open" : ""}`}
-
-      onMouseDown={(e)=>handleMouseDown(e)}
-      onMouseUp={(e)=>handleMouseUp(e)}
+      className={`client-card ${isOpen ? "open" : ""}`}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
     >
-
-        <img src='/src/img/m-azul.png' />
+      <div className="client-info">
+        <img src='/src/img/m-azul.png' alt="Logo cliente" />
         <p>{client.nombre_cliente}</p>
+      </div>
 
+      <div className="client-data">
+        <p>{client.direccion_cliente}</p>
+        <p>{client.telefono_cliente}</p>
+      </div>
 
-      {isOpenCard && (
+      {isOpen && (
         <div className="button-container">
           <button className="button1" title="Controles"></button>
           <button className="button2" title="Extintores"></button>
@@ -57,5 +69,3 @@ const CardClient = ({ client }) => {
 };
 
 export default CardClient;
-
-
