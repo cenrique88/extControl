@@ -2,7 +2,7 @@ import {useState, useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import {useLocation} from "react-router"
 
-import "../styles/Clientes.css"
+import "../styles/AddNewClient.css"
 
 import useDataBase from "../../hooks/useDataBase";
 import useForm from "../../hooks/useForm";
