@@ -39,11 +39,13 @@ const AddNewClient = () => {
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
-      nombre_juridico: nombre_juridico.inputValue,
       nombre_cliente: nombre_cliente.inputValue,
+      nombre_juridico: nombre_juridico.inputValue,      
       direccion: direccion.inputValue,
       email: email.emailValue,
-      telefonos,
+      telefono: telefonos[0] || 0,
+      telefono1: telefonos[1] || 0,
+      telefono2: telefonos[2] || 0,
     };
 
     writeDB("clientes/add-client", data);
@@ -99,7 +101,7 @@ const AddNewClient = () => {
         {telefonos.map((tel, idx) => (
           <input
             key={idx}
-            type="text"
+            type="number"
             placeholder={`Teléfono ${idx + 1}`}
             value={tel}
             onChange={(e) => updateTelefono(idx, e.target.value)}
