@@ -1,0 +1,117 @@
+/* Contenedor general de la página */
+.add-client-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #fff;
+    min-height: 100vh;
+    padding-top: 4rem;
+}
+
+/* Tarjeta del formulario */
+.add-client-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 0.5rem auto;
+    background-color: #52a7cc;
+    width: 22rem;
+    min-height: 32rem;
+    border-radius: 10px;
+    padding: 2rem;
+    color: #fff;
+    gap: 1.2rem;
+    box-shadow: 0 0 20px 3px #72728f;
+}
+
+.add-client-card input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    padding: 0.3rem 0;
+}
+
+.add-client-card input::placeholder {
+    color: #e0f0f6;
+}
+
+.add-phone-btn {
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #52a7cc;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 0.1rem;
+}
+
+.add-phone-btn:hover {
+    background-color: #e6e6e6;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.form-buttons button {
+    width: 48%;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-buttons .cancelar {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.form-buttons .cancelar:hover {
+    background-color: #c9302c;
+}
+
+.form-buttons .aceptar {
+    background-color: #fff;
+    color: #52a7cc;
+}
+
+.form-buttons .aceptar:hover {
+    background-color: #e6e6e6;
+}
+
+@media (max-width: 400px) {
+.add-client-card {
+    width: 90%;
+    padding: 1.2rem;
+    min-height: auto;
+    gap: 1rem;
+    }
+
+.add-client-card input {
+    font-size: 15px;
+    }
+
+.add-phone-btn {
+    font-size: 13px;
+    padding: 5px 10px;
+    }
+
+.form-buttons button {
+    font-size: 14px;
+    padding: 7px 0;
+    }
+}
+
