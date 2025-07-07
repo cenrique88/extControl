@@ -10,12 +10,17 @@ import Controles from "./controles/components/Controles.jsx";
 import Extintor from "./extintores/components/Extintor";
 import NavBar from "./app/components/NavBar.jsx";
 import AddNewClient from "./clientes/components/AddNewClient";
+import Inspecciones from './controles/components/Inspecciones';
+import Incidencias from './incidencias/components/Incidencias';
+import Informes from './informes/components/Informes';
 
 
 import {AppContext} from "./app/components/AppContext.jsx";
 import {useContext} from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
 
 function App() {
 
@@ -33,9 +38,13 @@ function App() {
 						<Route path='/' element={<Home />} />
 						<Route path='/clientes/*' element={<Clientes />} />
 						<Route path='/controles' element={<Controles />} />
-						<Route path='/showext' element={<Extintor />} />
+						<Route path='/inspecciones' element={<Inspecciones />} />
+						<Route path='/extintores' element={<Extintor />} />
+						<Route path='/incidencias' element={<Incidencias />} />
+						<Route path='/informes' element={<Informes />} />
 
 						<Route path="/clientes/add-client" element={<AddNewClient />} />
+						
 
 					</Routes>
 				</div>

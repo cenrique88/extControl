@@ -2,7 +2,19 @@
 import "../styles/Clientes.css";
 import { useRef, useState, useEffect } from 'react';
 
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
+
+
+
 const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccionado, onSeleccionar }) => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
+
+
   const cardRef = useRef(null);
   const [isPressed, setIsPressed] = useState(false);
   const timeRef = useRef(null);
@@ -65,10 +77,31 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
       {isOpen && (
         <div className="button-container">
-          <button className="button1" title="Iniciar Inspección"></button>
-          <button className="button2" title="Extintores"></button>
-          <button className="button3" title="Incidencias"></button>
-          <button className="button4" title="Informes"></button>
+
+          <button 
+            className="button1" 
+            title="Iniciar Inspección"
+            onClick={() => navigate('/inspecciones')}
+            ></button>
+
+          <button 
+            className="button2" 
+            title="Extintores"
+            onClick={() => navigate('/extintores')}
+            ></button>
+
+          <button 
+            className="button3" 
+            title="Incidencias"
+            onClick={() => navigate('/incidencias')}
+            ></button>
+
+          <button 
+            className="button4" 
+            title="Informes"
+            onClick={() => navigate('/informes')}
+            ></button>
+
         </div>
       )}
     </div>
