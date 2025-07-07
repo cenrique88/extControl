@@ -2,11 +2,9 @@
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-
 	color-scheme: light dark;
 	color: rgb(4, 0, 61);
 	background-color: #cdcdcd;
-
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -20,18 +18,18 @@ a:hover {
 	text-decoration: none;
 }
 
-body {
+/* Layout base SIN SCROLL */
+body, #root {
 	margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-width: 320px;
-	min-height: 600px;
-
-	height: 100vh; /* 100% del alto visible del viewport */
-	width: 100vw; /* 100% del ancho visible del viewport */
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 }
+
+
 /* button {
 	border-radius: 8px;
 	border: 1px solid transparent;

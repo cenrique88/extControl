@@ -15,7 +15,10 @@
 }
 
 /* Estilos generales */
-body {
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Esto evita el scroll general */
   font-family: var(--font);
   background-color: #ffffff;
   color: #04003d;
@@ -65,4 +68,3 @@ ul {
     font-size: 15px;
   }
 }
-
