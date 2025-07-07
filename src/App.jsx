@@ -13,9 +13,7 @@ import AddNewClient from "./clientes/components/AddNewClient";
 import Inspecciones from './controles/components/Inspecciones';
 import Incidencias from './incidencias/components/Incidencias';
 import Informes from './informes/components/Informes';
-import Inspecciones from './controles/components/Inspecciones';
-import Incidencias from './incidencias/components/Incidencias';
-import Informes from './informes/components/Informes';
+
 
 
 import {AppContext} from "./app/components/AppContext.jsx";
@@ -45,6 +43,7 @@ function App() {
 						<Route path='/extintores' element={<Extintor />} />
 						<Route path='/incidencias' element={<Incidencias />} />
 						<Route path='/informes' element={<Informes />} />
+
 						<Route path="/clientes/add-client" element={<AddNewClient />} />
 						
 
