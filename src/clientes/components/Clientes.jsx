@@ -5,6 +5,8 @@ import CardClient from "./CardClient";
 import useDataBase from "../../hooks/useDataBase";
 import AddNewClient from "./AddNewClient";
 
+import useNavbarAction from "../../hooks/useNavbarAction";
+
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 import { AppContext } from "../../app/components/AppContext";
@@ -12,15 +14,19 @@ import { AppContext } from "../../app/components/AppContext";
 const Clientes = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const {
-    setSelectedPage,
-    modoEliminar,
-    setModoEliminar,
-    clientesSeleccionados,
-    setClientesSeleccionados
-  } = useContext(AppContext);
 
-  const { getDB, deleteDB } = useDataBase();
+  const { handleDeleteSelected, toggleElementSelected } = useNavbarAction(); 
+
+  const {
+          setSelectedPage,
+          modoEliminar,
+          setModoEliminar,
+          elementSeleccionados,
+          setElementSeleccionados,
+    } = useContext(AppContext);
+
+
+  const { getDB } = useDataBase();
 
   const [getClients, setGetClients] = useState([]);
   const [showAddCliente, setShowAddCliente] = useState(false);
@@ -37,30 +43,19 @@ const Clientes = () => {
     setOpenClientId(prevId => (prevId === clientId ? null : clientId));
   };
 
-  const toggleClienteSeleccionado = (id) => {
-    setClientesSeleccionados((prev) =>
-      prev.includes(id)
-        ? prev.filter((c) => c !== id)
-        : [...prev, id]
-    );
-  };
 
-  const handleEliminarSeleccionados = async () => {
-    const confirmar = confirm("¿Desea eliminar los clientes seleccionados?");
-    if (confirmar) {
-      for (const id of clientesSeleccionados) {
-        await deleteDB("clientes", id);
-      }
-      setClientesSeleccionados([]);
-      setModoEliminar(false);
-      handleData();
-    }
-  };
+  const handleDeleteClient = () => {
+    handleDeleteSelected(elementSeleccionados, "¿Desea eliminar los clientes seleccionados?");
+    handleData();
+  }
+
 
   useEffect(() => {
     handleData();
     setSelectedPage(location.pathname === '/clientes' ? 'Clientes' : '/');
-  }, [showAddCliente]);
+  }, [showAddCliente, handleData]);
+
+
 
   return (
     <div className="cliente-page">
@@ -73,6 +68,7 @@ const Clientes = () => {
       <div className="scroll-zone">
         {getClients && getClients.map((client) => (
           <div className="card-wrapper" key={client._id}>
+
             <CardClient
               client={client}
               isOpen={openClientId === client._id}
@@ -84,19 +80,20 @@ const Clientes = () => {
               <input
                 type="checkbox"
                 className="card-checkbox-derecha"
-                checked={clientesSeleccionados.includes(client._id)}
-                onChange={() => toggleClienteSeleccionado(client._id)}
+                checked={elementSeleccionados.includes(client.nombre_cliente)}
+                onChange={() => toggleElementSelected(client.nombre_cliente)}
               />
             )}
+
           </div>
         ))}
       </div>
 
       {/* Botón fijo (fuera de la zona scrollable) */}
-      {modoEliminar && clientesSeleccionados.length > 0 && (
+      {modoEliminar && elementSeleccionados.length > 0 && (
         <button
           className="btn-eliminar-multiple"
-          onClick={handleEliminarSeleccionados}
+          onClick={handleDeleteClient}
         >
           Eliminar seleccionados
         </button>
