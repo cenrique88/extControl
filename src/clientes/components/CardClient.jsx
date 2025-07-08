@@ -1,9 +1,11 @@
 
 import "../styles/Clientes.css";
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
+
+import { AppContext } from "../../app/components/AppContext";
 
 
 
@@ -11,6 +13,12 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const {
+            setOnEdit,
+            onEdit
+      } = useContext(AppContext);
+  
 
 
 
@@ -21,8 +29,10 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isOpen && cardRef.current && !cardRef.current.contains(event.target)) {
-        onClose(); // Cierra si tocás fuera
+      if (isOpen && cardRef.current && !cardRef.current.contains(event.target) && event.target.alt != 'Editar' ) {
+        onClose();
+        setOnEdit(false);
+         // Cierra si tocás fuera
       }
     };
 
@@ -35,8 +45,8 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
   const handleMouseDown = (e) => {
     timeRef.current = setTimeout(() => {
       setIsPressed(true);
-      console.log("presionado largo");
     }, 1000);
+    setOnEdit(true);    
   };
 
   const handleMouseUp = (e) => {

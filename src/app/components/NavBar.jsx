@@ -8,7 +8,9 @@ import { useNavigate } from "react-router-dom";
 function NavBar() {
 
   const navigate = useNavigate();
-  const { selectedPage, modoEliminar, setModoEliminar } = useContext(AppContext);
+
+  const { selectedPage, modoEliminar, setModoEliminar, onEdit } = useContext(AppContext);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const onSelectMenu = () => {
@@ -40,10 +42,15 @@ function NavBar() {
               >
               <img src="/src/img/add.png" alt="Agregar" className="navbar-icon-img" />
             </button>
-            <button className="navbar-icon" title="Editar cliente">
+            {
+              onEdit 
+              && 
+              <button className="navbar-icon" title="Editar cliente">
               <img src="/src/img/edit.png" alt="Editar" className="navbar-icon-img" />
-            </button>
+              </button>
+            }
             <button
+              id='edit-button'
               className="navbar-icon"
               title={modoEliminar ? "Cancelar eliminación" : "Eliminar cliente"}
               onClick={() => setModoEliminar(!modoEliminar)}

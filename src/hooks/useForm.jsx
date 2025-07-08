@@ -5,16 +5,21 @@ function useForm() {
   const [emailValue, setEmailValue] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [textArea, setTextArea] = useState('');
-  const [imageValue, setImageValue] = useState('');
+  const [UpperInputValue, setUpperInputValue] = useState('');
 
   //console.log(inputValue);
 
 
   // Maneja el cambio de valor del input y actualiza el estado
+
   const handleChangeInput = (event) => {
     event.preventDefault();
     setInputValue(event.target.value);
     //.toUpperCase()
+  };
+  const handleChangeUpperInput = (event) => {
+    event.preventDefault();
+    setUpperInputValue(event.target.value.toUpperCase());
   };
 
   //Lleva el valor del input a un string vacio
@@ -55,12 +60,6 @@ function useForm() {
     setTextArea("");
   }
 
-  //Manejo de imagenes del formulario
-  const handleChangeImage = (event) => {
-    event.preventDefault();
-    setInputValue(event.target.files[0]);
-  };
-
   // Codigo para desahbilitar la opcion cartel de la lista desplegable para usar como placeholder
   const placeholderForSelect = (id,)=>{
     const select = document.getElementById(id);
@@ -75,16 +74,17 @@ function useForm() {
     handleChangeEmail,
     emailValue,
     textArea,
-    imageValue,
     handleChangeInput,
     handleChangeSelect,
     handleChangeTextArea,
-    handleChangeImage,
     clearInput,
     clearSelect,
     clearTextArea,
     clearEmail,
     placeholderForSelect,
+
+    UpperInputValue, 
+    handleChangeUpperInput
   };
 }
 
