@@ -39,10 +39,7 @@ const EditClient = () => {
 
 
   const handleTelefonos = () => {
-<<<<<<< HEAD
-    console.log(targetForEdit)
-=======
->>>>>>> 4d5ca64 (implementacion de edit cliente)
+
     for (let clave in targetForEdit){
       if(clave.includes('tel') && targetForEdit[clave] != 0){
         telefonos.push(targetForEdit[clave])
@@ -74,6 +71,7 @@ const EditClient = () => {
   const onCloseNotify = () => setShowNotify(false);
 
   const saveData = async () => {
+
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -85,13 +83,15 @@ const EditClient = () => {
       telefono1: telefonos[1] || 0,
       telefono2: telefonos[2] || 0,
     };
-<<<<<<< HEAD
+
     await editDB("clientes/edit-client",targetForEdit._id, data);
-=======
+
 
     writeDB("clientes/add-client", data);
     editDB("clientes/edit-client")
->>>>>>> 4d5ca64 (implementacion de edit cliente)
+
+
+    writeDB("clientes/add-client", data);
     setShowNotify(true);
 
     // Limpiar
@@ -109,7 +109,6 @@ const EditClient = () => {
     navigate("/clientes");
     setSelectedPage("Clientes");
   };
-
 
   return (
     <div className="add-client-page">
