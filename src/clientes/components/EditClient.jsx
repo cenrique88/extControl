@@ -39,32 +39,6 @@ const EditClient = () => {
 
 
   const handleTelefonos = () => {
-    console.log(targetForEdit)
-    for (let clave in targetForEdit){
-      if(clave.includes('tel') && targetForEdit[clave] != 0){
-        telefonos.push(targetForEdit[clave])
-      }
-    }
-  }
-  const [telefonos, setTelefonos] = useState([""]);
-  const [showNotify, setShowNotify] = useState(false);
-
-
-  useEffect(() => {
-
-    if(targetForEdit){
-      handleTelefonos();
-      nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
-      nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
-      direccion.handleChangeInput(targetForEdit.direccion);
-      email.handleChangeEmail(targetForEdit.email);
-    } else {
-      navigate('/clientes', { replace: true })
-    }
-  }, [])
-
-
-  const handleTelefonos = () => {
     for (let clave in targetForEdit){
       if(clave.includes('tel') && targetForEdit[clave] != 0){
         telefonos.push(targetForEdit[clave])
@@ -95,7 +69,7 @@ const EditClient = () => {
 
   const onCloseNotify = () => setShowNotify(false);
 
-  const saveData = () => {
+  const saveData = async () => {
 
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
@@ -110,7 +84,6 @@ const EditClient = () => {
     };
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
-
 
     setShowNotify(true);
 
@@ -130,9 +103,6 @@ const EditClient = () => {
     setSelectedPage("Clientes");
   };
 
-
-
-  
   return (
     <div className="add-client-page">
       <div className="add-client-card">
