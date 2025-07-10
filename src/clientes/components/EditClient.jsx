@@ -39,32 +39,6 @@ const EditClient = () => {
 
 
   const handleTelefonos = () => {
-    console.log(targetForEdit)
-    for (let clave in targetForEdit){
-      if(clave.includes('tel') && targetForEdit[clave] != 0){
-        telefonos.push(targetForEdit[clave])
-      }
-    }
-  }
-  const [telefonos, setTelefonos] = useState([""]);
-  const [showNotify, setShowNotify] = useState(false);
-
-
-  useEffect(() => {
-
-    if(targetForEdit){
-      handleTelefonos();
-      nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
-      nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
-      direccion.handleChangeInput(targetForEdit.direccion);
-      email.handleChangeEmail(targetForEdit.email);
-    } else {
-      navigate('/clientes', { replace: true })
-    }
-  }, [])
-
-
-  const handleTelefonos = () => {
     for (let clave in targetForEdit){
       if(clave.includes('tel') && targetForEdit[clave] != 0){
         telefonos.push(targetForEdit[clave])
@@ -95,19 +69,7 @@ const EditClient = () => {
 
   const onCloseNotify = () => setShowNotify(false);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   const saveData = async () => {
-<<<<<<< HEAD
-
-=======
->>>>>>> 54a9ac1 (create edit db)
-=======
-  const saveData = () => {
->>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
-=======
-  const saveData = () => {
->>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -119,33 +81,10 @@ const EditClient = () => {
       telefono1: telefonos[1] || 0,
       telefono2: telefonos[2] || 0,
     };
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
 
-
-    writeDB("clientes/add-client", data);
-    editDB("clientes/edit-client")
-<<<<<<< HEAD
-
-
-    writeDB("clientes/add-client", data);
-    editDB("clientes/edit-client", )
-=======
-    await editDB("clientes/edit-client",targetForEdit._id, data);
->>>>>>> 54a9ac1 (create edit db)
-=======
-
-    writeDB("clientes/add-client", data);
->>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
-=======
->>>>>>> 4d5ca64 (implementacion de edit cliente)
-=======
-
-    writeDB("clientes/add-client", data);
->>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
     setShowNotify(true);
 
     // Limpiar
@@ -164,17 +103,6 @@ const EditClient = () => {
     setSelectedPage("Clientes");
   };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
-=======
-
->>>>>>> 4d5ca64 (implementacion de edit cliente)
-=======
->>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
   return (
     <div className="add-client-page">
       <div className="add-client-card">
