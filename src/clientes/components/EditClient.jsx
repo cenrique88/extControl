@@ -92,6 +92,7 @@ const EditClient = () => {
 
 
     writeDB("clientes/add-client", data);
+    editDB("clientes/edit-client")
     setShowNotify(true);
 
     // Limpiar
@@ -109,6 +110,7 @@ const EditClient = () => {
     navigate("/clientes");
     setSelectedPage("Clientes");
   };
+
 
   return (
     <div className="add-client-page">
