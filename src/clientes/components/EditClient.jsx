@@ -123,6 +123,7 @@ const EditClient = () => {
 
     writeDB("clientes/add-client", data);
     editDB("clientes/edit-client")
+<<<<<<< HEAD
 
 
     writeDB("clientes/add-client", data);
@@ -134,6 +135,8 @@ const EditClient = () => {
 
     writeDB("clientes/add-client", data);
 >>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
+=======
+>>>>>>> 4d5ca64 (implementacion de edit cliente)
     setShowNotify(true);
 
     // Limpiar
@@ -153,9 +156,13 @@ const EditClient = () => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
+=======
+
+>>>>>>> 4d5ca64 (implementacion de edit cliente)
   return (
     <div className="add-client-page">
       <div className="add-client-card">
