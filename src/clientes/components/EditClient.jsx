@@ -13,7 +13,11 @@ const EditClient = () => {
   const { setSelectedPage, targetForEdit } = useContext(AppContext);
 
   const navigate = useNavigate();
+<<<<<<< HEAD
   const { writeDB, editDB } = useDataBase();
+=======
+  const { writeDB } = useDataBase();
+>>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
 
   const nombre_juridico = useEdit();
   const direccion = useEdit();
@@ -45,6 +49,22 @@ const EditClient = () => {
       }
     }
   }
+  const [telefonos, setTelefonos] = useState([""]);
+  const [showNotify, setShowNotify] = useState(false);
+
+
+  console.log(targetForEdit)
+
+  useEffect(() => {
+    nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
+    nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
+    direccion.handleChangeInput(targetForEdit.direccion);
+    email.handleChangeEmail(targetForEdit.email);
+  }, [])
+
+
+
+
 
 
 
@@ -83,7 +103,10 @@ const EditClient = () => {
     };
 
     writeDB("clientes/add-client", data);
+<<<<<<< HEAD
     editDB("clientes/edit-client")
+=======
+>>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
     setShowNotify(true);
 
     // Limpiar
@@ -102,7 +125,10 @@ const EditClient = () => {
     setSelectedPage("Clientes");
   };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
   return (
     <div className="add-client-page">
       <div className="add-client-card">
