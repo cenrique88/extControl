@@ -96,6 +96,7 @@ const EditClient = () => {
   const onCloseNotify = () => setShowNotify(false);
 
   const saveData = () => {
+
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -110,6 +111,10 @@ const EditClient = () => {
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
 
+
+    setShowNotify(true);
+
+    // Limpiar
     nombre_juridico.clearInput();
     direccion.clearInput();
     nombre_cliente.clearInput();
@@ -127,6 +132,7 @@ const EditClient = () => {
 
 
 
+  
   return (
     <div className="add-client-page">
       <div className="add-client-card">
