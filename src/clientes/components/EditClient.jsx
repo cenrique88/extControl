@@ -101,7 +101,6 @@ const EditClient = () => {
     setSelectedPage("Clientes");
   };
 
-
   return (
     <div className="add-client-page">
       <div className="add-client-card">
