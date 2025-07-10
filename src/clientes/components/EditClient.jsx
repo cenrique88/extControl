@@ -110,8 +110,6 @@ const EditClient = () => {
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
 
-
-    // Limpiar
     nombre_juridico.clearInput();
     direccion.clearInput();
     nombre_cliente.clearInput();
@@ -126,6 +124,8 @@ const EditClient = () => {
     navigate("/clientes");
     setSelectedPage("Clientes");
   };
+
+
 
   return (
     <div className="add-client-page">
