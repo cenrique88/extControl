@@ -70,7 +70,7 @@ const EditClient = () => {
 
   const onCloseNotify = () => setShowNotify(false);
 
-  const saveData = () => {
+  const saveData = async () => {
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -82,9 +82,7 @@ const EditClient = () => {
       telefono1: telefonos[1] || 0,
       telefono2: telefonos[2] || 0,
     };
-
-    writeDB("clientes/add-client", data);
-    editDB("clientes/edit-client", )
+    await editDB("clientes/edit-client",targetForEdit._id, data);
     setShowNotify(true);
 
     // Limpiar
