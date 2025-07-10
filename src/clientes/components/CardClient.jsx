@@ -15,8 +15,8 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
   const location = useLocation();
 
   const {
-            setOnEdit,
-            onEdit
+            setViewEditButton,
+            setTargetForEdit
       } = useContext(AppContext);
   
 
@@ -31,33 +31,44 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
     const handleClickOutside = (event) => {
       if (isOpen && cardRef.current && !cardRef.current.contains(event.target) && event.target.alt != 'Editar' ) {
         onClose();
-        setOnEdit(false);
+        setViewEditButton(false);
          // Cierra si tocás fuera
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, onClose]);
 
+
+
   const handleMouseDown = (e) => {
     timeRef.current = setTimeout(() => {
       setIsPressed(true);
     }, 1000);
-    setOnEdit(true);    
+    setViewEditButton(true);    
   };
+
 
   const handleMouseUp = (e) => {
     clearTimeout(timeRef.current);
 
     if (!isPressed && e.target.localName !== "button") {
       onToggle(); // Alternar apertura
+      if(isOpen){
+        setViewEditButton(false);
+      }
     }
-
     setIsPressed(false);
   };
+
+
+
+
+
+
+
 
   return (
     <div
@@ -66,6 +77,7 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
       className={`client-card ${isOpen ? "open" : ""}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onClick={()=>setTargetForEdit(client)}
     >
       <div className="client-info">
         {modoEliminar && !isOpen && (

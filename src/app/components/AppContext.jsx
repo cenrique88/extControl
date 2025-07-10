@@ -16,7 +16,8 @@ export const AppProvider = ({children}) => {
     const [modoEliminar, setModoEliminar] = useState(false);
     const [elementSeleccionados, setElementSeleccionados] = useState([]);
 
-    const [onEdit, setOnEdit] = useState(false);
+    const [viewEditButton, setViewEditButton] = useState(false);
+    const [targetForEdit, setTargetForEdit] = useState();
 
     return (
         <AppContext.Provider value={{ 
@@ -36,8 +37,10 @@ export const AppProvider = ({children}) => {
             elementSeleccionados,
             setElementSeleccionados,
 
-            onEdit,
-            setOnEdit
+            viewEditButton,
+            setViewEditButton,
+            targetForEdit,
+            setTargetForEdit
         }}>
             {children}
         </AppContext.Provider>
