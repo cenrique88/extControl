@@ -13,28 +13,24 @@ const EditClient = () => {
   const { setSelectedPage, targetForEdit } = useContext(AppContext);
 
   const navigate = useNavigate();
-  const { writeDB, editDB } = useDataBase();
+  const { writeDB } = useDataBase();
 
   const nombre_juridico = useEdit();
   const direccion = useEdit();
   const nombre_cliente = useEdit();
   const email = useEdit();
 
-  const [telefonos, setTelefonos] = useState([]);
+  const [telefonos, setTelefonos] = useState([""]);
   const [showNotify, setShowNotify] = useState(false);
 
 
-  useEffect(() => {
+  console.log(targetForEdit)
 
-    if(targetForEdit){
-      handleTelefonos();
-      nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
-      nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
-      direccion.handleChangeInput(targetForEdit.direccion);
-      email.handleChangeEmail(targetForEdit.email);
-    } else {
-      navigate('/clientes', { replace: true })
-    }
+  useEffect(() => {
+    nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
+    nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
+    direccion.handleChangeInput(targetForEdit.direccion);
+    email.handleChangeEmail(targetForEdit.email);
   }, [])
 
 
@@ -109,7 +105,6 @@ const EditClient = () => {
     };
 
     writeDB("clientes/add-client", data);
-    editDB("clientes/edit-client")
     setShowNotify(true);
 
     // Limpiar
@@ -127,7 +122,6 @@ const EditClient = () => {
     navigate("/clientes");
     setSelectedPage("Clientes");
   };
-
 
   return (
     <div className="add-client-page">
