@@ -19,6 +19,7 @@ const Clientes = () => {
 
   const {
           setSelectedPage,
+          selectedPage,
           modoEliminar,
           setModoEliminar,
           elementSeleccionados,
@@ -52,8 +53,9 @@ const Clientes = () => {
 
   useEffect(() => {
     handleData();
-    setSelectedPage(location.pathname === '/clientes' ? 'Clientes' : '/');
-  }, [showAddCliente, handleData]);
+    
+    (selectedPage === 'Clientes' && location.pathname == '/clientes') ? '' : setSelectedPage('Clientes');
+  }, [showAddCliente]);
 
 
 
