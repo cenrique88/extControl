@@ -13,11 +13,8 @@ const EditClient = () => {
   const { setSelectedPage, targetForEdit } = useContext(AppContext);
 
   const navigate = useNavigate();
-<<<<<<< HEAD
+
   const { writeDB, editDB } = useDataBase();
-=======
-  const { writeDB } = useDataBase();
->>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
 
   const nombre_juridico = useEdit();
   const direccion = useEdit();
@@ -53,18 +50,27 @@ const EditClient = () => {
   const [showNotify, setShowNotify] = useState(false);
 
 
-  console.log(targetForEdit)
-
   useEffect(() => {
-    nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
-    nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
-    direccion.handleChangeInput(targetForEdit.direccion);
-    email.handleChangeEmail(targetForEdit.email);
+
+    if(targetForEdit){
+      handleTelefonos();
+      nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
+      nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
+      direccion.handleChangeInput(targetForEdit.direccion);
+      email.handleChangeEmail(targetForEdit.email);
+    } else {
+      navigate('/clientes', { replace: true })
+    }
   }, [])
 
 
-
-
+  const handleTelefonos = () => {
+    for (let clave in targetForEdit){
+      if(clave.includes('tel') && targetForEdit[clave] != 0){
+        telefonos.push(targetForEdit[clave])
+      }
+    }
+  }
 
 
 
@@ -103,10 +109,8 @@ const EditClient = () => {
     };
 
     writeDB("clientes/add-client", data);
-<<<<<<< HEAD
+
     editDB("clientes/edit-client")
-=======
->>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
     setShowNotify(true);
 
     // Limpiar
@@ -125,10 +129,8 @@ const EditClient = () => {
     setSelectedPage("Clientes");
   };
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
+
   return (
     <div className="add-client-page">
       <div className="add-client-card">
