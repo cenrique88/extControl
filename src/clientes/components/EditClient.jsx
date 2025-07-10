@@ -96,7 +96,7 @@ const EditClient = () => {
 
   const onCloseNotify = () => setShowNotify(false);
 
-  const saveData = () => {
+  const saveData = async () => {
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
