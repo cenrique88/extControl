@@ -109,7 +109,7 @@ const EditClient = () => {
     };
 
     writeDB("clientes/add-client", data);
-    editDB("clientes/edit-client")
+    editDB("clientes/edit-client", )
     setShowNotify(true);
 
     // Limpiar
