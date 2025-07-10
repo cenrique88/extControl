@@ -96,6 +96,7 @@ const EditClient = () => {
   const onCloseNotify = () => setShowNotify(false);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const saveData = async () => {
 <<<<<<< HEAD
 
@@ -104,6 +105,9 @@ const EditClient = () => {
 =======
   const saveData = () => {
 >>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
+=======
+  const saveData = () => {
+>>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -115,6 +119,7 @@ const EditClient = () => {
       telefono1: telefonos[1] || 0,
       telefono2: telefonos[2] || 0,
     };
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -137,6 +142,10 @@ const EditClient = () => {
 >>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
 =======
 >>>>>>> 4d5ca64 (implementacion de edit cliente)
+=======
+
+    writeDB("clientes/add-client", data);
+>>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
     setShowNotify(true);
 
     // Limpiar
@@ -157,12 +166,15 @@ const EditClient = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
 =======
 
 >>>>>>> 4d5ca64 (implementacion de edit cliente)
+=======
+>>>>>>> a434f9e (implementando las opcionde la la navbar en clientes)
   return (
     <div className="add-client-page">
       <div className="add-client-card">
