@@ -13,7 +13,6 @@ const EditClient = () => {
   const { setSelectedPage, targetForEdit } = useContext(AppContext);
 
   const navigate = useNavigate();
-
   const { writeDB, editDB } = useDataBase();
 
   const nombre_juridico = useEdit();
@@ -110,7 +109,6 @@ const EditClient = () => {
     };
 
     writeDB("clientes/add-client", data);
-
     editDB("clientes/edit-client")
     setShowNotify(true);
 
@@ -129,7 +127,6 @@ const EditClient = () => {
     navigate("/clientes");
     setSelectedPage("Clientes");
   };
-
 
 
   return (
