@@ -9,7 +9,7 @@ function NavBar() {
 
   const navigate = useNavigate();
 
-  const { selectedPage, modoEliminar, setModoEliminar, onEdit } = useContext(AppContext);
+  const { selectedPage, modoEliminar, setModoEliminar, viewEditButton, targetForEdit } = useContext(AppContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +33,7 @@ function NavBar() {
           <span className="nav-title">{selectedPage}</span>
         </div>
 
-        {selectedPage === "Clientes" && (
+        {selectedPage !== 'Home' && (
           <div className="navbar-actions">
             <button 
               className="navbar-icon" 
@@ -43,9 +43,13 @@ function NavBar() {
               <img src="/src/img/add.png" alt="Agregar" className="navbar-icon-img" />
             </button>
             {
-              onEdit 
+              viewEditButton 
               && 
-              <button className="navbar-icon" title="Editar cliente">
+              <button 
+                className="navbar-icon" 
+                title="Editar cliente"
+                onClick={() => navigate('/clientes/edit-client')}
+                >
               <img src="/src/img/edit.png" alt="Editar" className="navbar-icon-img" />
               </button>
             }

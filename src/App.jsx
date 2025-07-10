@@ -13,12 +13,14 @@ import AddNewClient from "./clientes/components/AddNewClient";
 import Inspecciones from './controles/components/Inspecciones';
 import Incidencias from './incidencias/components/Incidencias';
 import Informes from './informes/components/Informes';
+import EditClient from './clientes/components/EditClient';
 
 
 import {AppContext} from "./app/components/AppContext.jsx";
 import {useContext} from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 
 
@@ -44,7 +46,7 @@ function App() {
 						<Route path='/informes' element={<Informes />} />
 
 						<Route path="/clientes/add-client" element={<AddNewClient />} />
-						
+						<Route path="/clientes/edit-client" element={<EditClient />} />
 
 					</Routes>
 				</div>
