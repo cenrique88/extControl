@@ -95,11 +95,15 @@ const EditClient = () => {
 
   const onCloseNotify = () => setShowNotify(false);
 
+<<<<<<< HEAD
   const saveData = async () => {
 <<<<<<< HEAD
 
 =======
 >>>>>>> 54a9ac1 (create edit db)
+=======
+  const saveData = () => {
+>>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -111,6 +115,7 @@ const EditClient = () => {
       telefono1: telefonos[1] || 0,
       telefono2: telefonos[2] || 0,
     };
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
@@ -125,6 +130,10 @@ const EditClient = () => {
 =======
     await editDB("clientes/edit-client",targetForEdit._id, data);
 >>>>>>> 54a9ac1 (create edit db)
+=======
+
+    writeDB("clientes/add-client", data);
+>>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
     setShowNotify(true);
 
     // Limpiar
@@ -143,7 +152,10 @@ const EditClient = () => {
     setSelectedPage("Clientes");
   };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> af1b434 (implementando las opcionde la la navbar en clientes)
   return (
     <div className="add-client-page">
       <div className="add-client-card">
