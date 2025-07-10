@@ -39,7 +39,7 @@ const EditClient = () => {
 
 
   const handleTelefonos = () => {
-
+    console.log(targetForEdit)
     for (let clave in targetForEdit){
       if(clave.includes('tel') && targetForEdit[clave] != 0){
         telefonos.push(targetForEdit[clave])
@@ -92,7 +92,7 @@ const EditClient = () => {
 
 
     writeDB("clientes/add-client", data);
-    editDB("clientes/edit-client")
+    editDB("clientes/edit-client", )
     setShowNotify(true);
 
     // Limpiar
