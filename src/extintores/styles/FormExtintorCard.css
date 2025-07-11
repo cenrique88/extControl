@@ -1,0 +1,119 @@
+.form-extintor-card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(33, 52, 104, 0.2);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 1rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #04003d;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid #213468;
+}
+
+.card-header h3 {
+    text-align: center;
+    color: #213468;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-group label {
+    font-weight: bold;
+    color: #213468;
+    margin-bottom: 0.3rem;
+}
+
+.field-group input[type="text"],
+.field-group input[type="number"],
+.field-group input[type="date"],
+.field-group select,
+.field-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.field-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.card-footer button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.card-footer .cancelar {
+    background-color: #ccc;
+    color: #213468;
+}
+
+.card-footer .cancelar:hover {
+    background-color: #bbb;
+}
+
+.card-footer .aceptar {
+    background-color: #52a7cc;
+    color: white;
+}
+
+.card-footer .aceptar:hover {
+    background-color: #4293b5;
+}
+
+/* Colores para estado de vencimiento */
+.card-vencido {
+    border: 2px solid red;
+    background-color: #ffe5e5 !important;
+}
+
+.card-proximo {
+    border: 2px solid #ffc107;
+    background-color: #fff7d1 !important;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+
+.form-extintor-card {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.card-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+    .card-footer button {
+    width: 100%;
+    }
+}
