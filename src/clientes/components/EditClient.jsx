@@ -76,11 +76,6 @@ const EditClient = () => {
 
 
 
-
-
-
-
-
   const addTelefono = () => {
     if (telefonos.length < 3) {
       setTelefonos([...telefonos, ""]);
@@ -113,7 +108,6 @@ const EditClient = () => {
     editDB("clientes/edit-client")
     setShowNotify(true);
 
-    // Limpiar
     nombre_juridico.clearInput();
     direccion.clearInput();
     nombre_cliente.clearInput();
