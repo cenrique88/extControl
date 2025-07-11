@@ -6,7 +6,6 @@ import useDataBase from "../../hooks/useDataBase.js";
 import useEdit from "../../hooks/useEdit.js";
 import Notify from "../../app/components/Notify.jsx";
 
-import "../styles/AddNewClient.css";
 
 const EditClient = () => {
 
@@ -46,31 +45,6 @@ const EditClient = () => {
       }
     }
   }
-  const [telefonos, setTelefonos] = useState([""]);
-  const [showNotify, setShowNotify] = useState(false);
-
-
-  useEffect(() => {
-
-    if(targetForEdit){
-      handleTelefonos();
-      nombre_juridico.handleChangeInput(targetForEdit.nombre_juridico);
-      nombre_cliente.handleChangeInput(targetForEdit.nombre_cliente);
-      direccion.handleChangeInput(targetForEdit.direccion);
-      email.handleChangeEmail(targetForEdit.email);
-    } else {
-      navigate('/clientes', { replace: true })
-    }
-  }, [])
-
-
-  const handleTelefonos = () => {
-    for (let clave in targetForEdit){
-      if(clave.includes('tel') && targetForEdit[clave] != 0){
-        telefonos.push(targetForEdit[clave])
-      }
-    }
-  }
 
 
 
@@ -96,6 +70,7 @@ const EditClient = () => {
   const onCloseNotify = () => setShowNotify(false);
 
   const saveData = async () => {
+
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
 
     const data = {
@@ -108,9 +83,8 @@ const EditClient = () => {
       telefono2: telefonos[2] || 0,
     };
 
-    writeDB("clientes/add-client", data);
+    await editDB("clientes/edit-client",targetForEdit._id, data);
 
-    editDB("clientes/edit-client")
     setShowNotify(true);
 
     // Limpiar
@@ -128,7 +102,6 @@ const EditClient = () => {
     navigate("/clientes");
     setSelectedPage("Clientes");
   };
-
 
   return (
     <div className="add-client-page">
