@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "../styles/Extintores.css";
+import "../styles/ExtintorCard.css";
 
 const ExtintorCard = ({ extintor, editExtintor, deleteExtintor, handleF_Vencimiento }) => {
   const [openExt, setOpenExt] = useState("ext-card");
