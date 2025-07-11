@@ -1,4 +1,4 @@
-import "../styles/Extintores.css";
+
 
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router-dom";

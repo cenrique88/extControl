@@ -6,7 +6,6 @@ import useDataBase from "../../hooks/useDataBase.js";
 import useEdit from "../../hooks/useEdit.js";
 import Notify from "../../app/components/Notify.jsx";
 
-import "../styles/AddNewClient.css";
 
 const EditClient = () => {
 
