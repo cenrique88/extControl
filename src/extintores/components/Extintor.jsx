@@ -38,11 +38,12 @@ const Extintor = () => {
     getAllExtintor();
   }, []);
 
+
   const getAllExtintor = async () => {
     const data = await getDB("extintores");
     if (data) {
-      const temp = data.filter((extintor) => extintor.cliente === selectedClient);
-      setDataExtintor(temp);
+      setDataExtintor(data);
+      console.log(data)
     }
   };
 
