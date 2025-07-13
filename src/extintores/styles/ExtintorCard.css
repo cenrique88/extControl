@@ -1,6 +1,6 @@
 /* Tarjeta base */
 .ext-card, .ext-card-open {
-	background-color: white;
+	background-color: #edf3f5;
 	border-radius: 1rem;
 	box-shadow: 0 0 8px rgba(33, 52, 104, 0.15);
 	border: 2px solid #213468;

@@ -6,8 +6,8 @@ nav {
   right: 0;
   width: 100%; /* ocupa el ancho del contenedor */
   height: 60px; /* altura más consistente */
-  background-color: #003063;
-  color: #eee;
+  background-color: #30636d;
+  color: #edf3f5;
 
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@ nav {
 .nav-title {
   font-size: 18px;
   font-weight: bold;
-  color: #eee;
+  color: #edf3f5;
 }
 
 /* Media query opcional para pantallas muy chicas */
@@ -57,9 +57,9 @@ nav {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 2px solid #eee;
+  border: 2px solid #edf3f5;
   background-color: transparent;
-  color: #eee;
+  color: #edf3f5;
   font-size: 18px;
   display: flex;
   align-items: center;

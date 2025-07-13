@@ -2,11 +2,11 @@
 input,
 select,
 textarea {
-  background-color: #52a7cc;
+  background-color: #003063; /* Azul oscuro */
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  color: #eee;
+  color: #edf3f5;
   font-weight: bold;
 }
 

@@ -1,6 +1,5 @@
-
-
-import { useState, useEffect, useContext } from 'react';
+import "../styles/Extintor.css";
+import { useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 
@@ -19,10 +18,13 @@ const Extintor = () => {
   const [getDataExtintor, setDataExtintor] = useState([]);
   const [showNotify, setShowNotify] = useState(false);
   const [msgNotify, setMsgNotify] = useState("");
-  const { setSelectedPage, selectedClient } = useContext(AppContext);
+  const [filtroNombre, setFiltroNombre] = useState("");
 
+  const { setSelectedPage, selectedClient } = useContext(AppContext);
   const fv = useDate();
   const { writeDB, getDB, deleteDB } = useDataBase();
+
+  const itemRefs = useRef([]); // 🔹 Para guardar las refs de cada tarjeta
 
   const openModalAddExtintor = (prop) => {
     document.getElementById('add-button-ext').style.visibility = prop ? "hidden" : "visible";
@@ -38,12 +40,10 @@ const Extintor = () => {
     getAllExtintor();
   }, []);
 
-
   const getAllExtintor = async () => {
     const data = await getDB("extintores");
     if (data) {
       setDataExtintor(data);
-      console.log(data)
     }
   };
 
@@ -56,7 +56,7 @@ const Extintor = () => {
   };
 
   const deleteExtintor = async (id) => {
-    const alerta = confirm("Esta eliminando un extintor, ¿desea continuar?");
+    const alerta = confirm("Está eliminando un extintor, ¿desea continuar?");
     if (alerta) {
       const response = await deleteDB("extintores", id);
       if (response) {
@@ -79,33 +79,81 @@ const Extintor = () => {
     return `${(fv.getMonth() + 1).toString().padStart(2, '0')}/${fv.getFullYear()}`;
   };
 
+  const extintoresFiltrados = getDataExtintor.filter(ext =>
+    ext.nombre_cliente?.toLowerCase().includes(filtroNombre.toLowerCase())
+  );
+
+  // 🔹 Efecto visual durante el scroll
+  useEffect(() => {
+    const scrollContainer = document.querySelector(".scroll-list__wrp");
+
+    const handleScroll = () => {
+      itemRefs.current.forEach((el) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const containerHeight = scrollContainer.clientHeight;
+
+        const visible = rect.top >= 0 && rect.bottom <= containerHeight + rect.height;
+
+        el.style.opacity = visible ? "1" : "0.5";
+        el.style.transform = visible ? "scale(1)" : "scale(0.95)";
+      });
+    };
+
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+      handleScroll(); // Ejecutar al cargar
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [getDataExtintor]);
+
   return (
-    <div>
-      <Notify msg={msgNotify} open={showNotify} close={onCloseNotify} />
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="¡Implementación de la búsqueda por filtro próximamente!"
-      />
-
-      {showAddExt && (
-        <FormExtintor getDB={getDB} saveExtintor={saveExtintor} />
-      )}
-
-      <div className="scroll-container">
-        {getDataExtintor.map((ext) => (
-          <ExtintorCard
-            key={ext._id}
-            extintor={ext}
-            deleteExtintor={deleteExtintor}
-            editExtintor={editExtintor}
-            handleF_Vencimiento={handleF_Vencimiento}
+    <div className="extintor-container">
+      <div className="contenido-extintores">
+        {/* Buscador */}
+        <div className="buscador-container">
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Buscar por nombre..."
+            value={filtroNombre}
+            onChange={(e) => setFiltroNombre(e.target.value)}
           />
-        ))}
-      </div>
+        </div>
 
-      <div className="footer-select">
-        Aquí se implementará la selección de extintores por letras
+        {/* Formulario agregar */}
+        {showAddExt && (
+          <FormExtintor getDB={getDB} saveExtintor={saveExtintor} />
+        )}
+
+        {/* Scroll de tarjetas con animación */}
+        <div className="scroll-list__wrp">
+          {extintoresFiltrados.map((ext, index) => (
+            <div
+              key={ext._id}
+              ref={(el) => (itemRefs.current[index] = el)}
+              className="scroll-item"
+            >
+              <ExtintorCard
+                extintor={ext}
+                deleteExtintor={deleteExtintor}
+                editExtintor={editExtintor}
+                handleF_Vencimiento={handleF_Vencimiento}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Notificación y pie */}
+        <Notify msg={msgNotify} open={showNotify} close={onCloseNotify} />
+        <div className="footer-select">
+          Aquí se implementará la selección de extintores por letras
+        </div>
       </div>
     </div>
   );
