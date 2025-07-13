@@ -1,110 +1,147 @@
-/* Tarjeta base */
-.ext-card, .ext-card-open {
-	background-color: #edf3f5;
-	border-radius: 1rem;
-	box-shadow: 0 0 8px rgba(33, 52, 104, 0.15);
-	border: 2px solid #213468;
-	margin: 1rem auto;
-	padding: 1rem;
-	max-width: 500px;
-	position: relative;
-	font-family: 'Segoe UI', sans-serif;
-	transition: all 0.3s ease;
-}
-
-/* Logo extintor */
-.logo-ext-card {
-	width: 48px;
-	position: absolute;
-	top: 1rem;
-	left: 1rem;
-	cursor: pointer;
-}
-
-/* Título principal (ID) */
-.ext-id {
-	text-align: center;
-	font-size: 1.4rem;
-	color: #213468;
-	margin-bottom: 1rem;
-	cursor: pointer;
-}
-
-/* Iconos de editar y eliminar */
-.button-img-ext {
-	width: 26px;
-	height: 26px;
-	cursor: pointer;
-	margin: 0 0.5rem;
-}
-
-#edit-ext-img, #del-ext-img {
-	position: absolute;
-	top: 1rem;
-}
-
-#edit-ext-img {
-	right: 3.2rem;
-}
-
-#del-ext-img {
-	right: 1rem;
-}
-
-/* Contenido desplegable */
-.ext-card-is-open {
-	margin-top: 1rem;
-	border-top: 1px solid #ccc;
-	padding-top: 0.8rem;
+/* Contenedor principal (puede usarse en la vista general) */
+.extintor-container {
 	display: flex;
 	flex-direction: column;
-	gap: 0.3rem;
-	font-size: 0.95rem;
-	color: #04003d;
+	align-items: center;
+	justify-content: flex-start;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
 }
 
-.ext-card-is-open p strong {
-	color: #213468;
+/* Tarjeta cerrada */
+.extintor-card {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 0.5rem 0;
+	background-color: #30636d;
+	width: 18rem;
+	height: 5rem;
+	border-radius: 10px;
+	padding-left: 15px;
+	color: #edf3f5;
 }
 
-/* Estados dinámicos */
-.ext-card.vencido {
-	background-color: #ffe5e5;
-	border-color: red;
+.extintor-card.open img {
+	margin-top: 1px;
 }
 
-.ext-card.proximo {
-	background-color: #fff8d0;
-	border-color: #ffc107;
-}
-
-.ext-card.vigente {
-	background-color: white;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-
-.ext-card, .ext-card-open {
-	padding: 0.8rem;
-	margin: 1rem;
-}
-
-.ext-id {
-	font-size: 1.2rem;
-}
-
-.ext-card-is-open {
-	font-size: 0.9rem;
-}
-
-.button-img-ext {
-	width: 22px;
-	height: 22px;
-}
-
-.logo-ext-card {
+.extintor-card.closed img {
+	height: 40px;
 	width: 40px;
+	border-radius: 50%;
+	margin-left: -5px;
 }
 
+.extintor-card.closed p {
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.extintor-card button {
+	visibility: hidden;
+}
+
+/* Tarjeta expandida */
+.extintor-card.open {
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	background-color: #30636d;
+	width: 18rem;
+	max-width: 100%;
+	padding: 1rem;
+	border-radius: 10px;
+	color: #edf3f5;
+	height: auto;
+	box-shadow: 0 0 20px 3px #72728f;
+	position: relative;
+}
+
+/* Encabezado con imagen y ID */
+.extintor-info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	gap: 10px;
+	padding-top: 0.2rem;
+}
+
+.extintor-info img {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+}
+
+.extintor-info p {
+	font-size: 18px;
+	color: #edf3f5;
+	flex: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
+/* Cliente + Ubicación */
+.extintor-data {
+	font-size: 14px;
+	color: #edf3f5;
+	max-width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-top: 0.3rem;
+}
+
+/* Detalles expandidos */
+.ext-info-expandida {
+	margin-top: 0.8rem;
+	font-size: 14px;
+	line-height: 1.4;
+	color: #edf3f5;
+}
+
+/* Checkbox para modo eliminación */
+.card-checkbox-derecha {
+	position: absolute;
+	right: -28px;
+	top: 50%;
+	transform: translateY(-50%) scale(1);
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid #30636d;
+	background-color: #edf3f5;
+	appearance: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.2s ease;
+	font-size: 12px;
+	font-weight: bold;
+	color: #edf3f5;
+}
+
+.card-checkbox-derecha:checked {
+	background-color: #30636d;
+	content: "✔";
+}
+
+.card-checkbox-derecha:checked::before {
+	content: "✔";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #edf3f5;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1;
 }

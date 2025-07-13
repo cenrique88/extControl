@@ -1,23 +1,3 @@
-.extintor-container {
-    height: 100vh;
-    width: 100%;
-    padding: 1rem;
-    margin: 1rem;
-    background-color: transparent;
-}
-
-.contenido-extintores {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-}
-
-.contenido-extintores {
-    width: 100%;
-    max-width: 800px;
-}
-
 .scroll-container {
     width: 380px;
     height: 500px;
@@ -45,4 +25,73 @@
     opacity: 0.5;
     transform: scale(0.95);
     margin-bottom: 1rem;
+}
+
+.search-wrapper {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 100%;
+    max-width: 18rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.card-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-search {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.scroll-zone {
+    width: 100%;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 160px);
+    margin-top: 70px;
+    margin-bottom: 140px;
+    padding-bottom: 1rem;
+    position: relative; /* NECESARIO para los pseudo-elementos */
+}
+
+/* Fade arriba */
+.scroll-zone::before,
+.scroll-zone::after {
+    content: "";
+    position: absolute; /* CAMBIADO DE sticky a absolute */
+    left: 0;
+    width: 100%;
+    height: 30px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.scroll-zone::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-zone::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+@media (max-width: 400px) {
+.btn-eliminar-multiple {
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    }
 }

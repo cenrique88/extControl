@@ -9,7 +9,6 @@
     position: relative;
 }
 
-
 /* Tarjeta cerrada */
 .client-card {
     display: flex;
@@ -175,7 +174,7 @@
 
 .search-wrapper {
     position: fixed;
-    top: 70px; /* o ajustá este valor según la altura de tu header */
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
