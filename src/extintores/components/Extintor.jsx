@@ -82,11 +82,6 @@ const Extintor = () => {
   return (
     <div>
       <Notify msg={msgNotify} open={showNotify} close={onCloseNotify} />
-
-      <button id="add-button-ext" className="add-button" onClick={() => openModalAddExtintor(true)}>
-        +
-      </button>
-
       <input
         className="search-bar"
         type="text"
