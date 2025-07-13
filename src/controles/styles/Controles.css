@@ -10,8 +10,8 @@
 
 .card-control {
 	display: flex;
-	background-color: #52a7cc;
-	color: white;
+	background-color: #30636d; /* Azul oscuro */
+	color: #edf3f5;
 	font-weight: bold;
 	font-size: 18px;
 	border-radius: 10px;
@@ -25,19 +25,19 @@
 /* #52a7cc */
 
 .add-button-qr {
-    position: fixed;
-    bottom: 10%;
-    right: 10%;
+	position: fixed;
+	bottom: 10%;
+	right: 10%;
 
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    border: none;
-    background-color: #0a0078;
-    color: white;
-    font-size: 40px;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	border: none;
+	background-color: #30636d; /* Azul oscuro */
+	color: #edf3f5;
+	font-size: 40px;
 }
 
 .fliter-bar {
-margin-top: 10%;
+	margin-top: 10%;
 }
