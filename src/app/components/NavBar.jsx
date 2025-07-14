@@ -4,14 +4,20 @@ import "../styles/NavBar.css";
 import { AppContext } from "./AppContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
+
+
 
 function NavBar() {
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { selectedPage, modoEliminar, setModoEliminar, viewEditButton, targetForEdit } = useContext(AppContext);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  //console.log(location.pathname)
 
   const onSelectMenu = () => {
     setIsOpen(!isOpen);
@@ -38,7 +44,7 @@ function NavBar() {
             <button 
               className="navbar-icon" 
               title="Agregar nuevo cliente"
-              onClick={() => navigate('/clientes/add-client')}
+              onClick={() => navigate(`${location.pathname}/add`)}
               >
               <img src="/src/img/add.png" alt="Agregar" className="navbar-icon-img" />
             </button>
