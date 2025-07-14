@@ -11,11 +11,17 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 import { AppContext } from "../../app/components/AppContext";
 
+
+
+
+
 const Clientes = () => {
+
   const navigate = useNavigate();
   const location = useLocation();
 
   const { handleDeleteSelected, toggleElementSelected } = useNavbarAction(); 
+
 
   const {
           setSelectedPage,
@@ -33,12 +39,18 @@ const Clientes = () => {
   const [showAddCliente, setShowAddCliente] = useState(false);
   const [openClientId, setOpenClientId] = useState(null);
 
+  const [search, setSearch] = useState(false);
+  const [searchValues, setSearchValues] = useState([]);
+
+
+
   const handleData = async () => {
     const data = await getDB("clientes");
     if (data) {
       setGetClients(data);
     }
   };
+
 
   const handleToggle = (clientId) => {
     setOpenClientId(prevId => (prevId === clientId ? null : clientId));
@@ -52,10 +64,27 @@ const Clientes = () => {
 
 
   useEffect(() => {
-    handleData();
-    
+    handleData();    
     (selectedPage === 'Clientes' && location.pathname == '/clientes') ? '' : setSelectedPage('Clientes');
   }, [showAddCliente]);
+
+  
+    const handleSearch = (event) => {
+      if(event.target.value !== ''){
+        setSearch(true);
+        setSearchValues(
+        getClients.filter(client =>
+          client.nombre_cliente.includes(event.target.value.toUpperCase())
+        ))
+      } else {
+        setSearch(false);
+      }   
+    }
+
+
+
+
+
 
 
 
@@ -63,12 +92,25 @@ const Clientes = () => {
     <div className="cliente-page">
       {/* Barra de búsqueda fija */}
       <div className="search-wrapper">
-        <input type="text" placeholder="Buscar" className="input-search" />
+        <input
+          id="search-client"
+          type="text" 
+          placeholder="Buscar" 
+          className="input-search"
+          onChange={(event)=>handleSearch(event)}
+          />
+
       </div>
 
       {/* Zona de scroll que "recorta" las tarjetas antes de la barra y el botón */}
-      <div className="scroll-zone">
-        {getClients && getClients.map((client) => (
+      <div className="scroll-zone"> 
+
+
+        
+        {
+          search 
+          ?
+          searchValues.map((client) => (
           <div className="card-wrapper" key={client._id}>
 
             <CardClient
@@ -76,6 +118,7 @@ const Clientes = () => {
               isOpen={openClientId === client._id}
               onToggle={() => handleToggle(client._id)}
               onClose={() => setOpenClientId(null)}
+              key={client._id}
             />
 
             {modoEliminar && openClientId !== client._id && (
@@ -87,11 +130,35 @@ const Clientes = () => {
               />
             )}
 
-          </div>
-        ))}
+            </div>
+          ))
+          :
+          getClients && getClients.map((client) => (
+          <div className="card-wrapper" key={client._id}>
+
+            <CardClient
+              client={client}
+              isOpen={openClientId === client._id}
+              onToggle={() => handleToggle(client._id)}
+              onClose={() => setOpenClientId(null)}
+              key={client._id}
+            />
+
+            {modoEliminar && openClientId !== client._id && (
+              <input
+                type="checkbox"
+                className="card-checkbox-derecha"
+                checked={elementSeleccionados.includes(client.nombre_cliente)}
+                onChange={() => toggleElementSelected(client.nombre_cliente)}
+              />
+            )}
+
+            </div>
+          ))
+        }
       </div>
 
-      {/* Botón fijo (fuera de la zona scrollable) */}
+
       {modoEliminar && elementSeleccionados.length > 0 && (
         <button
           className="btn-eliminar-multiple"
