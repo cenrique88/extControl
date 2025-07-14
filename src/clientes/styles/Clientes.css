@@ -9,7 +9,6 @@
     position: relative;
 }
 
-
 /* Tarjeta cerrada */
 .client-card {
     display: flex;
@@ -17,12 +16,12 @@
     align-items: center;
     justify-content: flex-start;
     margin: 0.5rem 0;
-    background-color: #52a7cc;
+    background-color: #fefefe;
     width: 18rem;
     height: 5rem;
     border-radius: 10px;
     padding-left: 15px;
-    color: #fff;
+    color: #0e3d4b;
 }
 
 .client-card.closed img {
@@ -46,14 +45,15 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: #3d8cbd;
+    background-color: #fefefe;
     width: 18rem; /* más flexible y adaptado a pantallas pequeñas */
     max-width: 100%; /* más flexible y adaptado a pantallas pequeñas */
     padding: 1rem;
     border-radius: 10px;
-    color: #eee;
+    color: #0e3d4b;
     height: 18rem;
-    box-shadow: 0 0 20px 3px #72728f;
+    box-shadow: 10px 10px 20px #0000006e,
+    -10px -10px 20px #ffffff;
     position: relative;
 }
 
@@ -64,7 +64,7 @@
 .client-card.open button {
     width: 50px;
     height: 50px;
-    border: 2px solid #eee;
+    border: 2px solid #30636d;
     border-radius: 50%;
     background-color: transparent;
     background-size: 60% 60%;
@@ -84,7 +84,7 @@
 /* Efecto clic */
 .client-card.open button:active {
     transform: scale(0.95);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Iconos de acción */
@@ -129,8 +129,8 @@
     height: 2rem;
     border-radius: 10%;
     border: none;
-    background-color: #3d8cbd;
-    color: #eee;
+    background-color: #fefefe;
+    color: #0e3d4b;
     font-size: 14px;
 }
 
@@ -155,7 +155,7 @@
 /* Nombre del cliente (hasta 16 caracteres con ellipsis) */
 .client-info p {
     font-size: 18px;
-    color: #fff;
+    color: #0e3d4b;
     flex: 1; /* se adapta al ancho disponible */
     white-space: nowrap;
     overflow: hidden;
@@ -166,7 +166,7 @@
 /* Datos secundarios (dirección y teléfono) */
 .client-data {
     font-size: 14px;
-    color: #fff;
+    color: #0e3d4b;
     max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -175,7 +175,7 @@
 
 .search-wrapper {
     position: fixed;
-    top: 70px; /* o ajustá este valor según la altura de tu header */
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
@@ -183,7 +183,7 @@
     max-width: 18rem;
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: transparent;
 }
 
 .input-search {
@@ -208,8 +208,8 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    border: 2px solid #52a7cc;
-    background-color: white;
+    border: 2px solid #0e3d4b;
+    background-color: #fefefe;
     appearance: none;
     cursor: pointer;
     display: flex;
@@ -218,11 +218,11 @@
     transition: 0.2s ease;
     font-size: 12px;
     font-weight: bold;
-    color: #fff;
+    color: #fefefe;
 }
 
 .card-checkbox-derecha:checked {
-    background-color: #52a7cc;
+    background-color: #0e3d4b;
     content: "✔";
 }
 
@@ -232,7 +232,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: #fefefe;
     font-size: 12px;
     font-weight: bold;
     line-height: 1;
@@ -244,8 +244,8 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #003366; /* azul oscuro */
-    color: white;
+    background-color: #0e3d4b; /* azul oscuro */
+    color: #fefefe;
     padding: 0.7rem 1.5rem;
     font-size: 14px;
     font-weight: 600;
@@ -292,29 +292,6 @@
     z-index: 5;
     pointer-events: none;
 }
-
-/* Fade superior */
-.scroll-zone::before {
-    top: 0;
-    background: linear-gradient(to bottom, 
-        rgba(255,255,255,1) 0%, 
-        rgba(255,255,255,0.8) 20%, 
-        rgba(255,255,255,0.4) 50%, 
-        rgba(255,255,255,0.1) 75%, 
-        rgba(255,255,255,0) 100%);
-}
-
-/* Fade inferior */
-.scroll-zone::after {
-    bottom: 0;
-    background: linear-gradient(to top, 
-        rgba(255,255,255,1) 0%, 
-        rgba(255,255,255,0.8) 20%, 
-        rgba(255,255,255,0.4) 50%, 
-        rgba(255,255,255,0.1) 75%, 
-        rgba(255,255,255,0) 100%);
-}
-
 
 .scroll-zone::-webkit-scrollbar {
     width: 8px;

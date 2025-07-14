@@ -6,8 +6,8 @@ nav {
   right: 0;
   width: 100%; /* ocupa el ancho del contenedor */
   height: 60px; /* altura más consistente */
-  background-color: #003063;
-  color: #eee;
+  background-color: #0e3d4b;
+  color: #edf3f5;
 
   display: flex;
   align-items: center;
@@ -15,8 +15,7 @@ nav {
   box-sizing: border-box;
   z-index: 100;
   gap: 12px;
-
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra */
+  box-shadow: 0 2px 5px #0000001a; /* sombra */
 }
 
 /* Icono hamburguesa */
@@ -35,7 +34,7 @@ nav {
 .nav-title {
   font-size: 18px;
   font-weight: bold;
-  color: #eee;
+  color: #edf3f5;
 }
 
 /* Media query opcional para pantallas muy chicas */
@@ -57,9 +56,9 @@ nav {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 2px solid #eee;
+  border: 2px solid #edf3f5;
   background-color: transparent;
-  color: #eee;
+  color: #edf3f5;
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -70,7 +69,7 @@ nav {
 
 .navbar-icon:hover {
   transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #ffffff2f;
 }
 
 .navbar-left {

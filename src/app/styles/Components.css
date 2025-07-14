@@ -2,11 +2,11 @@
 input,
 select,
 textarea {
-  background-color: #52a7cc;
+  background-color: #0e3d4b; /* Azul oscuro */
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  color: #eee;
+  color: #edf3f5;
   font-weight: bold;
 }
 
@@ -37,7 +37,7 @@ textarea {
 /* Placeholder para input y textarea */
 input::placeholder,
 textarea::placeholder {
-  color: #eee;
+  color: #edf3f5;
   opacity: 0.4;
   font-weight: bold;
   font-style: italic;
@@ -52,10 +52,10 @@ textarea::placeholder {
   height: 4rem;
   border-radius: 50%;
   border: none;
-  background-color: #003063;
-  color: #eee;
+  background-color: #0e3d4b; /* Azul oscuro */
+  color: #edf3f5;
   font-size: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px #0000001a;
   transition: transform 0.2s ease;
 }
 

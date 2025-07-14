@@ -70,6 +70,9 @@ const AddNewClient = () => {
   return (
     <div className="add-client-page">
       <div className="add-client-card">
+      <div className="header-form">
+                Formulario Cliente
+            </div>
         <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
 
         <input
@@ -110,7 +113,7 @@ const AddNewClient = () => {
 
         {telefonos.length < 3 && (
           <button className="add-phone-btn" onClick={addTelefono}>
-            + Agregar teléfono
+            + Teléfono
           </button>
         )}
 

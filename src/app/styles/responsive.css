@@ -16,7 +16,7 @@
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   border-radius: 0 10px 10px 0;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 10px #0000006e;
 }
 
 /* Cuando el menú está abierto */
@@ -49,7 +49,7 @@
   padding: 0.6rem 1rem;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-  color: #eee;
+  color: #edf3f5; /* Color claro para contraste */
 }
 
 .menu-item a:hover {

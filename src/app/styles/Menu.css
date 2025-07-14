@@ -8,7 +8,7 @@
   width: 250px;
   max-width: 90vw;
   height: 100vh;
-  background-color: #003063; /* Azul institucional */
+  background-color: #0e3d4b; /* Azul institucional */
   transform: translateX(-100%); /* Oculto por defecto */
   transition: transform 0.3s ease-in-out;
   z-index: 999; /* Sobre todo */
@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #eee;
+  color: #edf3f5; /* Color claro para contraste */
   text-decoration: none;
   font-size: 1rem;
 
@@ -75,7 +75,7 @@
   font-size: 14px;
   margin-top: 1rem;
   margin-left: 1rem;
-  color: #ddd;
+  color: #edf3f5;
   text-decoration: none;
   display: flex;
 }
@@ -84,7 +84,7 @@ font-weight: 3000;
   font-size: 14px;
   margin-top: 1rem;
   margin-left: 1rem;
-  color: #ddd;
+  color: #edf3f5;
   text-decoration: none;
   display: flex;
   }
