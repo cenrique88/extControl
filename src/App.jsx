@@ -45,7 +45,7 @@ function App() {
 						<Route path='/incidencias' element={<Incidencias />} />
 						<Route path='/informes' element={<Informes />} />
 
-						<Route path="/clientes/add-client" element={<AddNewClient />} />
+						<Route path="/clientes/add" element={<AddNewClient />} />
 						<Route path="/clientes/edit-client" element={<EditClient />} />
 
 					</Routes>
