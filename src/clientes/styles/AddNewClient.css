@@ -63,7 +63,7 @@
     color: #ffffff;
     border: none;
     border-radius: 6px;
-    padding: 6px 0;
+    padding: 10px 0;
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
@@ -84,7 +84,7 @@
 
 .form-buttons button {
     width: 48%;
-    padding: 6px 0;
+    padding: 10px 0;
     font-size: 14px;
     font-weight: bold;
     border-radius: 6px;
