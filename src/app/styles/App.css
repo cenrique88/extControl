@@ -24,13 +24,13 @@ nav ul li {
   flex-direction: row;
   font-size: 20px;
   font-weight: bold;
-  color: #eee;
+  color: #edf3f5;
   align-items: center;
 }
 
 nav ul li a span {
   margin-left: 15px;
-  color: #eee;
+  color: #edf3f5;
 }
 
 /* Responsive para pantallas chicas */

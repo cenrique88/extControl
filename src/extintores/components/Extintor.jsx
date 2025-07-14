@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 
 import FormExtintor from "./FormExtintor";
-import ExtintorCard from "./ExtintorCard"; // 🔁 NUEVA TARJETA COMPATIBLE
+import ExtintorCard from "./ExtintorCard"; // NUEVA TARJETA COMPATIBLE
 import Notify from "../../app/components/Notify";
 import AppContext from "../../app/components/AppContext";
 import useDataBase from "../../hooks/useDataBase";
 import useDate from "../../hooks/useDate";
-import useNavbarAction from "../../hooks/useNavbarAction"; // ✅ reutilizamos lógica
+import useNavbarAction from "../../hooks/useNavbarAction"; // reutilizamos lógica
 
 const Extintor = () => {
   const navigate = useNavigate();
@@ -126,12 +126,12 @@ const Extintor = () => {
 </div>
 
 
-        {/* ➕ Formulario */}
+        {/* Formulario */}
         {showAddExt && (
           <FormExtintor getDB={getDB} saveExtintor={saveExtintor} />
         )}
 
-        {/* 🧾 Lista scrollable */}
+        {/* Lista scrollable */}
         <div className="scroll-list__wrp">
           {extintoresFiltrados.map((ext, index) => (
             <div
@@ -152,14 +152,14 @@ const Extintor = () => {
           ))}
         </div>
 
-        {/* ✅ Botón de eliminar múltiples */}
+        {/* Botón de eliminar múltiples */}
         {modoEliminar && elementSeleccionados.length > 0 && (
           <button className="btn-eliminar-multiple" onClick={handleDeleteExtintores}>
             Eliminar seleccionados
           </button>
         )}
 
-        {/* ✅ Notificación */}
+        {/* Notificación */}
         <Notify msg={msgNotify} open={showNotify} close={() => setShowNotify(false)} />
 
         <div className="footer-select">

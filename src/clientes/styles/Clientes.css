@@ -16,12 +16,12 @@
     align-items: center;
     justify-content: flex-start;
     margin: 0.5rem 0;
-    background-color: #30636d;
+    background-color: #fefefe;
     width: 18rem;
     height: 5rem;
     border-radius: 10px;
     padding-left: 15px;
-    color: #EDF3F5;
+    color: #0e3d4b;
 }
 
 .client-card.closed img {
@@ -45,14 +45,15 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: #30636d;
+    background-color: #fefefe;
     width: 18rem; /* más flexible y adaptado a pantallas pequeñas */
     max-width: 100%; /* más flexible y adaptado a pantallas pequeñas */
     padding: 1rem;
     border-radius: 10px;
-    color: #EDF3F5;
+    color: #0e3d4b;
     height: 18rem;
-    box-shadow: 0 0 20px 3px #72728f;
+    box-shadow: 10px 10px 20px #0000006e,
+    -10px -10px 20px #ffffff;
     position: relative;
 }
 
@@ -63,7 +64,7 @@
 .client-card.open button {
     width: 50px;
     height: 50px;
-    border: 2px solid #EDF3F5;
+    border: 2px solid #30636d;
     border-radius: 50%;
     background-color: transparent;
     background-size: 60% 60%;
@@ -83,7 +84,7 @@
 /* Efecto clic */
 .client-card.open button:active {
     transform: scale(0.95);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Iconos de acción */
@@ -128,8 +129,8 @@
     height: 2rem;
     border-radius: 10%;
     border: none;
-    background-color: #30636d;
-    color: #EDF3F5;
+    background-color: #fefefe;
+    color: #0e3d4b;
     font-size: 14px;
 }
 
@@ -154,7 +155,7 @@
 /* Nombre del cliente (hasta 16 caracteres con ellipsis) */
 .client-info p {
     font-size: 18px;
-    color: #EDF3F5;
+    color: #0e3d4b;
     flex: 1; /* se adapta al ancho disponible */
     white-space: nowrap;
     overflow: hidden;
@@ -165,7 +166,7 @@
 /* Datos secundarios (dirección y teléfono) */
 .client-data {
     font-size: 14px;
-    color: #EDF3F5;
+    color: #0e3d4b;
     max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -207,8 +208,8 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    border: 2px solid #30636d;
-    background-color: #edf3f5;
+    border: 2px solid #0e3d4b;
+    background-color: #fefefe;
     appearance: none;
     cursor: pointer;
     display: flex;
@@ -217,11 +218,11 @@
     transition: 0.2s ease;
     font-size: 12px;
     font-weight: bold;
-    color: #edf3f5;
+    color: #fefefe;
 }
 
 .card-checkbox-derecha:checked {
-    background-color: #30636d;
+    background-color: #0e3d4b;
     content: "✔";
 }
 
@@ -231,7 +232,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #edf3f5;
+    color: #fefefe;
     font-size: 12px;
     font-weight: bold;
     line-height: 1;
@@ -243,8 +244,8 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #30636d; /* azul oscuro */
-    color: #edf3f5;
+    background-color: #0e3d4b; /* azul oscuro */
+    color: #fefefe;
     padding: 0.7rem 1.5rem;
     font-size: 14px;
     font-weight: 600;

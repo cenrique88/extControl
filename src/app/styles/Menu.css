@@ -8,7 +8,7 @@
   width: 250px;
   max-width: 90vw;
   height: 100vh;
-  background-color: #30636d; /* Azul institucional */
+  background-color: #0e3d4b; /* Azul institucional */
   transform: translateX(-100%); /* Oculto por defecto */
   transition: transform 0.3s ease-in-out;
   z-index: 999; /* Sobre todo */
@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #EDF3F5;
+  color: #edf3f5; /* Color claro para contraste */
   text-decoration: none;
   font-size: 1rem;
 

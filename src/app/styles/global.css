@@ -2,7 +2,7 @@
 /* Estilos base y variables */
 
 :root {
-  --primary-color: #30636d;
+  --primary-color: #0e3d4b;
   --highlight-color: #A5DBDC;
   --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -20,8 +20,8 @@ html, body, #root {
   height: 100vh;
   overflow: hidden; /* Esto evita el scroll general */
   font-family: var(--font);
-  background-color: #EDF3F5;
-  color: #3F7C88;
+  background-color: #edf3f5;
+  color: #0e3d4b;
   line-height: 1.5;
 }
 

@@ -6,7 +6,7 @@ nav {
   right: 0;
   width: 100%; /* ocupa el ancho del contenedor */
   height: 60px; /* altura más consistente */
-  background-color: #30636d;
+  background-color: #0e3d4b;
   color: #edf3f5;
 
   display: flex;
@@ -15,8 +15,7 @@ nav {
   box-sizing: border-box;
   z-index: 100;
   gap: 12px;
-
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra */
+  box-shadow: 0 2px 5px #0000001a; /* sombra */
 }
 
 /* Icono hamburguesa */
@@ -70,7 +69,7 @@ nav {
 
 .navbar-icon:hover {
   transform: scale(1.1);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #ffffff2f;
 }
 
 .navbar-left {

@@ -3,33 +3,49 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: #edf3f5;
-    min-height: 100vh;
+    background-color: #e0e6e7;
+    height: 100vh;
     padding-top: 4rem;
+    overflow: hidden;
 }
 
 /* Tarjeta del formulario */
 .add-client-card {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
-    margin: 0.5rem auto;
-    background-color: #30636d;
-    width: 22rem;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 19rem;
+    height: auto;
     min-height: 32rem;
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 2rem;
-    color: #edf3f5;
-    gap: 1.2rem;
-    box-shadow: 0 0 20px 3px #72728f;
+    color: #0e3d4b;
+    gap: 1rem;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #ffffff;
+}
+
+.header-form {
+    background-color: #0e3d4b;
+    color: #ffffff;
+    padding: 1.1rem 1.5rem;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    margin: -2rem -2rem 1rem -2rem;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .add-client-card input {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #edf3f5;
-    color: #edf3f5;
+    border-bottom: 1px solid #0e3d4b;
+    color: #0e3d4b;
     font-size: 16px;
     width: 100%;
     outline: none;
@@ -37,24 +53,25 @@
 }
 
 .add-client-card input::placeholder {
-    color: #e0f0f6;
+    color: #000000de;
 }
 
 .add-phone-btn {
     align-self: flex-start;
-    background-color: #edf3f5;
-    color: #30636d;
+    background-color: #166279;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
-    padding: 6px 12px;
+    padding: 6px 0;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
-    margin-left: 0.1rem;
+    margin-left: 0.1px;
+    width: 48%;
 }
 
 .add-phone-btn:hover {
-    background-color: #edf3f5;
+    background-color: #0e3d4b;
 }
 
 .form-buttons {
@@ -69,14 +86,14 @@
     padding: 6px 0;
     font-size: 14px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
 }
 
 .form-buttons .cancelar {
     background-color: #d9534f;
-    color: #edf3f5;
+    color: #ffffff;
 }
 
 .form-buttons .cancelar:hover {
@@ -84,12 +101,12 @@
 }
 
 .form-buttons .aceptar {
-    background-color: #edf3f5;
-    color: #52a7cc;
+    background-color: #166279;
+    color: #ffffff;
 }
 
 .form-buttons .aceptar:hover {
-    background-color: #edf3f5;
+    background-color: #0e3d4b;
 }
 
 @media (max-width: 400px) {
