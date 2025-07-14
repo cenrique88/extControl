@@ -17,7 +17,7 @@ function NavBar() {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(location.pathname)
+  //console.log(location.pathname)
 
   const onSelectMenu = () => {
     setIsOpen(!isOpen);

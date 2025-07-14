@@ -20,6 +20,7 @@ import {AppContext} from "./app/components/AppContext.jsx";
 import {useContext} from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FormExtintor from './extintores/components/FormExtintor';
 
 
 
@@ -47,6 +48,7 @@ function App() {
 
 						<Route path="/clientes/add" element={<AddNewClient />} />
 						<Route path="/clientes/edit-client" element={<EditClient />} />
+						<Route path="/extintores/add" element={<FormExtintor />} />
 
 					</Routes>
 				</div>

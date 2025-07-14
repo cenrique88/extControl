@@ -28,8 +28,8 @@ const FormExtintor = ({ getDB, saveExtintor }) => {
     const observaciones = useForm();
 
     useEffect(() => {
-        getClientes();
-        fecha_inspeccion.setInputValue(new Date().toISOString().split("T")[0]);
+        getClientes;
+        //fecha_inspeccion.setInputValue(new Date().toISOString().split("T")[0]);
     }, []);
 
     useEffect(() => {
