@@ -1,3 +1,12 @@
+.extintor-page {
+    width: 100%;
+    height: 100vh;
+    background-color: #e0e6e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .scroll-container {
     width: 380px;
     height: 500px;
@@ -65,14 +74,16 @@
     margin-top: 70px;
     margin-bottom: 140px;
     padding-bottom: 1rem;
-    position: relative; /* NECESARIO para los pseudo-elementos */
+    position: relative;
+    /* NECESARIO para los pseudo-elementos */
 }
 
 /* Fade arriba */
 .scroll-zone::before,
 .scroll-zone::after {
     content: "";
-    position: absolute; /* CAMBIADO DE sticky a absolute */
+    position: absolute;
+    /* CAMBIADO DE sticky a absolute */
     left: 0;
     width: 100%;
     height: 30px;
@@ -90,8 +101,8 @@
 }
 
 @media (max-width: 400px) {
-.btn-eliminar-multiple {
-    font-size: 12px;
-    padding: 0.5rem 1rem;
+    .btn-eliminar-multiple {
+        font-size: 12px;
+        padding: 0.5rem 1rem;
     }
 }

@@ -1,25 +1,3 @@
-/* ===== CONTENEDOR PRINCIPAL ===== */
-body {
-    background-color: #e0e6e7;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.extintor-page {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ===== TARJETA FORMULARIO ===== */
 .form-extintor-card {
     display: flex;
     flex-direction: column;
@@ -32,16 +10,16 @@ body {
     padding: 0;
     color: #0e3d4b;
     gap: 1rem;
-    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #ffffff;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
     box-sizing: border-box;
-    border: 2px solid #213468;
+    margin: 2rem auto;
 }
 
-/* ===== HEADER DE LA TARJETA ===== */
+/* Header */
 .card-header {
     background-color: #0e3d4b;
     color: #ffffff;
-    padding: 0;
+    padding: 0.8rem;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     display: flex;
@@ -53,12 +31,7 @@ body {
     box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.card-header h3 {
-    padding: 1rem;
-    margin: 0;
-}
-
-/* ===== GRID DEL FORMULARIO ===== */
+/* Grid */
 .form-grid {
     display: grid;
     grid-template-columns: 47% 47%;
@@ -67,11 +40,6 @@ body {
     padding: 1.2rem;
 }
 
-.full-width {
-    grid-column: 1 / -1;
-}
-
-/* ===== ID + CLIENTE EN FILA ESPECIAL ===== */
 .fila-id-cliente {
     display: grid;
     grid-template-columns: 27% 67%;
@@ -82,10 +50,8 @@ body {
     margin-bottom: -0.5rem;
 }
 
-/* ===== INPUTS Y SELECTS ===== */
 .form-grid input,
 .form-grid select,
-.form-grid textarea,
 .fila-id-cliente input,
 .fila-id-cliente select {
     background: transparent;
@@ -101,26 +67,15 @@ body {
 }
 
 .form-grid input::placeholder,
-.form-grid textarea::placeholder,
 .fila-id-cliente input::placeholder {
     color: #00000073;
 }
 
-select:invalid {
-    color: #00000073 !important;
+.full-width {
+    grid-column: 1 / -1;
 }
 
-select option {
-    color: #0e3d4b;
-}
-
-/* ===== TEXTAREA ===== */
-.form-grid textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-/* ===== FOOTER CON BOTONES ===== */
+/* Footer */
 .card-footer {
     display: flex;
     justify-content: space-between;
@@ -159,40 +114,12 @@ select option {
     background-color: #0e3d4b;
 }
 
-/* ===== ESTADOS DE URGENCIA (reutilizables) ===== */
-.card-vencido {
-    border: 2px solid red;
-    background-color: #ffe5e5 !important;
-}
-
-.card-proximo {
-    border: 2px solid #ffc107;
-    background-color: #fff7d1 !important;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 720px) {
-    .form-extintor-card {
-        width: 95%;
-        min-width: 90%;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-
-    .fila-id-cliente {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-
-    .card-footer {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .card-footer button {
-        width: 100%;
-    }
+.card-header h3 {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
 }
