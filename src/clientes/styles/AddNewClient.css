@@ -5,6 +5,7 @@
     align-items: flex-start;
     background-color: #e0e6e7;
     height: 100vh;
+    width: 100%;
     padding-top: 4rem;
     overflow: hidden;
 }
@@ -17,12 +18,12 @@
     background-color: #ffffff;
     width: 19rem;
     height: auto;
-    min-height: 32rem;
+    min-height: 31rem;
     border-radius: 25px;
     padding: 2rem;
     color: #0e3d4b;
     gap: 1rem;
-    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #ffffff;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
 }
 
 .header-form {
