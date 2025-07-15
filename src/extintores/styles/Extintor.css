@@ -8,8 +8,8 @@
 }
 
 .scroll-container {
-    width: 380px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
     margin-top: 2rem;
     overflow-y: auto;
     padding-top: 1rem;
@@ -29,14 +29,14 @@
     scroll-behavior: smooth;
 }
 
-.scroll-item {
+scroll-item {
     transition: all 0.3s ease-in-out;
     opacity: 0.5;
     transform: scale(0.95);
     margin-bottom: 1rem;
 }
 
-.search-wrapper {
+search-wrapper {
     position: fixed;
     top: 70px;
     left: 50%;
@@ -63,7 +63,7 @@
     font-size: 16px;
 }
 
-.scroll-zone {
+scroll-zone {
     width: 100%;
     overflow-y: auto;
     flex-grow: 1;
@@ -79,8 +79,8 @@
 }
 
 /* Fade arriba */
-.scroll-zone::before,
-.scroll-zone::after {
+scroll-zone::before,
+scroll-zone::after {
     content: "";
     position: absolute;
     /* CAMBIADO DE sticky a absolute */
@@ -91,11 +91,11 @@
     pointer-events: none;
 }
 
-.scroll-zone::-webkit-scrollbar {
+scroll-zone::-webkit-scrollbar {
     width: 8px;
 }
 
-.scroll-zone::-webkit-scrollbar-thumb {
+scroll-zone::-webkit-scrollbar-thumb {
     background-color: transparent;
     border-radius: 10px;
 }

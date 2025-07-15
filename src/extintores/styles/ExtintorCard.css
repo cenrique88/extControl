@@ -1,32 +1,35 @@
-/* Contenedor principal (puede usarse en la vista general) */
 .extintor-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	height: 100vh;
+	height: auto; /* cambiamos esto */
+	min-height: 100vh;
 	width: 100%;
-	overflow: hidden;
-	position: relative;
+	overflow-y: auto; /* mostramos scroll */
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	box-sizing: border-box;
 }
 
-/* Tarjeta cerrada */
-.extintor-card {
+
+/* TARJETA CERRADA (versión compacta) */
+.extintor-card.closed {
 	display: flex;
-	flex-wrap: wrap;
 	align-items: center;
 	justify-content: flex-start;
-	margin: 0.5rem 0;
 	background-color: #30636d;
 	width: 18rem;
 	height: 5rem;
 	border-radius: 10px;
 	padding-left: 15px;
 	color: #edf3f5;
-}
-
-.extintor-card.open img {
-	margin-top: 1px;
+	margin: 0.5rem 0;
+	flex-wrap: nowrap;
+	overflow: hidden;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
 .extintor-card.closed img {
@@ -39,75 +42,149 @@
 .extintor-card.closed p {
 	font-size: 18px;
 	margin-left: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
-.extintor-card button {
-	visibility: hidden;
-}
-
-/* Tarjeta expandida */
+/* TARJETA ABIERTA (expandida como FormExtintorCard) */
 .extintor-card.open {
+	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	background-color: #30636d;
-	width: 18rem;
-	max-width: 100%;
-	padding: 1rem;
-	border-radius: 10px;
-	color: #edf3f5;
-	height: auto;
-	box-shadow: 0 0 20px 3px #72728f;
+	justify-content: center;
+	background-color: #ffffff;
+	width: 21rem;
+	min-height: 26rem;
+	max-width: 90vw;
+	border-radius: 25px;
+	padding: 0;
+	color: #0e3d4b;
+	gap: 1rem;
+	box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
+	box-sizing: border-box;
+	margin: 2rem auto;
+	margin-top: 4rem;
 	position: relative;
 }
 
-/* Encabezado con imagen y ID */
-.extintor-info {
+
+/* HEADER */
+.extintor-header {
+	background-color: #0e3d4b;
+	color: #ffffff;
+	padding: 0.8rem;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
 	display: flex;
-	flex-direction: row;
+	justify-content: center;
 	align-items: center;
-	justify-content: flex-start;
-	width: 100%;
-	gap: 10px;
-	padding-top: 0.2rem;
+	font-weight: bold;
+	font-size: 1rem;
+	text-transform: uppercase;
+	box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.extintor-info img {
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-}
-
-.extintor-info p {
-	font-size: 18px;
-	color: #edf3f5;
-	flex: 1;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+.extintor-header h3 {
 	margin: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #ffffff;
 }
 
-/* Cliente + Ubicación */
-.extintor-data {
+/* FORM GRID */
+.extintor-form-grid {
+	display: grid;
+	grid-template-columns: 47% 47%;
+	column-gap: 6%;
+	row-gap: 1rem;
+	padding: 1.2rem;
+}
+
+.extintor-fila-id {
+	display: grid;
+	grid-template-columns: 27% 67%;
+	column-gap: 6%;
+	row-gap: 1rem;
+	padding: 0 1.2rem;
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+}
+
+.extintor-form-grid input,
+.extintor-form-grid select,
+.extintor-fila-id input {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #0e3d4b;
+	color: #0e3d4b;
+	font-size: 15px;
+	font-weight: bold;
+	width: 100%;
+	outline: none;
+	padding: 0.3rem 0;
+	box-sizing: border-box;
+}
+
+.extintor-form-grid input::placeholder,
+.extintor-fila-id input::placeholder {
+	color: #00000073;
+}
+
+.full-width {
+	grid-column: 1 / -1;
+}
+
+/* MODO VISUAL (no editable) */
+.extintor-static p {
+	padding: 0.3rem 1.2rem;
+	font-weight: 500;
 	font-size: 14px;
-	color: #edf3f5;
-	max-width: 150px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	margin-top: 0.3rem;
+	line-height: 1.5;
+	color: #0e3d4b;
 }
 
-/* Detalles expandidos */
-.ext-info-expandida {
-	margin-top: 0.8rem;
+/* FOOTER CON BOTONES */
+.extintor-footer {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 1rem;
+	gap: 1rem;
+	padding: 0 1.2rem 1.5rem 1.2rem;
+	box-sizing: border-box;
+}
+
+.extintor-footer button {
+	width: 48%;
+	padding: 10px 0;
 	font-size: 14px;
-	line-height: 1.4;
-	color: #edf3f5;
+	font-weight: bold;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
 }
 
-/* Checkbox para modo eliminación */
+.extintor-footer .cancelar {
+	background-color: #d9534f;
+	color: #ffffff;
+}
+
+.extintor-footer .cancelar:hover {
+	background-color: #c9302c;
+}
+
+.extintor-footer .aceptar {
+	background-color: #16576b;
+	color: #ffffff;
+}
+
+.extintor-footer .aceptar:hover {
+	background-color: #0e3d4b;
+}
+
+/* CHECKBOX lateral (modo eliminación múltiple) */
 .card-checkbox-derecha {
 	position: absolute;
 	right: -28px;
@@ -131,7 +208,6 @@
 
 .card-checkbox-derecha:checked {
 	background-color: #30636d;
-	content: "✔";
 }
 
 .card-checkbox-derecha:checked::before {
@@ -144,4 +220,30 @@
 	font-size: 12px;
 	font-weight: bold;
 	line-height: 1;
+}
+
+.extintor-static-block {
+	display: grid;
+	grid-template-columns: 47% 47%;
+	column-gap: 6%;
+	row-gap: 1rem;
+	padding: 1.2rem;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.extintor-static-line {
+	padding: 0 1.2rem;
+	margin-top: -0.8rem;
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.extintor-static-line span {
+	max-width: 45%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
