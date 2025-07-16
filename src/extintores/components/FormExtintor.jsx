@@ -135,7 +135,10 @@ const FormExtintor = ({ saveExtintor }) => {
             </div>
 
             <div className="card-footer">
-                <button className="cancelar">Cancelar</button>
+                <button 
+                    className="cancelar"
+                    
+                    >Cancelar</button>
                 <button className="aceptar" onClick={handleGuardar}>Aceptar</button>
             </div>
         </div>
