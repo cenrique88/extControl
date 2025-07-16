@@ -7,6 +7,7 @@ export const AppContext = createContext();
 export const AppProvider = ({children}) => {
 
     const [selectedPage, setSelectedPage] = useState('Home');
+    const [selectedClient, setSelectedClient] = useState();
     const [navigate, setNavigate] = useState('');
     const [user, setUser] = useState(null);
     const [showNavbar, setShowNavbar] = useState(false);
@@ -23,6 +24,8 @@ export const AppProvider = ({children}) => {
         <AppContext.Provider value={{ 
             selectedPage, 
             setSelectedPage, 
+            selectedClient, 
+            setSelectedClient,
             navigate, 
             setNavigate,
             user,

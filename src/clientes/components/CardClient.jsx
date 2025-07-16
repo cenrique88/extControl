@@ -16,7 +16,8 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
   const {
             setViewEditButton,
-            setTargetForEdit
+            setTargetForEdit,
+            setSelectedClient,
       } = useContext(AppContext);
   
 
@@ -48,6 +49,7 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
       setIsPressed(true);
     }, 1000);
     setViewEditButton(true);    
+    setSelectedClient(client.nombre_cliente);
   };
 
 
