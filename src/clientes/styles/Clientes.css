@@ -1,14 +1,3 @@
-.cliente-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    width: 100%;
-	overflow: hidden; /* importante para cortar cualquier scroll accidental */
-    position: relative;
-}
-
 /* Tarjeta cerrada */
 .client-card {
     display: flex;

@@ -7,7 +7,23 @@
     align-items: center;
 }
 
-.scroll-container {
+.extintor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    /* cambiamos esto */
+    min-height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+    /* mostramos scroll */
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+scroll-container {
     width: 400px;
     height: 600px;
     margin-top: 2rem;

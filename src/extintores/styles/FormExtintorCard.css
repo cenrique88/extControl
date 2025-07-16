@@ -32,6 +32,16 @@
     box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.card-header h3 {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
 /* Grid */
 .form-grid {
     display: grid;
@@ -113,14 +123,4 @@
 
 .card-footer .aceptar:hover {
     background-color: #0e3d4b;
-}
-
-.card-header h3 {
-    margin: 0;
-    padding: 0;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
 }

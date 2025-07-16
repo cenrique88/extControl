@@ -66,7 +66,7 @@ const Extintor = () => {
 
   return (
     <div className="extintor-page">
-      <div className="contenido-extintores">
+      <div className="extintor-container">
         <div className="search-wrapper">
           <input
             className="input-search"
