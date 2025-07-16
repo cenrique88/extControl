@@ -1,10 +1,29 @@
 import "../styles/FormExtintorCard.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import AppContext from "../../app/components/AppContext";
 import useForm from "../../hooks/useForm";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 
 const FormExtintor = ({ saveExtintor }) => {
-    const { selectedClient } = useContext(AppContext);
+
+    const { selectedClient, setSelectedPage } = useContext(AppContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        setSelectedPage(location.pathname === '/extintores/add' ? 'Nuevo Extintor' : '');
+    }, []);
+    
+
+
+
+
+
+
+
+
+
 
     const id_extintor = useForm();
     const ubicacion = useForm();
@@ -137,7 +156,7 @@ const FormExtintor = ({ saveExtintor }) => {
             <div className="card-footer">
                 <button 
                     className="cancelar"
-                    
+                    onClick={()=>navigate('/extintores')}
                     >Cancelar</button>
                 <button className="aceptar" onClick={handleGuardar}>Aceptar</button>
             </div>
