@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../app/components/AppContext.jsx";
 
@@ -9,7 +9,8 @@ import Notify from "../../app/components/Notify.jsx";
 import "../styles/AddNewClient.css";
 
 const AddNewClient = () => {
-  const { setSelectedPage } = useContext(AppContext);
+
+  const { setSelectedPage,  } = useContext(AppContext);
   const navigate = useNavigate();
   const { writeDB } = useDataBase();
 
@@ -20,6 +21,12 @@ const AddNewClient = () => {
 
   const [telefonos, setTelefonos] = useState([""]);
   const [showNotify, setShowNotify] = useState(false);
+
+
+  useEffect(() => {
+    setSelectedPage("Nuevo Cliente")
+  }, [])
+  
 
   const addTelefono = () => {
     if (telefonos.length < 3) {
