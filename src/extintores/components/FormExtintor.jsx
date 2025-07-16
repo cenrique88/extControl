@@ -6,15 +6,15 @@ import useForm from "../../hooks/useForm";
 const FormExtintor = ({ saveExtintor }) => {
     const { selectedClient } = useContext(AppContext);
 
-    const id_extintor = useForm("");
-    const ubicacion = useForm("");
-    const tipo = useForm("");
-    const capacidad = useForm("");
-    const tiempo = useForm("");
-    const recarga = useForm("");
-    const ext = useForm("");
-    const senial = useForm("");
-    const soporte = useForm("");
+    const id_extintor = useForm();
+    const ubicacion = useForm();
+    const tipo = useForm();
+    const capacidad = useForm();
+    const tiempo = useForm();
+    const recarga = useForm();
+    const ext = useForm();
+    const senial = useForm();
+    const soporte = useForm();
 
     const handleGuardar = () => {
         const data = {
@@ -33,6 +33,21 @@ const FormExtintor = ({ saveExtintor }) => {
         saveExtintor(data);
     };
 
+    const selectOptions = {'Polvo ABC': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],  
+                        'Polvo BC':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+                        'Polvo D': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+                        'CO2':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+                        'Potasio':['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts'],
+                        'Halotron':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+                        'Espuma AFFF':['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts']
+                        };
+
+
+
+
+
+
+
     return (
         <div className="form-extintor-card">
             <div className="card-header">
@@ -40,52 +55,55 @@ const FormExtintor = ({ saveExtintor }) => {
             </div>
 
             <div className="form-grid">
-                <input type="text" placeholder="Ubicación" className="full-width" {...ubicacion} />
+                <input 
+                    type="text" 
+                    placeholder="Ubicación" 
+                    className="full-width" />
             </div>
 
             <div className="fila-id-cliente">
-                <input type="text" placeholder="ID *" {...id_extintor} />
-                <input type="text" value={selectedClient} readOnly placeholder="Cliente" />
+                <input 
+                    type="text" 
+                    placeholder="ID *"/>
+
+                <input 
+                    type="text" 
+                    value={selectedClient ||  'Cliente seleccionado'} 
+                    readOnly />
             </div>
 
             <div className="form-grid">
-                <select {...capacidad}>
-                    <option value="">Capacidad</option>
-                    <option>1Kg</option>
-                    <option>2Kg</option>
-                    <option>3.5Kg</option>
-                    <option>4Kg</option>
-                    <option>8Kg</option>
-                    <option>25Kg</option>
-                    <option>50Kg</option>
-                    <option>2.5Lts</option>
-                    <option>6Lts</option>
-                    <option>9Lts</option>
-                    <option>10Lts</option>
-                    <option>50Lts</option>
-                </select>
 
-                <select {...tipo}>
+            <select id="tipo" onChange={(e) => tipo.handleChangeSelect(e)} value={tipo.selectValue}>
                     <option value="">Tipo</option>
-                    <option>Polvo ABC</option>
-                    <option>Polvo BC</option>
-                    <option>Polvo D</option>
-                    <option>CO2</option>
-                    <option>Potasio</option>
-                    <option>Halotron</option>
-                    <option>Espuma AFFF</option>
+                    {
+                        Object.keys(selectOptions).map((option)=>(
+                            <option key={option} value={option}>{option}</option>
+                        ))
+                    }                    
+            </select>
+
+
+                <select >
+                {
+                    (selectOptions[tipo.selectValue] || []).map((option)=>(
+                        <option key={option} value={option}>{option}</option>
+                    ))
+                }
                 </select>
 
-                <select {...tiempo}>
+
+                <select >
                     <option value="">Tiempo</option>
                     <option>1 Año</option>
                     <option>2 Años</option>
+                    <option>valor manual</option>
                 </select>
 
-                <input type="text" placeholder="Recarga MM/AAAA" {...recarga} maxLength={7} />
-                <input type="date" placeholder="Vencimiento" readOnly />
+                <input type="month" id="recarga"  maxLength={7}/>
+                <input type="month" id="vencimineto"  />
 
-                <select {...ext}>
+                <select >
                     <option value="">Extintor</option>
                     <option>Buen Estado</option>
                     <option>Mal Estado</option>
@@ -94,7 +112,7 @@ const FormExtintor = ({ saveExtintor }) => {
                     <option>No se Revisó</option>
                 </select>
 
-                <select {...senial}>
+                <select >
                     <option value="">Señalización</option>
                     <option>Buen Estado</option>
                     <option>Mal Estado</option>
@@ -104,7 +122,7 @@ const FormExtintor = ({ saveExtintor }) => {
                     <option>No se Revisó</option>
                 </select>
 
-                <select {...soporte}>
+                <select >
                     <option value="">Soporte o Nicho</option>
                     <option>Buen Estado</option>
                     <option>Retirado por Reforma</option>
