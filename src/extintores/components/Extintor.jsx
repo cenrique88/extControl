@@ -23,7 +23,8 @@ const Extintor = () => {
     modoEliminar,
     setModoEliminar,
     elementSeleccionados,
-    setElementSeleccionados
+    setElementSeleccionados,
+    setViewEditButton
   } = useContext(AppContext);
 
   const { handleDeleteSelected, toggleElementSelected } = useNavbarAction();
@@ -38,6 +39,7 @@ const Extintor = () => {
   const itemRefs = useRef([]);
 
   useEffect(() => {
+    setViewEditButton(false);
     setSelectedPage(location.pathname === '/extintores' ? 'Extintores' : '');
     getAllExtintores();
   }, [showAddExt]);

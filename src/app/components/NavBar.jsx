@@ -13,7 +13,11 @@ function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { selectedPage, modoEliminar, setModoEliminar, viewEditButton, targetForEdit } = useContext(AppContext);
+  const { selectedPage, 
+          modoEliminar, 
+          setModoEliminar, 
+          viewEditButton, 
+          targetForEdit } = useContext(AppContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -54,7 +58,7 @@ function NavBar() {
               <button 
                 className="navbar-icon" 
                 title="Editar cliente"
-                onClick={() => navigate('/clientes/edit-client')}
+                onClick={() => navigate(`${location.pathname}/edit`)}
                 >
               <img src="/src/img/edit.png" alt="Editar" className="navbar-icon-img" />
               </button>

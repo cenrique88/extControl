@@ -14,13 +14,15 @@ import Inspecciones from './controles/components/Inspecciones';
 import Incidencias from './incidencias/components/Incidencias';
 import Informes from './informes/components/Informes';
 import EditClient from './clientes/components/EditClient';
+import FormExtintor from './extintores/components/FormExtintor';
+import EditExtintor from './extintores/components/EditExtintor';
 
 
 import {AppContext} from "./app/components/AppContext.jsx";
 import {useContext} from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import FormExtintor from './extintores/components/FormExtintor';
+
 
 
 
@@ -40,15 +42,16 @@ function App() {
 					<Routes>					
 						<Route path='/' element={<Home />} />
 						<Route path='/clientes/*' element={<Clientes />} />
-						<Route path='/controles' element={<Controles />} />
-						<Route path='/inspecciones' element={<Inspecciones />} />
-						<Route path='/extintores' element={<Extintor />} />
+						<Route path='/controles/*' element={<Controles />} />
+						<Route path='/inspecciones/*' element={<Inspecciones />} />
+						<Route path='/extintores/*' element={<Extintor />} />
 						<Route path='/incidencias' element={<Incidencias />} />
-						<Route path='/informes' element={<Informes />} />
+						<Route path='/informes/*' element={<Informes />} />
 
 						<Route path="/clientes/add" element={<AddNewClient />} />
-						<Route path="/clientes/edit-client" element={<EditClient />} />
+						<Route path="/clientes/edit" element={<EditClient />} />
 						<Route path="/extintores/add" element={<FormExtintor />} />
+						<Route path="/extintores/edit" element={<EditExtintor />} />
 
 					</Routes>
 				</div>

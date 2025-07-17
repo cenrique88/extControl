@@ -136,7 +136,7 @@ const EditClient = () => {
 
         {telefonos.length < 3 && (
           <button className="add-phone-btn" onClick={addTelefono}>
-            + Agregar teléfono
+            + Teléfono
           </button>
         )}
 
