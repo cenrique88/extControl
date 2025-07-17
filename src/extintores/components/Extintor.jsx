@@ -80,24 +80,26 @@ const Extintor = () => {
         {showAddExt && <FormExtintor getDB={getDB} saveExtintor={saveExtintor} />}
 
         <div className="scroll-list__wrp">
-          {extintoresFiltrados.map((ext, index) => (
-            <div
-              key={ext._id}
-              ref={(el) => (itemRefs.current[index] = el)}
-              className="scroll-item"
-            >
-              <ExtintorCard
-                extintor={ext}
-                isOpen={openExtId === ext._id}
-                onToggle={() => setOpenExtId(prev => (prev === ext._id ? null : ext._id))}
-                onClose={() => setOpenExtId(null)}
-                modoEliminar={modoEliminar}
-                seleccionado={elementSeleccionados.includes(ext.id_extintor)}
-                onSeleccionar={() => toggleElementSelected(ext.id_extintor)}
-              />
-            </div>
-          ))}
-        </div>
+  {extintoresFiltrados.map((ext, index) => (
+    <div
+      key={ext._id}
+      ref={(el) => (itemRefs.current[index] = el)}
+      className="scroll-item"
+    >
+      <ExtintorCard
+        extintor={ext}
+        isOpen={openExtId === ext._id}
+        onToggle={() => setOpenExtId(prev => (prev === ext._id ? null : ext._id))}
+        onClose={() => setOpenExtId(null)}
+        modoEliminar={modoEliminar}
+        seleccionado={elementSeleccionados.includes(ext.id_extintor)}
+        onSeleccionar={() => toggleElementSelected(ext.id_extintor)}
+      />
+    </div>
+  ))}
+</div>
+
+
 
         {modoEliminar && elementSeleccionados.length > 0 && (
           <button className="btn-eliminar-multiple" onClick={handleDeleteExtintores}>
