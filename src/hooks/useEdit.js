@@ -11,12 +11,10 @@ const useEdit = () => {
 
 
     const handleChangeInput = (prop) => {
-        event.preventDefault();
-        setInputValue(prop.toUpperCase());
+        setInputValue(prop);
     };
 
     const handleChangeUpperInput = (prop) => {
-        event.preventDefault();
         setUpperInputValue(prop.toUpperCase());
     };
 
@@ -26,7 +24,6 @@ const useEdit = () => {
     }
 
     const handleChangeEmail = (prop) => {
-        event.preventDefault();
         setEmailValue(prop.toLowerCase());
     };
 
@@ -35,7 +32,6 @@ const useEdit = () => {
     }
 
     const handleChangeSelect = (prop) => {
-    event.preventDefault();
     setSelectValue(prop);
     };
 
@@ -44,7 +40,6 @@ const useEdit = () => {
     }
 
     const handleChangeTextArea = (prop) => {
-        event.preventDefault();
         setTextArea(prop.toUpperCase());
     }
 
