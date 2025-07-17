@@ -18,7 +18,6 @@ const ExtintorCard = ({ extintor, onUpdate, onDelete }) => {
 
   const handleGuardar = () => {
     const data = {
-      ...extintor,
       id_extintor: id_extintor.inputValue,
       ubicacion: ubicacion.inputValue,
       tipo_extintor: tipo.inputValue,

@@ -55,7 +55,7 @@ const AddNewClient = () => {
       telefono2: telefonos[2] || 0,
     };
 
-    writeDB("clientes/add-client", data);
+    writeDB("clientes/add", data);
     setShowNotify(true);
 
     // Limpiar
