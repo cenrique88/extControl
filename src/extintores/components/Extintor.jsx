@@ -62,14 +62,29 @@ const Extintor = () => {
     getAllExtintores();
   };
 
-  const extintoresFiltrados = getDataExtintor.filter(ext =>
-    ext.cliente?.toLowerCase().includes(filtroNombre.toLowerCase())
+  const extintoresFiltrados = getDataExtintor.filter((ext) =>
+    ext.cliente?.toUpperCase().includes(filtroNombre.toUpperCase())
   );
 
   return (
     <div className="extintor-page">
       <div className="extintor-container">
         <div className="search-wrapper">
+        <select style={{width:'20px', appearance: 'none', position: 'relative', fontSize: '8px', }}>
+          <option style={{fontSize: '8px'}}>
+            ID<></>
+          </option>
+          <option>
+            CLIENTE
+          </option>
+          <option>
+            TIPO
+          </option>
+          <option>
+            UBICACION
+          </option>
+        </select>
+
           <input
             className="input-search"
             type="text"

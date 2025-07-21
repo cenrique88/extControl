@@ -1,0 +1,619 @@
+
+.extintor-card.closed {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: #0e3d4b;
+	width: 20.2rem;
+	height: 6rem;
+	border-radius: 10px;
+	padding-left: 15px;
+	color: #ffffff;
+	margin: 0.5rem 0;
+	flex-wrap: nowrap;
+	overflow: hidden;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.extintor-card.closed img {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	margin-left: -5px;
+}
+
+.extintor-card.closed p {
+	font-size: 18px;
+	margin-left: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* TARJETA ABIERTA (expandida como FormExtintorCard) */
+.extintor-card.open {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #ffffff;
+	width: 21rem;
+	min-height: 26rem;
+	max-width: 90vw;
+	border-radius: 25px;
+	padding: 0;
+	color: #0e3d4b;
+	gap: 1rem;
+	box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
+	box-sizing: border-box;
+	margin: 2rem auto;
+	margin-top: 4rem;
+	position: relative;
+}
+
+
+/* HEADER */
+.extintor-header {
+	background-color: #0e3d4b;
+	color: #ffffff;
+	padding: 0.8rem;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	font-size: 1rem;
+	text-transform: uppercase;
+	box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.extintor-header h3 {
+	margin: 0;
+	padding: 0;
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+/* FORM GRID */
+.extintor-form-grid {
+	display: grid;
+	grid-template-columns: 47% 47%;
+	column-gap: 6%;
+	row-gap: 1rem;
+	padding: 1.2rem;
+}
+
+.extintor-fila-id {
+	display: grid;
+	grid-template-columns: 27% 67%;
+	column-gap: 6%;
+	row-gap: 1rem;
+	padding: 0 1.2rem;
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+}
+
+.extintor-form-grid input,
+.extintor-form-grid select,
+.extintor-fila-id input {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #0e3d4b;
+	color: #0e3d4b;
+	font-size: 15px;
+	font-weight: bold;
+	width: 100%;
+	outline: none;
+	padding: 0.3rem 0;
+	box-sizing: border-box;
+}
+
+.extintor-form-grid input::placeholder,
+.extintor-fila-id input::placeholder {
+	color: #00000073;
+}
+
+.full-width {
+	grid-column: 1 / -1;
+}
+
+/* MODO VISUAL (no editable) */
+.extintor-static p {
+	padding: 0.3rem 1.2rem;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #0e3d4b;
+}
+
+/* FOOTER CON BOTONES */
+.extintor-footer {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 1rem;
+	gap: 1rem;
+	padding: 0 1.2rem 1.5rem 1.2rem;
+	box-sizing: border-box;
+}
+
+.extintor-footer button {
+	width: 48%;
+	padding: 10px 0;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+}
+
+.extintor-footer .cancelar {
+	background-color: #d9534f;
+	color: #ffffff;
+}
+
+.extintor-footer .cancelar:hover {
+	background-color: #c9302c;
+}
+
+.extintor-footer .aceptar {
+	background-color: #16576b;
+	color: #ffffff;
+}
+
+.extintor-footer .aceptar:hover {
+	background-color: #0e3d4b;
+}
+
+/* CHECKBOX lateral (modo eliminación múltiple) */
+.card-checkbox-derecha {
+	position: absolute;
+	right: -28px;
+	top: 50%;
+	transform: translateY(-50%) scale(1);
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid #0e3d4b;
+	background-color: #ffffff;
+	appearance: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.2s ease;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.card-checkbox-derecha:checked {
+	background-color: #0e3d4b;
+}
+
+.card-checkbox-derecha:checked::before {
+	content: "✔";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.extintor-static-block {
+	display: grid;
+	grid-template-columns: 47% 47%;
+	column-gap: 6%;
+	row-gap: 1rem;
+	padding: 1.2rem;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.extintor-static-line {
+	padding: 0 1.2rem;
+	margin-top: -0.8rem;
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.extintor-static-line span {
+	max-width: 45%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+
+/*--------------------------------------*/
+
+
+/* Tarjeta abierta */
+.extintor-card {
+    width: 20.2rem;
+    height: 31.3rem;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
+    overflow: hidden;
+}
+
+/* Header */
+.extintor-header {
+    background-color: #0e3d4b;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.6rem;
+    padding-left: 0.8rem;
+    text-shadow: 0 0 0.5px #00000030;
+    height: 3.7rem;
+}
+
+.titulo-header {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000060;
+}
+
+.acciones {
+    display: flex;
+    gap: 0.1rem;
+}
+
+.btn-header {
+    background-color: transparent;
+    border: 0.1rem solid #ffffff;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0.18rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.btn-header:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.226);
+}
+
+.btn-header:active {
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+    /* efecto redondo suave opcional */
+    border-radius: 50%;
+}
+
+.btn-header {
+    overflow: hidden;
+    /* ← evita contenido cuadrado */
+    -webkit-tap-highlight-color: transparent;
+    /* ← elimina el highlight gris o azul de Android */
+    touch-action: manipulation;
+    /* ← mejora respuesta táctil */
+}
+
+.btn-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+
+}
+
+/* Cuerpo */
+.extintor-body {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Icono + título */
+.icono-extintor-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fondo-icono {
+    position: relative;
+    background-color: #cee9f5;
+    border-radius: 1rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+}
+
+.icono-extintor {
+    width: 120%;
+    height: auto;
+    object-fit: contain;
+    transform: translateX(-0.5rem);
+}
+
+.capacidad-inside {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-52%, -48%);
+    font-size: clamp(0.4rem, 2.7vw, 0.8rem);
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    color: #ffffff;
+    justify-content: center;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    text-shadow: 0 0 0.5px #00000030;
+    pointer-events: none;
+}
+
+.titulo-extintor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: start;
+    padding-right: 1rem;
+}
+
+.titulo-extintor h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0e3d4b;
+}
+
+.titulo-extintor h5 {
+    margin: 0;
+    font-size: 1rem;
+    color: #0e3d4bdc;
+    text-shadow: 0 0 0.5px #09ff0065;
+}
+
+.hr-container {
+    padding: 0.2rem 0.9rem;
+}
+
+.hr-container hr {
+    border: none;
+    border-top: 0.05rem solid #0e3d4b;
+}
+
+
+/* Línea divisoria */
+hr {
+    border: none;
+    margin: -0.1rem;
+}
+
+/* Tabla de datos */
+.tabla-datos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: 0;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.tabla-datos .row strong {
+    color: #0e3d4b;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.tabla-datos .row b {
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.05rem solid #0e3d4b;
+    padding: 0.5rem 0;
+    margin-bottom: 0.1rem;
+
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.celda {
+    width: 48%;
+    font-size: 1rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.25rem;
+}
+
+.celda-2 {
+    width: 40%;
+    font-size: 1rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.25rem;
+}
+
+.celda-3 {
+    width: 56%;
+    font-size: 1rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.25rem;
+}
+
+.celda-1 {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.25rem;
+    margin: 0;
+}
+
+.celda-id {
+    width: 10%;
+
+}
+
+.celda-cliente {
+    width: 90%;
+    text-align: center;
+}
+
+.estado-vencimiento {
+    margin-top: 0.4rem;
+    background-color: #ffcc00cc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 1.5rem;
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000050;
+}
+
+
+
+
+
+
+
+
+
+.extintor-card-closed {
+    width: 20.2rem;
+    height: 6rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
+    overflow: hidden;
+}
+
+.header-closed {
+    background-color: #0e3d4b;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 2.4rem;
+}
+
+.header-closed h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000060;
+    margin-top: 1.1rem;
+}
+
+.header-closed h4 {
+    font-size: 0.86rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000060;
+    margin: 0;
+}
+
+.extintor-info-closed {
+    width: 100%;
+    height: 3.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.icon-background-closed {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 1rem;
+    background-color: #cee9f5;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2rem;
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.icon-background-closed img {
+    width: 100%;
+    height: auto;
+    display:flex;
+    justify-content: center;
+    margin-right: 0.2rem;
+}
+
+.extintor-title-closed {
+    width: 5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+}
+
+.extintor-title-closed p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #0e3d4b; 
+    text-shadow: 0 0 0.5px #00000060;
+    margin: 0;
+}
+
+.extintor-status-closed {
+    background-color: #ffcc00cc;
+    width: 10rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.6rem;
+    border-radius: 1.375rem;
+}
+
+.extintor-status-closed h5 {
+    font-size: 0.85rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 0.5px #00000060;
+}
