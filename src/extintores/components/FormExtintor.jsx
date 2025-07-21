@@ -4,6 +4,7 @@ import AppContext from "../../app/components/AppContext";
 import useForm from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
+import useEdit from "../../hooks/useEdit";
 
 const FormExtintor = ({ saveExtintor }) => {
 
@@ -12,45 +13,24 @@ const FormExtintor = ({ saveExtintor }) => {
     const location = useLocation();
 
     useEffect(() => {
-        setSelectedPage(location.pathname === '/extintores/add' ? 'Nuevo Extintor' : '');
+        if(selectedClient){
+            setSelectedPage(location.pathname === '/extintores/add' ? 'Nuevo Extintor' : '');
+        } else {
+            navigate('/clientes', { replace: true })
+        }        
     }, []);
     
-
-
-
-
-
-
-
-
-
 
     const id_extintor = useForm();
     const ubicacion = useForm();
     const tipo = useForm();
     const capacidad = useForm();
-    const tiempo = useForm();
+    const tiempo = useEdit();
     const recarga = useForm();
     const ext = useForm();
     const senial = useForm();
     const soporte = useForm();
 
-    const handleGuardar = () => {
-        const data = {
-            cliente: selectedClient,
-            id_extintor: id_extintor.inputValue,
-            ubicacion: ubicacion.inputValue,
-            tipo_extintor: tipo.inputValue,
-            capacidad: capacidad.inputValue,
-            recarga_cada: tiempo.inputValue,
-            ultima_recarga: recarga.inputValue,
-            estado_extintor: ext.inputValue,
-            senial: senial.inputValue,
-            soporte: soporte.inputValue,
-            fecha_inspeccion: new Date().toISOString(),
-        };
-        saveExtintor(data);
-    };
 
     const selectOptions = {'Polvo ABC': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],  
                         'Polvo BC':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
@@ -60,6 +40,28 @@ const FormExtintor = ({ saveExtintor }) => {
                         'Halotron':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
                         'Espuma AFFF':['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts']
                         };
+
+    const [disableTipo, setDisableTipo] = useState(false);
+    const [disableCapacidad, setDisableCapacidad] = useState(false);
+    const [disabledTime, setDisabledTime] = useState(false);
+    const [customTime, setCustomTime] = useState('Otro');
+    const [isCustomTime, setIsCustomTime] = useState(false);
+
+
+
+    const onChangeTime = (e) => {
+        if(customTime === e.target.value){
+            setIsCustomTime(true); 
+            setCustomTime('')           
+        } else {
+            tiempo.handleChangeSelect(e)
+        }
+    }
+
+    const onSaveChangeTime = (value) => {            setCustomTime(`${value} Años`)
+            tiempo.handleChangeSelect(`${value} Años`)
+            setIsCustomTime(false);   
+    }
 
 
 
@@ -77,24 +79,35 @@ const FormExtintor = ({ saveExtintor }) => {
                 <input 
                     type="text" 
                     placeholder="Ubicación" 
-                    className="full-width" />
+                    className="full-width" 
+                    value={ubicacion.upperInputValue}
+                    onChange={(e)=>ubicacion.handleChangeUpperInput(e)}
+                    />
             </div>
 
             <div className="fila-id-cliente">
                 <input 
                     type="text" 
-                    placeholder="ID *"/>
+                    placeholder="ID *"
+                    value={id_extintor.upperInputValue}
+                    onChange={(e)=>id_extintor.handleChangeUpperInpu(e)}
+                    />
 
                 <input 
                     type="text" 
-                    value={selectedClient ||  'Cliente seleccionado'} 
+                    value={selectedClient || console.error('cliente no encontrado, redireccionando...')} 
                     readOnly />
             </div>
 
             <div className="form-grid">
 
-            <select id="tipo" onChange={(e) => tipo.handleChangeSelect(e)} value={tipo.selectValue}>
-                    <option value="">Tipo</option>
+            <select 
+                id="tipo" 
+                    onChange={(e) => tipo.handleChangeSelect(e)} 
+                    onClick={()=>setDisableTipo(true)}
+                    value={tipo.selectValue}
+                    >
+                    <option value="" disabled={disableTipo}>Tipo</option>
                     {
                         Object.keys(selectOptions).map((option)=>(
                             <option key={option} value={option}>{option}</option>
@@ -112,23 +125,60 @@ const FormExtintor = ({ saveExtintor }) => {
                 </select>
 
 
-                <select >
-                    <option value="">Tiempo</option>
-                    <option>1 Año</option>
-                    <option>2 Años</option>
-                    <option>valor manual</option>
+                {
+                    !isCustomTime 
+                ?
+                <select 
+                id="tiempo" 
+                onChange={(e) => onChangeTime(e)} 
+                onClick={()=>setDisabledTime(true)}
+                value={tiempo.selectValue}
+                required
+                >
+                    <option value="" disabled={disabledTime}>Tiempo</option>
+                    <option value={1}>1 Año</option>
+                    <option value={2}>2 Años</option>
+                    <option value={customTime}>{customTime}</option>
                 </select>
+                :
+                <>
+                <input 
+                    id="customTime" 
+                    type="text" 
+                    placeholder="Custom Time" 
+                    value={customTime}
+                    onChange={(e) => setCustomTime(e.target.value)}
+
+                    />
+                    <button 
+                        style={
+                            {width:'23px', 
+                            height:'23px', 
+                            borderRadius: '50%', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            position: 'fixed',
+                            top: '408px',
+                            left: '200px'
+                            }} 
+                            onClick={() => onSaveChangeTime(document.getElementById('customTime').value)}
+                            >✔</button>
+                    </>
+                    
+                }
 
                 <input type="month" id="recarga"  maxLength={7}/>
+
                 <input type="month" id="vencimineto"  />
 
                 <select >
                     <option value="">Extintor</option>
-                    <option>Buen Estado</option>
-                    <option>Mal Estado</option>
-                    <option>Baja Presión</option>
-                    <option>Retirado por Reforma</option>
-                    <option>No se Revisó</option>
+                    <option value='Buen Estado'>Buen Estado</option>
+                    <option value='Mal Estado'>Mal Estado</option>
+                    <option value='Baja Presión'>Baja Presión</option>
+                    <option value='Retirado por Reforma'>Retirado por Reforma</option>
+                    <option value='No se Revisó'>No se Revisó</option>
                 </select>
 
                 <select >
@@ -158,7 +208,7 @@ const FormExtintor = ({ saveExtintor }) => {
                     className="cancelar"
                     onClick={()=>navigate('/extintores')}
                     >Cancelar</button>
-                <button className="aceptar" onClick={handleGuardar}>Aceptar</button>
+                <button className="aceptar" >Aceptar</button>
             </div>
         </div>
     );
