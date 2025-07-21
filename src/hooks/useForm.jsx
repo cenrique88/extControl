@@ -5,7 +5,7 @@ function useForm() {
   const [emailValue, setEmailValue] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [textArea, setTextArea] = useState('');
-  const [UpperInputValue, setUpperInputValue] = useState('');
+  const [upperInputValue, setUpperInputValue] = useState('');
 
   //console.log(inputValue);
 
@@ -83,7 +83,7 @@ function useForm() {
     clearEmail,
     placeholderForSelect,
 
-    UpperInputValue, 
+    upperInputValue, 
     handleChangeUpperInput
   };
 }
