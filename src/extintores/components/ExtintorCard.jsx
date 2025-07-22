@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../app/components/AppContext.jsx";
 
@@ -12,8 +12,22 @@ const ExtintorCard = ({ extintor }) => {
 
   //const navigate = useNavigate();
 
-
   const [abierta, setAbierta] = useState(false);
+  const [fVencimiento, setFVencimiento]= useState();
+  const [timeLeft, setTimeLeft] = useState();
+  const [textTimeLeft, setTextTimeLeft] = useState('EN FECHA');
+
+
+
+
+  useEffect(() => {
+    setFVencimiento(handleF_Vencimiento(extintor.fecha_recarga, extintor.recarga_cada));
+    handleTimeLeft();
+    
+  }, [])
+  
+
+
 
 
   const openCloseCard = () => {
@@ -22,8 +36,33 @@ const ExtintorCard = ({ extintor }) => {
     setTargetForEdit(extintor); 
   }
 
+  const fecha_recarga = Object(extintor.fecha_recarga);
+  const recarga_cada = Object(extintor.recarga_cada);
 
+const handleF_Vencimiento = (fecha_recarga, recarga_cada) => {
+      const fv = new Date(fecha_recarga);
+      const rc = parseInt(recarga_cada);
+      const getTime= fv.setFullYear(fv.getFullYear()+  rc)     
+      return `${new Date(getTime).getMonth()+1}/${new Date(getTime).getFullYear()%1000}`;
+    };
 
+const handleTimeLeft = () => {
+  const fv = new Date(fecha_recarga);
+  const rc = parseInt(recarga_cada);
+  const getTime= fv.setFullYear(fv.getFullYear()+  rc)
+
+  const today = new Date();
+  const threeMonth = new Date(getTime);
+  threeMonth.setMonth(threeMonth.getMonth() - 3);
+
+  if(today >= threeMonth && today < new Date(getTime)){
+    setTimeLeft('proximo')
+    setTextTimeLeft('PRÓXIMO A VENCER')
+  } else if(today >= new Date(getTime)){
+    setTimeLeft('vencido')
+    setTextTimeLeft('VENCIDO')
+  };
+}
 
 
 
@@ -41,8 +80,8 @@ const ExtintorCard = ({ extintor }) => {
 
         <div>
         <div className="header-closed">
-            <h3>B04</h3>
-            <h4>Pasillo Enfermería de Emergencia</h4>
+            <h4>{extintor.id_extintor}</h4>
+            <h4>{extintor.ubicacion}</h4>
         </div>
 
         <div className="extintor-info-closed">
@@ -51,13 +90,13 @@ const ExtintorCard = ({ extintor }) => {
             </div>
 
             <div className="extintor-title-closed">
-                <p>Polvo ABC</p>
-                <p>4Kg</p>
-                <p>Vto. 09/2025</p>
+                <p>{extintor.tipo_extintor}</p>
+                <p>{extintor.capacidad}</p>
+                <p>Vto. {fVencimiento}</p>
             </div>
 
-            <div className="extintor-status-closed">
-                <h5>PRÓXIMO A VENCER</h5>
+            <div className={`extintor-status-closed ${timeLeft}`}>
+                <h5>{textTimeLeft}</h5>
             </div>
         </div>
     </div>
@@ -68,7 +107,7 @@ const ExtintorCard = ({ extintor }) => {
 
         <div className="extintor-card">
         <div className="extintor-header">
-            <div className="titulo-header">Emergencia Primer Piso</div>
+            <div className="titulo-header">{extintor.ubicacion}</div>
             <div className="acciones">
                 <button className="btn-header">
                     <img src="/src/img/edit.png" className="btn-icon" alt="Editar" title="Editar" />
@@ -83,14 +122,14 @@ const ExtintorCard = ({ extintor }) => {
             <div className="icono-extintor-container">
                 <div className="fondo-icono">
                     <img src="/src/img/extintor_card.png" alt="extintor" className="icono-extintor" />
-                    <div className="capacidad-inside">4Kg</div>
+                    <div className="capacidad-inside">{extintor.capacidad}</div>
                 </div>
 
                 <div className="titulo-extintor">
-                    <h4>Polvo ABC</h4>
+                    <h4>{extintor.tipo_extintor}</h4>
                     <h5>Acero</h5>
                     <h5>Baja Presión</h5>
-                    <h4>Vto. 09/2025</h4>
+                    <h4>Vto. {fVencimiento}</h4>
                 </div>
             </div>
         </div>
@@ -107,26 +146,26 @@ const ExtintorCard = ({ extintor }) => {
             <div className="row">
                 <div className="celda celda-id">
                     <strong>ID</strong><br />
-                    <b>B04</b>
+                    <b>{extintor.id_extintor}</b>
                 </div>
                 <div className="celda celda-cliente">
                     <strong>CLIENTE</strong><br />
-                    <b>Sanatorio Mautone</b>
+                    <b>{extintor.cliente}</b>
                 </div>
             </div>
 
             <div className="row">
-                <div className="celda celda-2"><strong>RECARGA</strong><br /><b>09/2023</b></div>
-                <div className="celda celda-3"><strong>SEÑALIZACIÓN</strong><br /><b>Buen Estado</b></div>
+                <div className="celda celda-2"><strong>RECARGA</strong><br /><b>{extintor.fecha_recarga}</b></div>
+                <div className="celda celda-3"><strong>SEÑALIZACIÓN</strong><br /><b>{extintor.senalizacion}</b></div>
             </div>
 
             <div className="row">
-                <div className="celda celda-2"><strong>TIEMPO</strong><br /><b>2 Años</b></div>
-                <div className="celda celda-3"><strong>SOPORTE</strong><br /><b>Buen Estado</b></div>
+                <div className="celda celda-2"><strong>TIEMPO</strong><br /><b>{extintor.recarga_cada}</b></div>
+                <div className="celda celda-3"><strong>SOPORTE</strong><br /><b>{extintor.soporte_nicho}</b></div>
             </div>
 
-            <div className="estado-vencimiento">
-                PRÓXIMO A VENCER
+            <div className={`estado-vencimiento ${timeLeft}`}>
+                {textTimeLeft}
             </div>
         </div>
     </div>

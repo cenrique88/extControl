@@ -15,27 +15,29 @@
     background-color: #0e3d4b;
     color: #ffffff;
     display: flex;
-    justify-content: space-evenly;
+    
     align-items: center;
     height: 2.4rem;
 }
 
-.header-closed h3 {
+/* .header-closed h3 {
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000060;
-    margin-top: 1.1rem;
-}
+    justify-content: center;
+    align-items: center;
+    
+} */
 
 .header-closed h4 {
-    font-size: 0.86rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000060;
-    margin: 0;
+    margin: 0.5rem;
 }
 
 .extintor-info-closed {
@@ -87,11 +89,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffcc00cc;
+    background-color: #0e3d4b;
     width: 10rem;
     height: 2.4rem;
     margin-top: 0.6rem;
     border-radius: 1.375rem;
+}
+.extintor-status-closed.vencido {
+    background-color: #ff0000;
+}
+.extintor-status-closed.proximo {
+    background-color: #ffcc00;
 }
 
 .extintor-status-closed h5 {
@@ -373,7 +381,7 @@ hr {
 
 .estado-vencimiento {
     margin-top: 0.4rem;
-    background-color: #ffcc00cc;
+    background-color: #0e3d4b;
     font-weight: bold;
     text-align: center;
     padding: 0.5rem;
@@ -382,7 +390,12 @@ hr {
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000050;
 }
-
+.estado-vencimiento.vencido {
+    background-color: #ff0000;
+}
+.estado-vencimiento.proximo {
+    background-color: #ffcc00;
+}
 
 
 
