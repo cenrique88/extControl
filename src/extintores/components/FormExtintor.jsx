@@ -100,19 +100,18 @@ const FormExtintor = ({ saveExtintor }) => {
             </div>
 
             <div className="form-grid">
-
             <select 
                 id="tipo" 
-                    onChange={(e) => tipo.handleChangeSelect(e)} 
-                    onClick={()=>setDisableTipo(true)}
-                    value={tipo.selectValue}
-                    >
-                    <option value="" disabled={disableTipo}>Tipo</option>
-                    {
-                        Object.keys(selectOptions).map((option)=>(
-                            <option key={option} value={option}>{option}</option>
-                        ))
-                    }                    
+                onChange={(e) => tipo.handleChangeSelect(e)} 
+                onClick={()=>setDisableTipo(true)}
+                value={tipo.selectValue}
+                >
+                <option value="" hidden={disableTipo}>Tipo</option>
+                {
+                    Object.keys(selectOptions).map((option)=>(
+                    <option key={option} value={option}>{option}</option>
+                    ))
+                }                    
             </select>
 
 
