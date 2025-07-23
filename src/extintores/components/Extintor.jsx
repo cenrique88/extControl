@@ -70,51 +70,51 @@ const Extintor = () => {
     <div className="extintor-page">
       <div className="extintor-container">
         <div className="search-wrapper">
-        <select style={{width:'20px', appearance: 'none', position: 'relative', fontSize: '8px', }}>
-          <option style={{fontSize: '8px'}}>
-            ID<></>
-          </option>
-          <option>
-            CLIENTE
-          </option>
-          <option>
-            TIPO
-          </option>
-          <option>
-            UBICACION
-          </option>
-        </select>
 
           <input
             className="input-search"
             type="text"
-            placeholder="Buscar por cliente..."
+            placeholder="Buscar..."
             value={filtroNombre}
             onChange={(e) => setFiltroNombre(e.target.value)}
           />
+          <select className="select-wrapper">
+            <option>
+              ID<></>
+            </option>
+            <option>
+              CLIENTE
+            </option>
+            <option>
+              TIPO
+            </option>
+            <option>
+              UBICACION
+            </option>
+          </select>
         </div>
 
         {showAddExt && <FormExtintor getDB={getDB} saveExtintor={saveExtintor} />}
 
         <div className="scroll-list__wrp">
-  {extintoresFiltrados.map((ext, index) => (
-    <div
-      key={ext._id}
-      ref={(el) => (itemRefs.current[index] = el)}
-      className="scroll-item"
-    >
-      <ExtintorCard
-        extintor={ext}
-        isOpen={openExtId === ext._id}
-        onToggle={() => setOpenExtId(prev => (prev === ext._id ? null : ext._id))}
-        onClose={() => setOpenExtId(null)}
-        modoEliminar={modoEliminar}
-        seleccionado={elementSeleccionados.includes(ext.id_extintor)}
-        onSeleccionar={() => toggleElementSelected(ext.id_extintor)}
-      />
-    </div>
-  ))}
-</div>
+          {extintoresFiltrados.map((ext, index) => (
+            <div
+              key={ext._id}
+              ref={(el) => (itemRefs.current[index] = el)}
+              className="scroll-item"
+            >
+              <ExtintorCard
+                extintor={ext}
+                isOpen={openExtId === ext._id}
+                onToggle={() => setOpenExtId(prev => (prev === ext._id ? null : ext._id))}
+                onClose={() => setOpenExtId(null)}
+                modoEliminar={modoEliminar}
+                seleccionado={elementSeleccionados.includes(ext.id_extintor)}
+                onSeleccionar={() => toggleElementSelected(ext.id_extintor)}
+              />
+            </div>
+          ))}
+        </div>
 
 
 

@@ -6,7 +6,7 @@ textarea {
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  color: #edf3f5;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -41,22 +41,6 @@ textarea::placeholder {
   opacity: 0.4;
   font-weight: bold;
   font-style: italic;
-}
-
-/* Botón flotante "agregar" */
-.add-button {
-  position: fixed;
-  bottom: 10%;
-  right: 10%;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  border: none;
-  background-color: #0e3d4b; /* Azul oscuro */
-  color: #edf3f5;
-  font-size: 2rem;
-  box-shadow: 0 4px 8px #0000001a;
-  transition: transform 0.2s ease;
 }
 
 .add-button:hover {
