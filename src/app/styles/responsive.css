@@ -49,7 +49,7 @@
   padding: 0.6rem 1rem;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-  color: #edf3f5; /* Color claro para contraste */
+  color: #ffffff; /* Color claro para contraste */
 }
 
 .menu-item a:hover {
