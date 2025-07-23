@@ -5,7 +5,6 @@
   align-items: center;
   gap: 2rem;
   padding: 2rem;
-  width: 100%;
 }
 
 /* Logo institucional */
@@ -16,19 +15,18 @@
   margin-bottom: 1rem;
 }
 
-/* Tarjeta celeste */
+/* Tarjeta verde */
 .home-card {
-  width: 100%;
-  max-width: 300px;
+  width: 18rem;
+  max-width: 20rem;
   padding: 2rem 1.5rem 1rem 1.5rem;
-  border-radius: 15px;
-  background-color: #358577;
-  color: #edf3f5;
-  font-size: 18px;
+  border-radius: 1rem;
+  background-color: #0e3d4b;
+  color:#ffffff;
+  font-size: 1.1rem;
   font-weight: bold;
   box-sizing: border-box;
-  box-shadow: 10px 10px 20px #0000006e,
-  -10px -10px 20px #ffffff;
+  box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
   text-align: center;
 }
 
@@ -41,7 +39,7 @@
 
 .home-card ul li {
   margin: 30px 0;
-  border-bottom: 1px solid #edf3f5;
+  border-bottom: 1px solid #ffffff;
   padding-bottom: 10px;
 }
 

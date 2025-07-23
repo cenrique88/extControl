@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: flex-start;
     margin: 0.5rem 0;
-    background-color: #fefefe;
+    background-color: #145366;
     width: 18rem;
     height: 5rem;
     border-radius: 10px;
@@ -16,7 +16,7 @@
 .client-card.closed img {
     height: 56px;
     width: 58px;
-    border-radius: 50%;
+    border-radius: 0.8rem;
     margin-left: -5px;
 }
 
@@ -34,15 +34,14 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: #fefefe;
+    background-color: #145366;
     width: 18rem; /* más flexible y adaptado a pantallas pequeñas */
     max-width: 100%; /* más flexible y adaptado a pantallas pequeñas */
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 0.8rem;
     color: #0e3d4b;
     height: 18rem;
-    box-shadow: 10px 10px 20px #0000006e,
-    -10px -10px 20px #ffffff;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
     position: relative;
 }
 
@@ -118,7 +117,7 @@
     height: 2rem;
     border-radius: 10%;
     border: none;
-    background-color: #fefefe;
+    background-color: #ffffff;
     color: #0e3d4b;
     font-size: 14px;
 }
@@ -198,7 +197,7 @@
     height: 18px;
     border-radius: 50%;
     border: 2px solid #0e3d4b;
-    background-color: #fefefe;
+    background-color: #e0e6e7;
     appearance: none;
     cursor: pointer;
     display: flex;
@@ -207,7 +206,7 @@
     transition: 0.2s ease;
     font-size: 12px;
     font-weight: bold;
-    color: #fefefe;
+    color: #ffffff;
 }
 
 .card-checkbox-derecha:checked {
@@ -221,7 +220,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fefefe;
+    color: #ffffff;
     font-size: 12px;
     font-weight: bold;
     line-height: 1;
@@ -234,7 +233,7 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: #0e3d4b; /* azul oscuro */
-    color: #fefefe;
+    color: #ffffff;
     padding: 0.7rem 1.5rem;
     font-size: 14px;
     font-weight: 600;

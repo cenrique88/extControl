@@ -19,7 +19,7 @@
 /* Menú abierto */
 .menu-container.open {
   transform: translateX(0);
-  box-shadow: 0 20px 20px 5px #72728f; /* Sombra para destacar */
+  box-shadow: 0px 8px 13px #00000028, -8px -8px 10px #85828217; /* Sombra para destacar */
 }
 
 /* Lista de ítems */
@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #edf3f5; /* Color claro para contraste */
+  color: #ffffff; /* Color claro para contraste */
   text-decoration: none;
   font-size: 1rem;
 
