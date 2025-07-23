@@ -91,12 +91,12 @@ const Clientes = () => {
   return (
     <div className="cliente-page">
       {/* Barra de búsqueda fija */}
-      <div className="search-wrapper">
+      <div className="search-wrapper-client">
         <input
           id="search-client"
           type="text" 
           placeholder="Buscar" 
-          className="input-search"
+          className="input-search-client"
           onChange={(event)=>handleSearch(event)}
           />
 
@@ -111,7 +111,7 @@ const Clientes = () => {
           search 
           ?
           searchValues.map((client) => (
-          <div className="card-wrapper" key={client._id}>
+          <div className="card-wrapper-client" key={client._id}>
 
             <CardClient
               client={client}
