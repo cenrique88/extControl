@@ -32,18 +32,3 @@ nav ul li a span {
   margin-left: 15px;
   color: #ffffff;
 }
-
-/* Responsive para pantallas chicas */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  nav ul li {
-    justify-content: center;
-    font-size: 18px;
-  }
-}
-

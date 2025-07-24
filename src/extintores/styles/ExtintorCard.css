@@ -1,6 +1,4 @@
 /* TARJETA CERRADA (versión compacta) */
-
-
 .extintor-card.closed {
     width: 20.2rem;
     height: 6rem;
@@ -26,7 +24,7 @@
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000060;
-    margin-top: 1.1rem;
+    margin: 0;
 }
 
 .header-closed h4 {
@@ -95,11 +93,11 @@
 }
 
 .extintor-status-closed h5 {
-    margin-top: 0.3rem;
     font-size: 0.8rem;
     color: #ffffff;
     font-weight: bold;
     text-align: center;
+    margin: 0;
     text-shadow: 0 0 0.5px #00000060;
 }
 
@@ -376,30 +374,9 @@ hr {
     background-color: #ffcc00cc;
     font-weight: bold;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.8rem;
     border-radius: 1.5rem;
     font-size: 1.3rem;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000050;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

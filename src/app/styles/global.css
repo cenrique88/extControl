@@ -61,10 +61,3 @@ ul {
 .mt-1 {
   margin-top: 1rem;
 }
-
-/* Media queries */
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-  }
-}
