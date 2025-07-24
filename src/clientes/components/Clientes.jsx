@@ -89,9 +89,9 @@ const Clientes = () => {
 
 
   return (
-    <div className="cliente-page">
+    <div className="client-page">
       {/* Barra de búsqueda fija */}
-      <div className="search-wrapper-client">
+      <div className="client-container">
         <input
           id="search-client"
           type="text" 
@@ -103,10 +103,7 @@ const Clientes = () => {
       </div>
 
       {/* Zona de scroll que "recorta" las tarjetas antes de la barra y el botón */}
-      <div className="scroll-zone"> 
-
-
-        
+      <div className="scroll-list__wrp"> 
         {
           search 
           ?
