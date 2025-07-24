@@ -18,6 +18,13 @@ nav {
   box-shadow: 0 2px 5px #0000001a; /* sombra */
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 360px;
+}
+
 /* Icono hamburguesa */
 .menu-button {
   width: 30px;
@@ -37,16 +44,8 @@ nav {
   color: #ffffff;
 }
 
-/* Media query opcional para pantallas muy chicas */
-@media (max-width: 400px) {
-  .nav-title {
-    font-size: 16px;
-  }
-}
-
 /* BOTONES A LA DERECHA EN CLIENTES */
 .navbar-actions {
-  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 10px;
