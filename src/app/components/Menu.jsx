@@ -49,12 +49,12 @@ const Menu = ({ isOpen, setIsOpen}) => {
 
         <li className="menu-item">
           <Link
-            to="/Configuración"
+            to="/config"
             id="configuración"
             onClick={() => {
               setIsOpen(false);
 
-              setSelectedMenu("Configuración");
+              setSelectedPage("Configuración");
 
             }}
           >
