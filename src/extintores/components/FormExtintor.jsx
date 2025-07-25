@@ -43,8 +43,8 @@ const FormExtintor = ({ saveExtintor }) => {
     };
 
     const [disableTipo, setDisableTipo] = useState(false);
-    const [disableCapacidad, setDisableCapacidad] = useState(false);
     const [disabledTime, setDisabledTime] = useState(false);
+    const [disabledCapacidad, setDisabledCapacidad] = useState(false);
     const [customTime, setCustomTime] = useState('Otro');
     const [isCustomTime, setIsCustomTime] = useState(false);
 
@@ -55,45 +55,112 @@ const FormExtintor = ({ saveExtintor }) => {
             setIsCustomTime(true);
             setCustomTime('')
         } else {
-            tiempo.handleChangeSelect(e)
+            tiempo.handleChangeSelect(Number(e.target.value))
         }
     }
 
     const onSaveChangeTime = (value) => {
-        setCustomTime(`${value} Años`)
-        tiempo.handleChangeSelect(`${value} Años`)
-        setIsCustomTime(false);
+            setCustomTime(Number(value))
+            tiempo.handleChangeSelect(Number(value))
+            setIsCustomTime(false);  
     }
 
 
 
-
-
-
-
     return (
+
         <div className="form-page">
-            <div className="form-extintor-card">
-                <div className="card-header">
-                    <h3>Nuevo Extintor</h3>
-                </div>
+        <div className="form-extintor-card">
+            <div className="card-header">
+                <h3>Nuevo Extintor</h3>
+            </div>
 
-                <div className="form-grid">
-                    <input
-                        type="text"
-                        placeholder="Ubicación" maxLength={33}
-                        className="full-width"
-                        value={ubicacion.upperInputValue}
-                        onChange={(e) => ubicacion.handleChangeUpperInput(e)}
+            <div className="form-grid">
+                <input 
+                    type="text" 
+                    placeholder="Ubicación" 
+                    className="full-width" 
+                    value={ubicacion.upperInputValue}
+                    onChange={(e)=>ubicacion.handleChangeUpperInput(e)}
                     />
-                </div>
+            </div>
 
-                <div className="fila-id-cliente">
-                    <input
-                        type="text"
-                        placeholder="ID *" maxLength={4}
-                        value={id_extintor.upperInputValue}
-                        onChange={(e) => id_extintor.handleChangeUpperInput(e)}
+            <div className="fila-id-cliente">
+                <input
+                    id="id_extintor" 
+                    type="text" 
+                    placeholder="ID *"
+                    value={id_extintor.upperInputValue}
+                    onChange={(e)=>id_extintor.handleChangeUpperInput(e)}
+                    required
+                    />
+
+                <input 
+                    id="cliente" 
+                    type="text" 
+                    value={selectedClient || console.error('cliente no encontrado, redireccionando...')} 
+                    readOnly 
+                    required
+                    />
+            </div>
+
+            <div className="form-grid">
+            <select 
+                id="tipo" 
+                onChange={(e) => tipo.handleChangeSelect(e)} 
+                onClick={()=>setDisableTipo(true)}
+                value={tipo.selectValue}
+                required
+                >
+                <option value="" hidden={disableTipo}>Tipo</option>
+                {
+                    Object.keys(selectOptions).map((option)=>(
+                    <option key={option} value={option}>{option}</option>
+                    ))
+                }                    
+            </select>
+
+
+                <select 
+                    id="capacidad"
+                    onChange={(e) => capacidad.handleChangeSelect(e)} 
+                    onClick={()=>setDisabledCapacidad(true)}                     
+                    value={capacidad.selectValue}
+                    onChange={(e) => capacidad.handleChangeSelect(e)}
+                    required
+                    >
+                <option value="" hidden={disabledCapacidad}>Capacidad</option>
+                {
+                    (selectOptions[tipo.selectValue] || []).map((option)=>(
+                        <option key={option} value={option}>{option}</option>
+                    ))
+                }
+                </select>
+
+
+                {
+                    !isCustomTime 
+                ?
+                <select 
+                id="tiempo" 
+                onChange={(e) => onChangeTime(e)} 
+                onClick={()=>setDisabledTime(true)}
+                value={tiempo.selectValue}
+                required
+                >
+                    <option value="" hidden={disabledTime}>Tiempo</option>
+                    <option value={1}>1 Año</option>
+                    <option value={2}>2 Años</option>
+                    <option value={customTime}>{typeof customTime === 'number' ? customTime + ' Años' : customTime}</option>
+                </select>
+                :
+                <>
+                <input 
+                    id="customTime" 
+                    type="text" 
+                    placeholder="Custom Time" 
+                    value={customTime}
+                    onChange={(e) => setCustomTime(e.target.value)}
                     />
 
                     <input
