@@ -99,6 +99,7 @@
 .form-grid input::placeholder,
 .fila-id-cliente input::placeholder,
 .fila-material-sector input::placeholder {
+.fila-id-cliente input::placeholder {
     color: #0e3d4b;
     opacity: 100;
 }
