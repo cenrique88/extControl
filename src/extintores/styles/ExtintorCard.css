@@ -1,6 +1,6 @@
 /* TARJETA CERRADA (versión compacta) */
 .extintor-card.closed {
-    width: 20.2rem;
+    width: 18.2rem;
     height: 6rem;
     background-color: #ffffff;
     border-radius: 1rem;
@@ -12,22 +12,24 @@
 .header-closed {
     background-color: #0e3d4b;
     color: #ffffff;
-    display: flex;
-    
-    align-items: center;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    width: 100%;
     height: 2.4rem;
+    align-items: center;
 }
 
-/* .header-closed h3 {
+
+.header-closed h3 {
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000060;
-    justify-content: center;
-    align-items: center;
-    
-} */
+    margin: 0;
+    text-align: center;
+
+}
 
 .header-closed h4 {
     font-size: 0.9rem;
@@ -35,12 +37,13 @@
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000060;
-    margin: 0.5rem;
+    margin: 0;
+    text-align: center;
 }
 
 .extintor-info-closed {
     width: 100%;
-    height: 3.4rem;
+    height: 3.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -54,16 +57,15 @@
     display: flex;
     justify-content: center;
     margin-top: 0.2rem;
-    margin-left: 0;
-    margin-right: 0.5rem;
+    margin-left: 0.2rem;
+
 }
 
 .icon-background-closed img {
     width: 100%;
     height: auto;
-    display:flex;
+    display: flex;
     justify-content: center;
-    margin-right: 0.2rem;
 }
 
 .extintor-title-closed {
@@ -73,12 +75,13 @@
     justify-content: center;
     flex-direction: column;
     align-items: start;
+    margin-left: 0.8rem;
 }
 
 .extintor-title-closed p {
     font-size: 0.8rem;
     font-weight: bold;
-    color: #0e3d4b; 
+    color: #0e3d4b;
     text-shadow: 0 0 0.5px #00000060;
     margin: 0;
 }
@@ -87,17 +90,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0e3d4b;
-    width: 10rem;
+    background-color: #16576b;
+    width: 9rem;
     height: 2.4rem;
-    margin-top: 0.6rem;
     border-radius: 1.375rem;
+    margin-top: 0.6rem;
+    margin-right: 0.3rem;
 }
+
 .extintor-status-closed.vencido {
-    background-color: #ff0000;
+    background-color: #d9534f;
 }
+
 .extintor-status-closed.proximo {
-    background-color: #ffcc00;
+    background-color: #fad84f;
 }
 
 .extintor-status-closed h5 {
@@ -106,7 +112,7 @@
     font-weight: bold;
     text-align: center;
     margin: 0;
-    text-shadow: 0 0 0.5px #00000060;
+    text-shadow: 0 0 0.5px #00000090;
 }
 
 
@@ -120,8 +126,8 @@
 
 /* Tarjeta abierta */
 .extintor-card.open {
-    width: 20.2rem;
-    height: 31.3rem;
+    width: 18.2rem;
+    height: 24rem;
     display: flex;
     margin: 1rem;
     flex-direction: column;
@@ -141,7 +147,7 @@
     padding-right: 0.6rem;
     padding-left: 0.8rem;
     text-shadow: 0 0 0.5px #00000030;
-    height: 3.7rem;
+    height: 2.8rem;
 }
 
 .titulo-header {
@@ -210,7 +216,7 @@
 
 /* Cuerpo */
 .extintor-body {
-    padding: 0.5rem;
+    padding: 0.2rem;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -219,7 +225,7 @@
 /* Icono + título */
 .icono-extintor-container {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
     justify-content: space-around;
 }
@@ -270,7 +276,7 @@
 
 .titulo-extintor h4 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #0e3d4b;
 }
 
@@ -282,7 +288,7 @@
 }
 
 .hr-container {
-    padding: 0.2rem 0.9rem;
+    padding: 0 0.9rem;
 }
 
 .hr-container hr {
@@ -311,13 +317,13 @@ hr {
 
 .tabla-datos .row strong {
     color: #0e3d4b;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 
 .tabla-datos .row b {
     color: #000000;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
 }
 
@@ -325,8 +331,8 @@ hr {
     display: flex;
     justify-content: space-between;
     border-bottom: 0.05rem solid #0e3d4b;
-    padding: 0.5rem 0;
-    margin-bottom: 0.1rem;
+    padding: 0 0;
+    margin-bottom: 0;
 
 }
 
@@ -336,53 +342,53 @@ hr {
 
 .celda {
     width: 48%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.2;
     background-color: #ffffff00;
-    padding: 0.25rem;
+    padding: 0.1rem;
 }
 
 .celda-2 {
     width: 40%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.2;
     background-color: #ffffff00;
-    padding: 0.25rem;
+    padding: 0.1rem;
 }
 
 .celda-3 {
     width: 56%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.2;
     background-color: #ffffff00;
-    padding: 0.25rem;
+    padding: 0.1rem;
 }
 
 .celda-1 {
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.2;
     background-color: #ffffff00;
-    padding: 0.25rem;
+    padding: 0.1rem;
     margin: 0;
 }
 
 .celda-id {
-    width: 10%;
+    width: 16%;
 
 }
 
 .celda-cliente {
-    width: 90%;
+    width: 84%;
     text-align: center;
 }
 
 .estado-vencimiento {
-    margin-top: 0.4rem;
+    margin-top: 0.1rem;
     background-color: #0e3d4b;
     font-weight: bold;
     text-align: center;
-    padding: 0.8rem;
+    padding: 0.3rem;
     border-radius: 1.5rem;
     font-size: 1.3rem;
     color: #ffffff;
