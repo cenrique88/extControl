@@ -49,48 +49,12 @@ const Menu = ({ isOpen, setIsOpen}) => {
 
         <li className="menu-item">
           <Link
-            to="/inspecciones"
-            id="inspecciones"
-            onClick={() => {
-              setIsOpen(false);
-              setSelectedPage("Inspecciones");
-            }}
-          >
-            <img
-              className="menu-img"
-              src="/src/img/inspecciones_3D.png"
-              alt="Inspecciones"
-            />
-            <span>Inspecciones</span>
-          </Link>
-        </li>
-
-        <li className="menu-item">
-          <Link
-            to="/informes"
-            id="informes"
-            onClick={() => {
-              setIsOpen(false);
-              setSelectedPage("Informes");
-            }}
-          >
-            <img
-              className="menu-img"
-              src="/src/img/informes_3D.png"
-              alt="Informes"
-            />
-            <span>Informes</span>
-          </Link>
-        </li>
-
-        <li className="menu-item">
-          <Link
-            to="/Configuración"
+            to="/config"
             id="configuración"
             onClick={() => {
               setIsOpen(false);
 
-              setSelectedMenu("Configuración");
+              setSelectedPage("Configuración");
 
             }}
           >
