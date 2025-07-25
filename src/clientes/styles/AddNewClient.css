@@ -108,27 +108,3 @@
 .form-buttons .aceptar:hover {
     background-color: #0e3d4b;
 }
-
-@media (max-width: 400px) {
-.add-client-card {
-    width: 90%;
-    padding: 1.2rem;
-    min-height: auto;
-    gap: 1rem;
-    }
-
-.add-client-card input {
-    font-size: 15px;
-    }
-
-.add-phone-btn {
-    font-size: 13px;
-    padding: 5px 10px;
-    }
-
-.form-buttons button {
-    font-size: 14px;
-    padding: 7px 0;
-    }
-}
-
