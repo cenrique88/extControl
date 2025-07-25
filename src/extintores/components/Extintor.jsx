@@ -35,6 +35,10 @@ const Extintor = () => {
   const [showNotify, setShowNotify] = useState(false);
   const [msgNotify, setMsgNotify] = useState("");
   const [openExtId, setOpenExtId] = useState(null);
+  const [placeholderFilter, setPlaceholderFilter] = useState("Buscar");
+  const [selectSearchFilter, setSelectSearchFilter] = useState('ubicacion')
+
+
 
   const itemRefs = useRef([]);
 
@@ -63,8 +67,33 @@ const Extintor = () => {
   };
 
   const extintoresFiltrados = getDataExtintor.filter((ext) =>
-    ext.cliente?.toUpperCase().includes(filtroNombre.toUpperCase())
+    ext[selectSearchFilter] ?.toUpperCase().includes(filtroNombre.toUpperCase())
   );
+
+  const selectFilter = (e) => {
+    setFiltroNombre('');
+    setPlaceholderFilter(e.target.value);
+    if(e.target.value == 'Ej: A07'){
+      setSelectSearchFilter('id_extintor')
+    } else if(e.target.value == 'Ej: Plovo'){
+      setSelectSearchFilter('tipo_extintor')
+    } else if(e.target.value == 'Area o Sector'){
+      setSelectSearchFilter('sector')
+    } else if(e.target.value == 'Ej: Pasillo 1'){
+      setSelectSearchFilter('ubicacion')  
+    }; 
+    const input = document.getElementById('search-input');
+    if(input){
+      input.focus();
+    }
+    
+  }
+
+
+
+
+
+
 
   return (
     <div className="extintor-page">
@@ -72,23 +101,27 @@ const Extintor = () => {
         <div className="search-wrapper">
 
           <input
+            id="search-input"
             className="input-search"
             type="text"
-            placeholder="Buscar..."
+            placeholder={placeholderFilter}
             value={filtroNombre}
             onChange={(e) => setFiltroNombre(e.target.value)}
           />
-          <select className="select-wrapper">
-            <option>
-              ID<></>
+          <select 
+            onChange={(e) => selectFilter(e)}
+            className="select-wrapper"
+            >
+            <option value="Ej: A07">
+              ID
             </option>
-            <option>
-              CLIENTE
-            </option>
-            <option>
+            <option value="Ej: Plovo" >
               TIPO
             </option>
-            <option>
+            <option value="Area o Sector">
+              SECTOR
+            </option>
+            <option selected value="Ej: Pasillo 1">
               UBICACION
             </option>
           </select>

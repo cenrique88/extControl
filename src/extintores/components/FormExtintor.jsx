@@ -42,8 +42,8 @@ const FormExtintor = ({ saveExtintor }) => {
                         };
 
     const [disableTipo, setDisableTipo] = useState(false);
-    const [disableCapacidad, setDisableCapacidad] = useState(false);
     const [disabledTime, setDisabledTime] = useState(false);
+    const [disabledCapacidad, setDisabledCapacidad] = useState(false);
     const [customTime, setCustomTime] = useState('Otro');
     const [isCustomTime, setIsCustomTime] = useState(false);
 
@@ -54,18 +54,16 @@ const FormExtintor = ({ saveExtintor }) => {
             setIsCustomTime(true); 
             setCustomTime('')           
         } else {
-            tiempo.handleChangeSelect(e)
+            tiempo.handleChangeSelect(Number(e.target.value))
         }
     }
 
-    const onSaveChangeTime = (value) => {            setCustomTime(`${value} Años`)
-            tiempo.handleChangeSelect(`${value} Años`)
-            setIsCustomTime(false);   
+
+    const onSaveChangeTime = (value) => {
+            setCustomTime(Number(value))
+            tiempo.handleChangeSelect(Number(value))
+            setIsCustomTime(false);  
     }
-
-
-
-
 
 
 
@@ -86,17 +84,22 @@ const FormExtintor = ({ saveExtintor }) => {
             </div>
 
             <div className="fila-id-cliente">
-                <input 
+                <input
+                    id="id_extintor" 
                     type="text" 
                     placeholder="ID *"
                     value={id_extintor.upperInputValue}
-                    onChange={(e)=>id_extintor.handleChangeUpperInpu(e)}
+                    onChange={(e)=>id_extintor.handleChangeUpperInput(e)}
+                    required
                     />
 
                 <input 
+                    id="cliente" 
                     type="text" 
                     value={selectedClient || console.error('cliente no encontrado, redireccionando...')} 
-                    readOnly />
+                    readOnly 
+                    required
+                    />
             </div>
 
             <div className="form-grid">
@@ -105,6 +108,7 @@ const FormExtintor = ({ saveExtintor }) => {
                 onChange={(e) => tipo.handleChangeSelect(e)} 
                 onClick={()=>setDisableTipo(true)}
                 value={tipo.selectValue}
+                required
                 >
                 <option value="" hidden={disableTipo}>Tipo</option>
                 {
@@ -115,7 +119,15 @@ const FormExtintor = ({ saveExtintor }) => {
             </select>
 
 
-                <select >
+                <select 
+                    id="capacidad"
+                    onChange={(e) => capacidad.handleChangeSelect(e)} 
+                    onClick={()=>setDisabledCapacidad(true)}                     
+                    value={capacidad.selectValue}
+                    onChange={(e) => capacidad.handleChangeSelect(e)}
+                    required
+                    >
+                <option value="" hidden={disabledCapacidad}>Capacidad</option>
                 {
                     (selectOptions[tipo.selectValue] || []).map((option)=>(
                         <option key={option} value={option}>{option}</option>
@@ -134,10 +146,10 @@ const FormExtintor = ({ saveExtintor }) => {
                 value={tiempo.selectValue}
                 required
                 >
-                    <option value="" disabled={disabledTime}>Tiempo</option>
+                    <option value="" hidden={disabledTime}>Tiempo</option>
                     <option value={1}>1 Año</option>
                     <option value={2}>2 Años</option>
-                    <option value={customTime}>{customTime}</option>
+                    <option value={customTime}>{typeof customTime === 'number' ? customTime + ' Años' : customTime}</option>
                 </select>
                 :
                 <>
