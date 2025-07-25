@@ -1,0 +1,46 @@
+
+
+.config-container {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.config-main {
+    margin-top: 10%;
+    background-color: rgba(255, 0, 0, 0.562);
+    width: 30%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.config-main button {
+    margin-top: 20%;
+    width: 6.5rem;
+    height: 2rem;
+    border: none;
+}
+
+.config-option {
+    margin-top: 10%;
+    background-color: rgba(0, 0, 255, 0.43);
+    width: 60%;
+    height: 70%;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10rem;
+    height: 12rem;
+    margin: 2rem;
+    justify-content: center;
+    border: solid 1px black;
+
+}

@@ -16,12 +16,13 @@ import Informes from './informes/components/Informes';
 import EditClient from './clientes/components/EditClient';
 import FormExtintor from './extintores/components/FormExtintor';
 import EditExtintor from './extintores/components/EditExtintor';
-
+import Configuracion from './configuracion/components/Configuracion';
 
 import {AppContext} from "./app/components/AppContext.jsx";
 import {useContext} from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 
 
@@ -47,6 +48,7 @@ function App() {
 						<Route path='/extintores/*' element={<Extintor />} />
 						<Route path='/incidencias' element={<Incidencias />} />
 						<Route path='/informes/*' element={<Informes />} />
+						<Route path='/config' element={<Configuracion />} />
 
 						<Route path="/clientes/add" element={<AddNewClient />} />
 						<Route path="/clientes/edit" element={<EditClient />} />
