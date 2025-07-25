@@ -1,35 +1,35 @@
-.form-extintor-card {
+.form-page {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e6e7;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-extintor-card {
+    width: 18.2rem;
+    height: 24rem;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
     background-color: #ffffff;
-    width: 21rem;
-    min-height: 26rem;
-    max-width: 90vw;
-    border-radius: 25px;
-    padding: 0;
-    color: #0e3d4b;
-    gap: 1rem;
+    border-radius: 1.5rem;
     box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
-    box-sizing: border-box;
-    margin: 2rem auto;
-    margin-top: 4rem;
+    overflow: hidden;
 }
 
 /* Header */
 .card-header {
     background-color: #0e3d4b;
     color: #ffffff;
-    padding: 0.8rem;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-weight: bold;
-    font-size: 1rem;
-    text-transform: uppercase;
-    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    padding-right: 0.6rem;
+    padding-left: 0.8rem;
+    height: 2.8rem;
 }
 
 .card-header h3 {
@@ -40,44 +40,65 @@
     font-weight: bold;
     text-align: center;
     width: 100%;
+    text-shadow: 0 0 0.5px #00000050;
 }
 
 /* Grid */
 .form-grid {
     display: grid;
-    grid-template-columns: 47% 47%;
-    column-gap: 6%;
-    row-gap: 1rem;
-    padding: 1.2rem;
+    grid-template-columns: 49% 49%;
+    column-gap: 2%;
+    row-gap: 0.2rem;
+    padding: 0 0.2rem;
+    margin: 0;
 }
 
 .fila-id-cliente {
     display: grid;
-    grid-template-columns: 27% 67%;
-    column-gap: 6%;
-    row-gap: 1rem;
-    padding: 0 1.2rem;
-    margin-top: -0.5rem;
-    margin-bottom: -0.5rem;
+    grid-template-columns: 29% 69%;
+    column-gap: 2%;
+    row-gap: 0.2rem;
+    padding: 0 0.2rem;
+    margin: 0;
+}
+
+.fila-material-sector {
+    display: grid;
+    grid-template-columns: 39% 59%;
+    column-gap: 2%;
+    row-gap: 0.2rem;
+    padding: 0 0.2rem;
+    margin: 0;
 }
 
 .form-grid input,
 .form-grid select,
 .fila-id-cliente input,
-.fila-id-cliente select {
+.fila-id-cliente select,
+.fila-material-sector input,
+.fila-material-sector select {
     background: transparent;
-    border: none;
-    border-bottom: 1px solid #0e3d4b;
+    border: 0;
+    border-bottom: 0.05rem solid #0e3d4b;
     color: #0e3d4b;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     width: 100%;
     outline: none;
-    padding: 0.3rem 0;
+    padding: 0;
     box-sizing: border-box;
+    text-shadow: 0 0 0.5px #00000050;
+}
+
+.fila-id-cliente input,
+.form-grid input,
+.fila-material-sector input {
+    margin-top: 2px;
 }
 
 .form-grid input::placeholder,
+.fila-id-cliente input::placeholder,
+.fila-material-sector input::placeholder {
 .fila-id-cliente input::placeholder {
     color: #0e3d4b;
     opacity: 100;
@@ -91,22 +112,23 @@
 /* Footer */
 .card-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
-    margin-top: 2rem;
-    gap: 1rem;
-    padding: 0 1.2rem 1.5rem 1.2rem;
+    margin-top: 0.2rem;
+    gap: 0.1rem;
+    padding: 0;
     box-sizing: border-box;
 }
 
 .card-footer button {
-    width: 48%;
-    padding: 10px 0;
+    width: 45%;
+    height: 30px;
     font-size: 14px;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 1rem;
     border: none;
     cursor: pointer;
+    text-shadow: 0 0 0.5px #00000050;
 }
 
 .card-footer .cancelar {

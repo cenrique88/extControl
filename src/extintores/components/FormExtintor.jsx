@@ -13,13 +13,13 @@ const FormExtintor = ({ saveExtintor }) => {
     const location = useLocation();
 
     useEffect(() => {
-        if(selectedClient){
+        if (selectedClient) {
             setSelectedPage(location.pathname === '/extintores/add' ? 'Nuevo Extintor' : '');
         } else {
             navigate('/clientes', { replace: true })
-        }        
+        }
     }, []);
-    
+
 
     const id_extintor = useForm();
     const ubicacion = useForm();
@@ -32,14 +32,15 @@ const FormExtintor = ({ saveExtintor }) => {
     const soporte = useForm();
 
 
-    const selectOptions = {'Polvo ABC': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],  
-                        'Polvo BC':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
-                        'Polvo D': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
-                        'CO2':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
-                        'Potasio':['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts'],
-                        'Halotron':['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
-                        'Espuma AFFF':['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts']
-                        };
+    const selectOptions = {
+        'Polvo ABC': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+        'Polvo BC': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+        'Polvo D': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+        'CO2': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+        'Potasio': ['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts'],
+        'Halotron': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
+        'Espuma AFFF': ['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts']
+    };
 
     const [disableTipo, setDisableTipo] = useState(false);
     const [disabledTime, setDisabledTime] = useState(false);
@@ -50,14 +51,13 @@ const FormExtintor = ({ saveExtintor }) => {
 
 
     const onChangeTime = (e) => {
-        if(customTime === e.target.value){
-            setIsCustomTime(true); 
-            setCustomTime('')           
+        if (customTime === e.target.value) {
+            setIsCustomTime(true);
+            setCustomTime('')
         } else {
             tiempo.handleChangeSelect(Number(e.target.value))
         }
     }
-
 
     const onSaveChangeTime = (value) => {
             setCustomTime(Number(value))
@@ -68,6 +68,8 @@ const FormExtintor = ({ saveExtintor }) => {
 
 
     return (
+
+        <div className="form-page">
         <div className="form-extintor-card">
             <div className="card-header">
                 <h3>Nuevo Extintor</h3>
@@ -159,67 +161,138 @@ const FormExtintor = ({ saveExtintor }) => {
                     placeholder="Custom Time" 
                     value={customTime}
                     onChange={(e) => setCustomTime(e.target.value)}
-
                     />
-                    <button 
-                        style={
-                            {width:'23px', 
-                            height:'23px', 
-                            borderRadius: '50%', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            position: 'fixed',
-                            top: '408px',
-                            left: '200px'
-                            }} 
-                            onClick={() => onSaveChangeTime(document.getElementById('customTime').value)}
-                            >✔</button>
-                    </>
-                    
-                }
 
-                <input type="month" id="recarga"  maxLength={7}/>
+                    <input
+                        type="text"
+                        value={selectedClient || console.error('cliente no encontrado, redireccionando...')}
+                        readOnly />
+                </div>
 
-                <input type="month" id="vencimineto"  />
+                <div className="fila-material-sector">
+                    <select >
+                        <option value="">Material</option>
+                        <option>Acero</option>
+                        <option>Aluminio</option>
+                        <option>Inoxidable</option>
+                    </select>
 
-                <select >
-                    <option value="">Extintor</option>
-                    <option value='Buen Estado'>Buen Estado</option>
-                    <option value='Mal Estado'>Mal Estado</option>
-                    <option value='Baja Presión'>Baja Presión</option>
-                    <option value='Retirado por Reforma'>Retirado por Reforma</option>
-                    <option value='No se Revisó'>No se Revisó</option>
-                </select>
+                    <input
+                        type="text"
+                        placeholder="Sector" maxLength={24} />
+                </div>
 
-                <select >
-                    <option value="">Señalización</option>
-                    <option>Buen Estado</option>
-                    <option>Mal Estado</option>
-                    <option>Retirada por Reforma</option>
-                    <option>Falta</option>
-                    <option>No Lleva</option>
-                    <option>No se Revisó</option>
-                </select>
+                <div className="form-grid">
+                    <select
+                        id="tipo"
+                        onChange={(e) => tipo.handleChangeSelect(e)}
+                        onClick={() => setDisableTipo(true)}
+                        value={tipo.selectValue}
+                    >
+                        <option value="" hidden={disableTipo}>Tipo</option>
+                        {
+                            Object.keys(selectOptions).map((option) => (
+                                <option key={option} value={option}>{option}</option>
+                            ))
+                        }
+                    </select>
 
-                <select >
-                    <option value="">Soporte o Nicho</option>
-                    <option>Buen Estado</option>
-                    <option>Retirado por Reforma</option>
-                    <option>Nicho Dañado</option>
-                    <option>Nicho Faltante</option>
-                    <option>Soporte Dañado</option>
-                    <option>Soporte Faltante</option>
-                    <option>Carro Dañado</option>
-                </select>
-            </div>
 
-            <div className="card-footer">
-                <button 
-                    className="cancelar"
-                    onClick={()=>navigate('/extintores')}
+                    <select >
+                        {
+                            (selectOptions[tipo.selectValue] || []).map((option) => (
+                                <option key={option} value={option}>{option}</option>
+                            ))
+                        }
+                    </select>
+
+
+                    {
+                        !isCustomTime
+                            ?
+                            <select
+                                id="tiempo"
+                                onChange={(e) => onChangeTime(e)}
+                                onClick={() => setDisabledTime(true)}
+                                value={tiempo.selectValue}
+                                required
+                            >
+                                <option value="" disabled={disabledTime}>Tiempo</option>
+                                <option value={1}>1 Año</option>
+                                <option value={2}>2 Años</option>
+                                <option value={customTime}>{customTime}</option>
+                            </select>
+                            :
+                            <>
+                                <input
+                                    id="customTime"
+                                    type="text"
+                                    placeholder="Custom Time" maxLength={2}
+                                    value={customTime}
+                                    onChange={(e) => setCustomTime(e.target.value)}
+
+                                />
+                                <button
+                                    style={
+                                        {
+                                            width: '23px',
+                                            height: '23px',
+                                            borderRadius: '50%',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            position: 'fixed',
+                                            top: '408px',
+                                            left: '200px'
+                                        }}
+                                    onClick={() => onSaveChangeTime(document.getElementById('customTime').value)}
+                                >✔</button>
+                            </>
+
+                    }
+
+                    <input type="month" id="recarga" maxLength={7} />
+
+                    <input type="month" id="vencimineto" maxLength={7} />
+
+                    <select >
+                        <option value="">Extintor</option>
+                        <option value='Buen Estado'>Buen Estado</option>
+                        <option value='Mal Estado'>Mal Estado</option>
+                        <option value='Baja Presión'>Baja Presión</option>
+                        <option value='Retirado por Reforma'>Retirado por Reforma</option>
+                        <option value='No se Revisó'>No se Revisó</option>
+                    </select>
+
+                    <select >
+                        <option value="">Señalización</option>
+                        <option>Buen Estado</option>
+                        <option>Mal Estado</option>
+                        <option>Retirada por Reforma</option>
+                        <option>Falta</option>
+                        <option>No Lleva</option>
+                        <option>No se Revisó</option>
+                    </select>
+
+                    <select >
+                        <option value="">Soporte o Nicho</option>
+                        <option>Buen Estado</option>
+                        <option>Retirado por Reforma</option>
+                        <option>Nicho Dañado</option>
+                        <option>Nicho Faltante</option>
+                        <option>Soporte Dañado</option>
+                        <option>Soporte Faltante</option>
+                        <option>Carro Dañado</option>
+                    </select>
+                </div>
+
+                <div className="card-footer">
+                    <button
+                        className="cancelar"
+                        onClick={() => navigate('/extintores')}
                     >Cancelar</button>
-                <button className="aceptar" >Aceptar</button>
+                    <button className="aceptar" >Aceptar</button>
+                </div>
             </div>
         </div>
     );

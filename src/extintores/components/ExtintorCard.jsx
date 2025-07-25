@@ -77,8 +77,8 @@ const handleTimeLeft = () => {
 
         <div>
         <div className="header-closed">
-            <h4>{extintor.id_extintor}</h4>
-            <h4>{extintor.ubicacion}</h4>
+          <dvi className="header-closed-id"><h4>{extintor.id_extintor}</h4></dvi> 
+          <div classeName="header-closed-ubicacion"><h3>{extintor.ubicacion}</h3></div>
         </div>
 
         <div className="extintor-info-closed">
