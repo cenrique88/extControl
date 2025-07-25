@@ -68,9 +68,6 @@ const handleTimeLeft = () => {
 
 
 
-
-
-
   return (
     <div
       className={`extintor-card ${abierta ? "open" : "closed"}`}

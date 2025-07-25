@@ -79,12 +79,14 @@
 
 .form-grid input::placeholder,
 .fila-id-cliente input::placeholder {
-    color: #00000073;
+    color: #0e3d4b;
+    opacity: 100;
 }
 
 .full-width {
     grid-column: 1 / -1;
 }
+
 
 /* Footer */
 .card-footer {
