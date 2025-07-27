@@ -117,21 +117,11 @@ const Clientes = () => {
               onClose={() => setOpenClientId(null)}
               key={client._id}
             />
-
-            {modoEliminar && openClientId !== client._id && (
-              <input
-                type="checkbox"
-                className="card-checkbox-derecha"
-                checked={elementSeleccionados.includes(client.nombre_cliente)}
-                onChange={() => toggleElementSelected(client.nombre_cliente)}
-              />
-            )}
-
-            </div>
+          </div>
           ))
           :
           getClients && getClients.map((client) => (
-          <div className="card-wrapper" key={client._id}>
+            <div className="scroll-item" key={client._id}>
 
             <CardClient
               client={client}
