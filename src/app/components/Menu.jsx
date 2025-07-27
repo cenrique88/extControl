@@ -24,7 +24,7 @@ const Menu = ({ isOpen, setIsOpen}) => {
               setSelectedPage("Home");
             }}
           >
-            <img className="menu-img" src="/src/img/home 3D.png" alt="Home" />
+            <img className="menu-img" src="/src/img/home_3D.png" alt="Home" />
             <span>Home</span>
           </Link>
         </li>
@@ -40,10 +40,46 @@ const Menu = ({ isOpen, setIsOpen}) => {
           >
             <img
               className="menu-img"
-              src="/src/img/clientes 3D.png"
+              src="/src/img/clientes_3D.png"
               alt="Clientes"
             />
             <span>Clientes</span>
+          </Link>
+        </li>
+
+        <li className="menu-item">
+          <Link
+            to="/inspecciones"
+            id="inspecciones"
+            onClick={() => {
+              setIsOpen(false);
+              setSelectedPage("Inspecciones");
+            }}
+          >
+            <img
+              className="menu-img"
+              src="/src/img/inspecciones_3D.png"
+              alt="Inspecciones"
+            />
+            <span>Inspecciones</span>
+          </Link>
+        </li>
+
+        <li className="menu-item">
+          <Link
+            to="/informes"
+            id="informes"
+            onClick={() => {
+              setIsOpen(false);
+              setSelectedPage("Informes");
+            }}
+          >
+            <img
+              className="menu-img"
+              src="/src/img/informes_3D.png"
+              alt="Informes"
+            />
+            <span>Informes</span>
           </Link>
         </li>
 
@@ -60,7 +96,7 @@ const Menu = ({ isOpen, setIsOpen}) => {
           >
             <img
               className="menu-img"
-              src="/src/img/configuraciones 3D.png"
+              src="/src/img/configuraciones_3D.png"
               alt="Configuración"
             />
             <span>Configuración</span>
@@ -71,7 +107,7 @@ const Menu = ({ isOpen, setIsOpen}) => {
           <Link>
             <img
               className="menu-img"
-              src="/src/img/tecnico.png"
+              src="/src/img/tecnico_3D.png"
               alt="Técnico"
             />
             <span>Técnico</span>
