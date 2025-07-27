@@ -15,7 +15,7 @@ const ExtintorCard = ({ extintor }) => {
   const [abierta, setAbierta] = useState(false);
   const [fVencimiento, setFVencimiento]= useState();
   const [timeLeft, setTimeLeft] = useState();
-  const [textTimeLeft, setTextTimeLeft] = useState('EN FECHA');
+  const [textTimeLeft, setTextTimeLeft] = useState('VIGENTE');
 
 
 
@@ -118,7 +118,7 @@ const handleTimeLeft = () => {
         <div className="extintor-body">
             <div className="icono-extintor-container">
                 <div className="fondo-icono">
-                    <img src="/src/img/extintor_card.png" alt="extintor" className="icono-extintor" />
+                    <img src="/src/img/extintor_card1.png" alt="extintor" className="icono-extintor" />
                     <div className="capacidad-inside">{extintor.capacidad}</div>
                 </div>
 
