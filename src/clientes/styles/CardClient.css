@@ -1,0 +1,402 @@
+/* TARJETA CERRADA (versión compacta) */
+.client-card.closed {
+    width: 18.2rem;
+    height: 6rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.header-closed {
+    background-color: #0e3d4b;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    width: 100%;
+    height: 2.4rem;
+    align-items: center;
+}
+
+
+.header-closed h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000060;
+    margin: 0;
+    text-align: center;
+
+}
+
+.header-closed h4 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000060;
+    margin: 0;
+    text-align: center;
+}
+
+.client-info-closed {
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.icon-background-closed {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 1rem;
+    background-color: #cee9f5;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+
+}
+
+.icon-background-closed img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.client-title-closed {
+    width: 5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 0.8rem;
+}
+
+.client-title-closed p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #0e3d4b;
+    text-shadow: 0 0 0.5px #00000060;
+    margin: 0;
+}
+
+.client-status-closed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #16576b;
+    width: 9rem;
+    height: 2.4rem;
+    border-radius: 1.375rem;
+    margin-top: 0.6rem;
+    margin-right: 0.3rem;
+}
+
+.client-status-closed.vencido {
+    background-color: #d9534f;
+}
+
+.client-status-closed.proximo {
+    background-color: #fad84f;
+}
+
+.client-status-closed h5 {
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 0 0.5px #00000090;
+}
+
+
+
+
+
+
+
+
+
+
+/* Tarjeta abierta */
+.client-card.open {
+    width: 18.2rem;
+    height: 24rem;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
+    overflow: hidden;
+}
+
+/* Header */
+.client-header {
+    background-color: #0e3d4b;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.6rem;
+    padding-left: 0.8rem;
+    text-shadow: 0 0 0.5px #00000030;
+    height: 2.8rem;
+}
+
+.titulo-header {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000060;
+}
+
+.acciones {
+    display: flex;
+    gap: 0.1rem;
+}
+
+.btn-header {
+    background-color: transparent;
+    border: 0.1rem solid #ffffff;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0.18rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.btn-header:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.226);
+}
+
+.btn-header:active {
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+    /* efecto redondo suave opcional */
+    border-radius: 50%;
+}
+
+.btn-header {
+    overflow: hidden;
+    /* ← evita contenido cuadrado */
+    -webkit-tap-highlight-color: transparent;
+    /* ← elimina el highlight gris o azul de Android */
+    touch-action: manipulation;
+    /* ← mejora respuesta táctil */
+}
+
+.btn-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+
+}
+
+/* Cuerpo */
+.client-body {
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Icono + título */
+.icono-client-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fondo-icono {
+    position: relative;
+    background-color: #cee9f5;
+    border-radius: 1rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+}
+
+.icono-extintor {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.icono-smoke {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: translateX(0);
+}
+
+.capacidad-inside {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-52%, -48%);
+    font-size: clamp(0.4rem, 2.7vw, 0.8rem);
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    color: #ffffff;
+    justify-content: center;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    text-shadow: 0 0 0.5px #00000030;
+    pointer-events: none;
+}
+
+.titulo-client {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: start;
+    padding-right: 1rem;
+}
+
+.titulo-client h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #0e3d4b;
+}
+
+.titulo-client h5 {
+    margin: 0;
+    font-size: 1rem;
+    color: #0e3d4bdc;
+    text-shadow: 0 0 0.5px #09ff0065;
+}
+
+.hr-container {
+    padding: 0 0.9rem;
+}
+
+.hr-container hr {
+    border: none;
+    border-top: 0.05rem solid #0e3d4b;
+}
+
+
+/* Línea divisoria */
+hr {
+    border: none;
+    margin: -0.1rem;
+}
+
+/* Tabla de datos */
+.tabla-datos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: 0;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.tabla-datos .row strong {
+    color: #0e3d4b;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.tabla-datos .row b {
+    color: #000000;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.05rem solid #0e3d4b;
+    padding: 0 0;
+    margin-bottom: 0;
+
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.celda {
+    width: 48%;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.1rem;
+}
+
+.celda-2 {
+    width: 48%;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.1rem;
+}
+
+.celda-3 {
+    width: 48%;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.1rem;
+}
+
+.celda-1 {
+    width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    background-color: #ffffff00;
+    padding: 0.1rem;
+    margin: 0;
+}
+
+.celda-id {
+    width: 50%;
+
+}
+
+.celda-cliente {
+    width: 50%;
+    text-align: center;
+}
+
+.estado-vencimiento {
+    margin-top: 0.1rem;
+    background-color: #0e3d4b;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3rem;
+    border-radius: 1.5rem;
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-shadow: 0 0 0.5px #00000050;
+}

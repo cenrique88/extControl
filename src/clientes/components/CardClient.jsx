@@ -1,5 +1,5 @@
 
-import "../styles/Clientes.css";
+import "../styles/CardClient.css";
 import { useRef, useState, useEffect, useContext } from 'react';
 
 import { useNavigate } from "react-router-dom";
@@ -76,7 +76,7 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
     <div
       ref={cardRef}
       tabIndex="0"
-      className={`client-card ${isOpen ? "open" : ""}`}
+      className={`client-card ${isOpen ? "open" : "closed"}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onClick={() => setTargetForEdit(client)}
@@ -84,8 +84,8 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
       {!isOpen ? (
         <div>
         <div className="header-closed">
-          <div className="header-closed-id"><h4>{client.nombre_cliente}</h4></div>
-          <div className="header-closed-ubicacion"><h3>{client.direccion_cliente}</h3></div>
+          <div className="header-closed-id"><h4>Icon</h4></div>
+          <div className="header-closed-ubicacion"><h3>{client.nombre_cliente}</h3></div>
         </div>
 
         <div className="client-info-closed">
@@ -94,11 +94,11 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
             </div>
 
             <div className="client-title-closed">
-                <p>{client.nombre_cliente}</p>
+                <p>Info</p>
             </div>
 
             <div className={`client-status-closed vigente`}>
-                <h5>ACTIVO</h5>
+                <h5>INFORMACIÓN</h5>
             </div>
         </div>
     </div>
@@ -124,13 +124,10 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
             <div className="icono-client-container">
                 <div className="fondo-icono">
                     <img src="/src/img/extintor_card1.png" alt="cliente" className="icono-extintor" />
-                    <div className="capacidad-inside">Cliente</div>
                 </div>
 
-                <div className="titulo-client">
-                    <h4>{client.direccion_cliente}</h4>
-                    <h5>{client.telefono_cliente}</h5>
-                    <h4>{client.email_cliente || "Sin email"}</h4>
+                <div className="fondo-icono">
+                    <img src="/src/img/smoke_3D.png" alt="cliente" className="icono-smoke" />
                 </div>
             </div>
         </div>
@@ -141,28 +138,28 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
         <div className="tabla-datos">
             <div className="row">
-              <div className="celda celda-1"><strong>CLIENTE</strong><br /><b>{client.nombre_cliente}</b></div>
+              <div className="celda celda-1"><strong>DIRECCIÓN</strong><br /><b>{client.direccion_cliente || "Av. Franklin Delano Roosevelt 20000 Maldonado, Departamento de Maldonado"}</b></div>
             </div>
 
             <div className="row">
                 <div className="celda celda-id">
-                    <strong>TELÉFONO</strong><br />
-                    <b>{client.telefono_cliente}</b>
+                    <strong>NOMBRE JURÍDICO</strong><br />
+                    <b>{client.nombre_juridio || "CRAME IAMPP"}</b>
                 </div>
                 <div className="celda celda-cliente">
-                    <strong>CLIENTE</strong><br />
+                    <strong>NOMBRE</strong><br />
                     <b>{client.nombre_cliente}</b>
                 </div>
             </div>
 
             <div className="row">
-                <div className="celda celda-2"><strong>DIRECCIÓN</strong><br /><b>{client.direccion_cliente}</b></div>
-                <div className="celda celda-3"><strong>DIRECCIÓN</strong><br /><b>{client.direccion_cliente}</b></div>
+                <div className="celda celda-2"><strong>EMAIL</strong><br /><b>{client.email_cliente || "marcosbritos@gmail.com"}</b></div>
+                <div className="celda celda-3"><strong>TELEFONO 1</strong><br /><b>{client.telefonos_cliente || "4222 5353"}</b></div>
             </div>
 
             <div className="row">
-                <div className="celda celda-2"><strong>EMAIL</strong><br /><b>{client.email_cliente || "No disponible"}</b></div>
-                <div className="celda celda-3"><strong>EMAIL</strong><br /><b>{client.email_cliente || "No disponible"}</b></div>
+                <div className="celda celda-2"><strong>TELEFONO 2</strong><br /><b>{client.telefonos_cliente || "094 459 267"}</b></div>
+                <div className="celda celda-3"><strong>TELEFONO 3</strong><br /><b>{client.telefonos_cliente || "091 766 462"}</b></div>
             </div>
 
             <div className="estado-vencimiento vigente">
