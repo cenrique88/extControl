@@ -25,7 +25,8 @@
     height: calc(100vh - 160px);
     margin-top: 0;
     margin-bottom: 130px;
-    position: relative; /* NECESARIO para los pseudo-elementos */
+    position: relative;
+    /* NECESARIO para los pseudo-elementos */
     scrollbar-width: none;
 }
 
@@ -39,7 +40,7 @@
 }
 
 /* Tarjeta cerrada */
-.client-card {
+/*.client-card {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -53,43 +54,29 @@
     color: #0e3d4b;
 }
 
-.client-card.closed img {
+/*.client-card.closed img {
     height: 56px;
     width: 58px;
     border-radius: 0.8rem;
     margin-left: -5px;
 }
 
-.client-card.closed p {
+/*.client-card.closed p {
     font-size: 18px;
     margin-left: 10px;
 }
 
-.client-card button {
+/*.client-card button {
     visibility: hidden;
 }
 
-/* Tarjeta expandida */
-.client-card.open {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    background-color: #145366;
-    width: 18rem; /* más flexible y adaptado a pantallas pequeñas */
-    max-width: 100%; /* más flexible y adaptado a pantallas pequeñas */
-    padding: 1rem;
-    border-radius: 0.8rem;
-    color: #0e3d4b;
-    height: 18rem;
-    box-shadow: 8px 8px 13px #00000027, -8px -8px 13px #85828227;
-    position: relative;
-}
 
-.client-card.open img {
+
+/*.client-card.open img {
     margin-top: 1px;
 }
 
-.client-card.open button {
+/*.client-card.open button {
     width: 50px;
     height: 50px;
     border: 2px solid #30636d;
@@ -104,28 +91,31 @@
 }
 
 /* Efecto hover */
-.client-card.open button:hover {
+/*.client-card.open button:hover {
     transform: scale(1.1);
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Efecto clic */
-.client-card.open button:active {
+/*.client-card.open button:active {
     transform: scale(0.95);
     background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Iconos de acción */
-.button1 {
+/*.button1 {
     background-image: url("/src/img/control.png");
 }
-.button2 {
+
+/*.button2 {
     background-image: url("/src/img/extintor.png");
 }
-.button3 {
+
+/*.button3 {
     background-image: url("/src/img/incidencias_3D.png");
 }
-.button4 {
+
+/*.button4 {
     background-image: url("/src/img/informe2.png");
 }
 
@@ -163,7 +153,7 @@
 }
 
 /* INFO cliente (arriba de la card): ícono + nombre en renglón */
-.client-info {
+/*.client-info {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -174,24 +164,15 @@
 }
 
 /* Imagen del logo */
-.client-info img {
+/*.client-info img {
     height: 40px;
     width: 40px;
     border-radius: 50%;
 }
 
-/* Nombre del cliente (hasta 16 caracteres con ellipsis) */
-.client-info p {
-    font-size: 18px;
-    color: #0e3d4b;
-    flex: 1; /* se adapta al ancho disponible */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0;
-}
 
 /* Datos secundarios (dirección y teléfono) */
+
 .client-data {
     font-size: 14px;
     color: #0e3d4b;
@@ -245,24 +226,7 @@
     line-height: 1;
 }
 
-/* Botón flotante centrado abajo */
-.btn-eliminar-multiple {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #0e3d4b; /* azul oscuro */
-    color: #ffffff;
-    padding: 0.7rem 1.5rem;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    white-space: nowrap;         /* Fuerza una sola línea */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-}
+
 
 .btn-eliminar-multiple:hover {
     background-color: #c9302c;
