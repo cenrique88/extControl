@@ -9,36 +9,23 @@
     margin: 0.5rem 0;
 }
 
-.header-closed {
+.header-closed-client {
     background-color: #0e3d4b;
     color: #ffffff;
-    display: grid;
-    grid-template-columns: 15% 85%;
+    display: flex;
     width: 100%;
     height: 2.4rem;
     align-items: center;
+    justify-content: center;
 }
 
-
-.header-closed h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-shadow: 0 0 0.5px #00000060;
-    margin: 0;
-    text-align: center;
-
-}
-
-.header-closed h4 {
+.header-closed-nombre h3 {
     font-size: 0.9rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000060;
     margin: 0;
-    text-align: center;
 }
 
 .client-info-closed {
@@ -127,7 +114,7 @@
 /* Tarjeta abierta */
 .client-card.open {
     width: 18.2rem;
-    height: 24rem;
+    height: auto;
     display: flex;
     margin: 1rem;
     flex-direction: column;
@@ -238,18 +225,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
 }
 
-.icono-extintor {
-    width: 100%;
+.icono-extintor-client {
+    width: 130%;
     height: auto;
     object-fit: contain;
+    transform: translatex(0)
 }
 
 .icono-smoke {
-    width: 100%;
+    width: 130%;
     height: auto;
     object-fit: contain;
     transform: translateX(0);
@@ -310,7 +298,7 @@ hr {
 }
 
 /* Tabla de datos */
-.tabla-datos {
+.tabla-datos-client {
     display: flex;
     flex-direction: column;
     margin-top: 0;
@@ -318,16 +306,16 @@ hr {
     gap: 0;
     padding-right: 0.8rem;
     padding-left: 0.8rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
 }
 
-.tabla-datos .row strong {
+.tabla-datos-client .row strong {
     color: #0e3d4b;
     font-size: 0.9rem;
     font-weight: bold;
 }
 
-.tabla-datos .row b {
+.tabla-datos-client .row b {
     color: #000000;
     font-size: 0.9rem;
     font-weight: 400;
@@ -354,7 +342,7 @@ hr {
     padding: 0.1rem;
 }
 
-.celda-2 {
+.celda-4 {
     width: 48%;
     font-size: 0.9rem;
     line-height: 1.2;
@@ -362,7 +350,7 @@ hr {
     padding: 0.1rem;
 }
 
-.celda-3 {
+.celda-5 {
     width: 48%;
     font-size: 0.9rem;
     line-height: 1.2;
@@ -379,24 +367,53 @@ hr {
     margin: 0;
 }
 
-.celda-id {
-    width: 50%;
-
+.button-container {
+    display: flex;
+    width: 100%;
+    height: 2.8rem;
+    background: #0e3d4b;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding-top: 0;
 }
 
-.celda-cliente {
-    width: 50%;
-    text-align: center;
+.client-card.open button {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: transparent;
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    visibility: visible;
+    padding: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.estado-vencimiento {
-    margin-top: 0.1rem;
-    background-color: #0e3d4b;
-    font-weight: bold;
-    text-align: center;
-    padding: 0.3rem;
-    border-radius: 1.5rem;
-    font-size: 1.3rem;
-    color: #ffffff;
-    text-shadow: 0 0 0.5px #00000050;
+/* Efecto hover */
+.client-card.open button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto clic */
+.client-card.open button:active {
+    transform: scale(0.95);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Iconos de acción */
+.button1 {
+    background-image: url("/src/img/inspecciones_3D.png");
+}
+.button2 {
+    background-image: url("/src/img/extintor.png");
+}
+.button3 {
+    background-image: url("/src/img/incidencias_3D.png");
+}
+.button4 {
+    background-image: url("/src/img/informes_3D.png");
 }
