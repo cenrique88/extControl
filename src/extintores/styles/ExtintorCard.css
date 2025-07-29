@@ -127,7 +127,7 @@
 /* Tarjeta abierta */
 .extintor-card.open {
     width: 18.2rem;
-    height: 24rem;
+    height: auto;
     display: flex;
     margin: 1rem;
     flex-direction: column;
@@ -312,7 +312,7 @@ hr {
     gap: 0;
     padding-right: 0.8rem;
     padding-left: 0.8rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.2rem;
 }
 
 .tabla-datos .row strong {
@@ -384,7 +384,7 @@ hr {
 }
 
 .estado-vencimiento {
-    margin-top: 0.1rem;
+    margin-top: 0.2rem;
     background-color: #0e3d4b;
     font-weight: bold;
     text-align: center;
