@@ -1,14 +1,23 @@
 import "../styles/FormExtintorCard.css";
+
 import { useState, useContext, useEffect } from "react";
+
 import AppContext from "../../app/components/AppContext";
 import useForm from "../../hooks/useForm";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router";
+import useDataBase from "../../hooks/useDataBase";
 import useEdit from "../../hooks/useEdit";
 
-const FormExtintor = ({ saveExtintor }) => {
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 
+
+
+
+const FormExtintor = () => {
+
+    const {getDB, writeDB} = useDataBase();
     const { selectedClient, setSelectedPage } = useContext(AppContext);
+
     const navigate = useNavigate();
     const location = useLocation();
 

@@ -3,7 +3,6 @@ import { useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 
-import FormExtintor from "./FormExtintor";
 import ExtintorCard from "./ExtintorCard";
 import Notify from "../../app/components/Notify";
 import AppContext from "../../app/components/AppContext";
@@ -126,8 +125,6 @@ const Extintor = () => {
           </select>
         </div>
 
-      {showAddExt && <FormExtintor getDB={getDB} saveExtintor={saveExtintor} />}
-
       <div className="scroll-list__wrp">
         {extintoresFiltrados.map((ext, index) => (
           <div
@@ -135,6 +132,7 @@ const Extintor = () => {
             ref={(el) => (itemRefs.current[index] = el)}
             className="scroll-item"
           >
+          
             <ExtintorCard
               extintor={ext}
               isOpen={openExtId === ext._id}
