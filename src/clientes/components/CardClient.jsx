@@ -115,14 +115,18 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
           </div>
         </div>
 
-        <div className="client-body">
-          <div className="icono-client-container">
-            <div className="fondo-icono">
-              <img src="/src/img/extintor_3D.png" alt="cliente" className="icono-extintor-client" />
-            </div>
-            <div className="fondo-icono">
-              <img src="/src/img/smoke_3DG.png" alt="cliente" className="icono-smoke" />
-            </div>
+        <div className="estadisticas-extintores">
+          <div className="fila-estadistica">
+              <span className="titulo">Total Extintores:</span>
+              <span className="valor">92</span>
+          </div>
+          <div className="fila-estadistica">
+              <span className="titulo">Proximos a Vencer:</span>
+              <span className="valor">8</span>
+          </div>
+          <div className="fila-estadistica">
+              <span className="titulo">Vencidos:</span>
+              <span className="valor">2</span>
           </div>
         </div>
 
