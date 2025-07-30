@@ -47,7 +47,7 @@ function NavBar() {
           <div className="navbar-actions">
             <button 
               className="navbar-icon" 
-              title="Agregar nuevo cliente"
+              title={`Agregar nuevo ${selectedPage}`}
               onClick={() => navigate(`${location.pathname}/add`)}
               >
               <img src="/src/img/add.png" alt="Agregar" className="navbar-icon-img" />
