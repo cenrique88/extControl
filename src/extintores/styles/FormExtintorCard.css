@@ -1,11 +1,11 @@
 .form-page {
-    width: 100%;
-    height: 100%;
-    background-color: #e0e6e7;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100%;
+    padding-top: 5rem;
+    overflow: hidden;
 }
 
 .form-extintor-card {
@@ -36,7 +36,7 @@
     margin: 0;
     padding: 0;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-align: center;
     width: 100%;
@@ -52,6 +52,22 @@
     padding: 0 0.2rem;
     margin: 0;
 }
+
+.form-extintor-card input,
+.form-extintor-card select {
+    border-radius: 0;
+    /* Elimina el redondeo para mantener líneas rectas */
+    border: none;
+    border-bottom: 1px solid #ccc;
+    /* Línea recta inferior */
+    background: transparent;
+    outline: none;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 
 .fila-id-cliente {
     display: grid;
@@ -120,9 +136,9 @@
 }
 
 .card-footer button {
-    width: 45%;
+    width: 40%;
     height: 30px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     border-radius: 1rem;
     border: none;
