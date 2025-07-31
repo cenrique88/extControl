@@ -119,7 +119,7 @@ const Extintor = () => {
             <option value="Area o Sector">
               SECTOR
             </option>
-            <option selected value="Ej: Pasillo 1">
+            <option  selected={true} defaultValue="Ej: Pasillo 1">
               UBICACION
             </option>
           </select>
