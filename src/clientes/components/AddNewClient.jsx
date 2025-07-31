@@ -75,63 +75,79 @@ const AddNewClient = () => {
   };
 
   return (
-    <div className="add-client-page">
-      <div className="add-client-card">
-      <div className="header-form">
-                Formulario Cliente
+      <div className="add-client-page">
+        <div className="add-client-card">
+          <div className="header-form">
+            <div className= "titulo-header-form">Formulario Cliente</div>
+          </div>
+        <div className= "info-form">
+          <div>
+            <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="text"
+              placeholder="Nombre Jurídico"
+              value={nombre_juridico.inputValue}
+              onChange={nombre_juridico.handleChangeInput}
+            />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="text"
+              placeholder="Nombre *"
+              value={nombre_cliente.inputValue}
+              onChange={nombre_cliente.handleChangeInput}
+              required
+            />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="text"
+              placeholder="Dirección"
+              value={direccion.inputValue}
+              onChange={direccion.handleChangeInput}
+            />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email.emailValue}
+              onChange={email.handleChangeEmail}
+            />
+          </div>
+
+          {telefonos.map((tel, idx) => (
+            <div className="row-form" key={idx}>
+              <input
+              type="number"
+              placeholder={`Teléfono ${idx + 1}`}
+              value={tel}
+              onChange={(e) => updateTelefono(idx, e.target.value)}
+              />
             </div>
-        <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
+          ))}
 
-        <input
-          type="text"
-          placeholder="Nombre Jurídico"
-          value={nombre_juridico.inputValue}
-          onChange={nombre_juridico.handleChangeInput}
-        />
-        <input
-          type="text"
-          placeholder="Nombre *"
-          value={nombre_cliente.inputValue}
-          onChange={nombre_cliente.handleChangeInput}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Dirección"
-          value={direccion.inputValue}
-          onChange={direccion.handleChangeInput}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email.emailValue}
-          onChange={email.handleChangeEmail}
-        />
+        </div>
+          {telefonos.length < 3 && (
+            <button className="add-phone-btn" onClick={addTelefono}>
+              + Teléfono
+            </button>
+          )}
 
-        {telefonos.map((tel, idx) => (
-          <input
-            key={idx}
-            type="number"
-            placeholder={`Teléfono ${idx + 1}`}
-            value={tel}
-            onChange={(e) => updateTelefono(idx, e.target.value)}
-          />
-        ))}
-
-        {telefonos.length < 3 && (
-          <button className="add-phone-btn" onClick={addTelefono}>
-            + Teléfono
-          </button>
-        )}
-
-        <div className="form-buttons">
-          <button className="cancelar" onClick={handleCancel}>Cancelar</button>
-          <button className="aceptar" onClick={saveData}>Aceptar</button>
+          <div className="form-buttons">
+            <button className="aceptar" onClick={saveData}>Aceptar</button>
+            <button className="cancelar" onClick={handleCancel}>Cancelar</button>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 export default AddNewClient;
 
