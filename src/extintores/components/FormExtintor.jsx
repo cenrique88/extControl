@@ -236,11 +236,11 @@ const FormExtintor = () => {
                 </div>
 
                 <div className="card-footer">
+                    <button className="aceptar" >Aceptar</button>
                     <button
                         className="cancelar"
                         onClick={() => navigate('/extintores')}
                     >Cancelar</button>
-                    <button className="aceptar" >Aceptar</button>
                 </div>
             </div>
         </div>
