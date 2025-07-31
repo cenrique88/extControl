@@ -29,7 +29,7 @@ const FormExtintor = () => {
     const [customTime, setCustomTime] = useState('Otro');
     const [isCustomTime, setIsCustomTime] = useState(false);
 
-    const [vencDate, setVencDate] = useState(new Date());
+    const [vencDate, setVencDate] = useState('0000-00');
 
 
 const ubicacion = useForm();
@@ -64,7 +64,7 @@ const ubicacion = useForm();
 
     useEffect(() => {
         setVencDate(handleF_Vencimiento(recarga.inputValue, tiempo.selectValue));      
-    }, [recarga.inputValue])
+    }, [recarga.inputValue, tiempo.selectValue])
     
 
 
@@ -242,14 +242,15 @@ const ubicacion = useForm();
                     }
 
                     <input 
-                        type="month" 
+                        type={!recarga.inputValue ? "month" : "text"} 
                         id="recarga"
                         onChange={(e) => recarga.handleChangeInput(e)}
+                        onKeyDown={(e) => e.key === 'Escape'}
                         value={recarga.inputValue}
                         />
 
                     <input 
-                        type="month" 
+                        type="text" 
                         id="vencimiento" 
                         value={vencDate}
                         readOnly />
