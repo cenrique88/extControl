@@ -11,7 +11,8 @@ const useDate = () => {
       const fv = new Date(ultima_recarga);
       const rc = parseInt(recarga_cada);
       const getTime= fv.setFullYear(fv.getFullYear()+  rc)     
-      return `${new Date(getTime).getMonth()}/${new Date(getTime).getFullYear()%1000}`;
+      //return `${new Date(getTime).getMonth()}/${new Date(getTime).getFullYear()%1000}`;
+      return `${new Date(getTime).getFullYear()}-${String(new Date(getTime).getMonth()+2).padStart(2, '0')}`;
     }
 
 
