@@ -29,11 +29,8 @@ const FormExtintor = () => {
     const [customTime, setCustomTime] = useState('Otro');
     const [isCustomTime, setIsCustomTime] = useState(false);
 
-<<<<<<< HEAD
+
     const [vencDate, setVencDate] = useState('0000-00');
-=======
-    const [vencDate, setVencDate] = useState(new Date());
->>>>>>> 387fda2 (new function for form ext)
 
 
 const ubicacion = useForm();
@@ -69,7 +66,7 @@ const ubicacion = useForm();
     useEffect(() => {
         setVencDate(handleF_Vencimiento(recarga.inputValue, tiempo.selectValue));      
     }, [recarga.inputValue, tiempo.selectValue])
-    
+
 
 
 
@@ -246,25 +243,15 @@ const ubicacion = useForm();
                     }
 
                     <input 
-<<<<<<< HEAD
                         type={!recarga.inputValue ? "month" : "text"} 
                         id="recarga"
                         onChange={(e) => recarga.handleChangeInput(e)}
                         onKeyDown={(e) => e.key === 'Escape'}
-=======
-                        type="month" 
-                        id="recarga"
-                        onChange={(e) => recarga.handleChangeInput(e)}
->>>>>>> 387fda2 (new function for form ext)
                         value={recarga.inputValue}
                         />
 
-                    <input 
-<<<<<<< HEAD
+                    <input
                         type="text" 
-=======
-                        type="month" 
->>>>>>> 387fda2 (new function for form ext)
                         id="vencimiento" 
                         value={vencDate}
                         readOnly />
