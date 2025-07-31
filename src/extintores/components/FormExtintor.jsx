@@ -6,6 +6,7 @@ import AppContext from "../../app/components/AppContext";
 import useForm from "../../hooks/useForm";
 import useDataBase from "../../hooks/useDataBase";
 import useEdit from "../../hooks/useEdit";
+import useDate from "../../hooks/useDate";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
@@ -16,10 +17,41 @@ import { useLocation } from "react-router";
 const FormExtintor = () => {
 
     const {getDB, writeDB} = useDataBase();
+    const {handleF_Vencimiento} = useDate();
     const { selectedClient, setSelectedPage } = useContext(AppContext);
 
     const navigate = useNavigate();
     const location = useLocation();
+
+    const [disableTipo, setDisableTipo] = useState(false);
+    const [disabledTime, setDisabledTime] = useState(false);
+    const [disabledCapacidad, setDisabledCapacidad] = useState(false);
+    const [customTime, setCustomTime] = useState('Otro');
+    const [isCustomTime, setIsCustomTime] = useState(false);
+
+    const [vencDate, setVencDate] = useState(new Date());
+
+
+const ubicacion = useForm();
+    const id_extintor = useForm();
+    const material = useForm();
+    const sector = useForm();
+    const tipo = useForm();
+    const capacidad = useForm();
+    const tiempo = useEdit();
+    const recarga = useForm();
+    const ext = useForm();
+    const senial = useForm();
+    const soporte = useForm();
+    const observaciones = useForm();
+
+
+
+    
+
+
+
+
 
     useEffect(() => {
         if (selectedClient) {
@@ -30,15 +62,31 @@ const FormExtintor = () => {
     }, []);
 
 
-    const id_extintor = useForm();
-    const ubicacion = useForm();
-    const tipo = useForm();
-    const capacidad = useForm();
-    const tiempo = useEdit();
-    const recarga = useForm();
-    const ext = useForm();
-    const senial = useForm();
-    const soporte = useForm();
+    useEffect(() => {
+        setVencDate(handleF_Vencimiento(recarga.inputValue, tiempo.selectValue));      
+    }, [recarga.inputValue])
+    
+
+
+
+    const data = {
+        id_extintor: id_extintor.inputValue,
+        ubicacion: ubicacion.inputValue,
+        cliente: selectedClient,
+        material: material.inputValue,
+        sector: sector.inputValue,
+        tipo_extintor: tipo.inputValue,
+        capacidad: capacidad.inputValue,
+        recarga_cada: tiempo.inputValue,
+        ultima_recarga: recarga.inputValue,
+        fecha_vencimiento: vencDate,
+        estado_extintor: ext.inputValue,
+        senalizacion: senial.inputValue,
+        soporte_nicho: soporte.inputValue,
+        estado_vencimiento: 'vencido o no',
+        observaciones:''
+    }
+
 
 
     const selectOptions = {
@@ -50,13 +98,6 @@ const FormExtintor = () => {
         'Halotron': ['1Kg', '2Kg', '3.5Kg', '4Kg', '8Kg', '25Kg', '50Kg'],
         'Espuma AFFF': ['2.5Lts', '6Lts', '9Lts', '10Lts', '50Lts']
     };
-
-    const [disableTipo, setDisableTipo] = useState(false);
-    const [disabledTime, setDisabledTime] = useState(false);
-    const [disabledCapacidad, setDisabledCapacidad] = useState(false);
-    const [customTime, setCustomTime] = useState('Otro');
-    const [isCustomTime, setIsCustomTime] = useState(false);
-
 
 
     const onChangeTime = (e) => {
@@ -200,9 +241,18 @@ const FormExtintor = () => {
 
                     }
 
-                    <input type="month" id="recarga" maxLength={7} />
+                    <input 
+                        type="month" 
+                        id="recarga"
+                        onChange={(e) => recarga.handleChangeInput(e)}
+                        value={recarga.inputValue}
+                        />
 
-                    <input type="month" id="vencimineto" maxLength={7} />
+                    <input 
+                        type="month" 
+                        id="vencimiento" 
+                        value={vencDate}
+                        readOnly />
 
                     <select >
                         <option value="">Extintor</option>
