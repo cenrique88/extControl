@@ -97,10 +97,6 @@ const EditExtintor = () => {
 
 
 
-
-
-
-
     return (
         <div className="form-extintor-card">
             <div className="card-header">

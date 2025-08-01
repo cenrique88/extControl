@@ -100,9 +100,6 @@ const EditClient = () => {
         </div>
 
         <div className="info-form">
-          <div>
-            <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
-          </div>
 
           <div className="row-form">
             <input
