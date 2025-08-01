@@ -6,6 +6,7 @@ import useDataBase from "../../hooks/useDataBase.js";
 import useEdit from "../../hooks/useEdit.js";
 import Notify from "../../app/components/Notify.jsx";
 
+import "../styles/AddNewClient.css";
 
 const EditClient = () => {
 
@@ -96,43 +97,63 @@ const EditClient = () => {
   return (
     <div className="add-client-page">
       <div className="add-client-card">
-        <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
+        <div className="header-form">
+          <div className="titulo-header-form">Editar Cliente</div>
+        </div>
 
-        <input
-          type="text"
-          placeholder="Nombre Jurídico"
-          value={nombre_juridico.inputValue}
-          onChange={(e)=>nombre_juridico.handleChangeInput(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Nombre *"
-          value={nombre_cliente.inputValue}
-          onChange={(e)=>nombre_cliente.handleChangeInput(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Dirección"
-          value={direccion.inputValue}
-          onChange={(e)=>direccion.handleChangeInput(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email.emailValue}
-          onChange={(e)=>email.handleChangeEmail((e.target.value))}
-        />
+        <div className="info-form">
+          <div>
+            <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
+          </div>
 
-        {telefonos.map((tel, idx) => (
-          <input
-            key={idx}
-            type="number"
-            placeholder={`Teléfono ${idx + 1}`}
-            value={tel}
-            onChange={(e) => updateTelefono(idx, e.target.value)}
-          />
-        ))}
+          <div className="row-form">
+            <input
+              type="text"
+              placeholder="Nombre Jurídico"
+              value={nombre_juridico.inputValue}
+              onChange={nombre_juridico.handleChangeInput}
+            />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="text"
+              placeholder="Nombre *"
+              value={nombre_cliente.inputValue}
+              onChange={nombre_cliente.handleChangeInput}
+              required
+            />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="text"
+              placeholder="Dirección"
+              value={direccion.inputValue}
+              onChange={direccion.handleChangeInput}
+            />
+          </div>
+
+          <div className="row-form">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email.emailValue}
+              onChange={email.handleChangeEmail}
+            />
+          </div>
+
+          {telefonos.map((tel, idx) => (
+            <div className="row-form" key={idx}>
+              <input
+                type="number"
+                placeholder={`Teléfono ${idx + 1}`}
+                value={tel}
+                onChange={(e) => updateTelefono(idx, e.target.value)}
+              />
+            </div>
+          ))}
+        </div>
 
         {telefonos.length < 3 && (
           <button className="add-phone-btn" onClick={addTelefono}>
@@ -141,8 +162,8 @@ const EditClient = () => {
         )}
 
         <div className="form-buttons">
-          <button className="cancelar" onClick={handleCancel}>Cancelar</button>
           <button className="aceptar" onClick={saveData}>Aceptar</button>
+          <button className="cancelar" onClick={handleCancel}>Cancelar</button>
         </div>
       </div>
     </div>
