@@ -67,11 +67,6 @@ const ubicacion = useForm();
             setVencDate('0000-00');
         }      
     }, [recarga.inputValue, tiempo.selectValue])
-<<<<<<< HEAD
-=======
-    
->>>>>>> 1dc8c0afd717c52b61d515fd0d102dd625affccc
-
 
 
     const data = {
@@ -273,22 +268,12 @@ const ubicacion = useForm();
                         value={recarga.inputValue}
                         />
 
-<<<<<<< HEAD
-
                     <input 
                         type="text" 
                         id="vencimiento" 
                         value={vencDate ? vencDate : '0000-00'}
                         readOnly />
 
-=======
-                    <input 
-                        type="text" 
-                        id="vencimiento" 
-                        value={vencDate ? vencDate : '0000-00'}
-                        readOnly />
-
->>>>>>> 1dc8c0afd717c52b61d515fd0d102dd625affccc
                     <select 
                         id='estado_extintor'
                         onChange={(e) => ext.handleChangeSelect(e)}
