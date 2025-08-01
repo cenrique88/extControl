@@ -106,7 +106,7 @@ const EditClient = () => {
               type="text"
               placeholder="Nombre Jurídico"
               value={nombre_juridico.inputValue}
-              onChange={nombre_juridico.handleChangeInput}
+              onChange={(e)=>nombre_juridico.handleChangeInput(e.target.value)}
             />
           </div>
 
@@ -115,7 +115,7 @@ const EditClient = () => {
               type="text"
               placeholder="Nombre *"
               value={nombre_cliente.inputValue}
-              onChange={nombre_cliente.handleChangeInput}
+              onChange={(e)=>nombre_cliente.handleChangeInput(e.target.value)}
               required
             />
           </div>
@@ -125,7 +125,7 @@ const EditClient = () => {
               type="text"
               placeholder="Dirección"
               value={direccion.inputValue}
-              onChange={direccion.handleChangeInput}
+              onChange={(e)=>direccion.handleChangeInput(e.target.value)}
             />
           </div>
 
@@ -134,7 +134,7 @@ const EditClient = () => {
               type="email"
               placeholder="Email"
               value={email.emailValue}
-              onChange={email.handleChangeEmail}
+              onChange={(e)=>email.handleChangeEmail(e.target.value)}
             />
           </div>
 
