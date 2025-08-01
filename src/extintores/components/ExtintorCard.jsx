@@ -5,7 +5,7 @@ import { AppContext } from "../../app/components/AppContext.jsx";
 import "../styles/ExtintorCard.css";
 
 
-const ExtintorCard = ({ extintor }) => {
+const ExtintorCard = ({ extintor, deleteFx, editFx}) => {
 
   const { setTargetForEdit,
           setViewEditButton  } = useContext(AppContext);
@@ -106,10 +106,16 @@ const handleTimeLeft = () => {
         <div className="extintor-header">
             <div className="titulo-header">{extintor.ubicacion}</div>
             <div className="acciones">
-                <button className="btn-header">
+                <button 
+                  className="btn-header"
+                  onClick={()=>editFx(extintor._id)}
+                  >
                     <img src="/src/img/edit.png" className="btn-icon" alt="Editar" title="Editar" />
                 </button>
-                <button className="btn-header">
+                <button 
+                  className="btn-header"
+                  onClick={()=>deleteFx(extintor._id)}
+                  >
                     <img src="/src/img/delete.png" className="btn-icon" alt="Eliminar" title="Eliminar" />
                 </button>
             </div>
@@ -175,52 +181,3 @@ const handleTimeLeft = () => {
 
 export default ExtintorCard;
 
-
-
-
-
-/**
- *  <div
-      className={`extintor-card ${abierta ? "open" : "closed"}`}
-      onClick={openCloseCard}
-    >
-      {!abierta ? (
-        <>
-          <img src="/icons/extintor.svg" alt="icono" />
-          <p>{extintor.id_extintor}</p>
-        </>
-      ) 
-      : 
-      (
-        <>
-          <div className="extintor-header">
-            <h3>Extintor {extintor.id_extintor}</h3>
-          </div>
-
-            <>
-              <div className="extintor-form-grid">
-                <div className="full-width">
-                  <strong>Ubicación:</strong> {extintor.ubicacion}
-                </div>
-              </div>
-
-              <div className="extintor-fila-id">
-                <div><strong>ID:</strong> {extintor.id_extintor}</div>
-                <div><strong>Cliente:</strong> {extintor.cliente}</div>
-              </div>
-
-              <div className="extintor-form-grid">
-                <div><strong>Capacidad:</strong> {extintor.capacidad}</div>
-                <div><strong>Tipo:</strong> {extintor.tipo_extintor}</div>
-                <div><strong>Tiempo:</strong> {extintor.recarga_cada}</div>
-                <div><strong>Recarga:</strong> {extintor.ultima_recarga}</div>
-                <div><strong>Vencimiento:</strong> -</div>
-                <div><strong>Extintor:</strong> {extintor.estado_extintor}</div>
-                <div><strong>Señalización:</strong> {extintor.senial}</div>
-                <div><strong>Soporte:</strong> {extintor.soporte}</div>
-              </div>
-            </>
-        </>
-      )}
-    </div>
- */

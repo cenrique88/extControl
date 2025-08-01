@@ -4,7 +4,7 @@ import { AppContext } from "../../app/components/AppContext.jsx";
 
 import useDataBase from "../../hooks/useDataBase.js";
 import useEdit from "../../hooks/useEdit.js";
-import Notify from "../../app/components/Notify.jsx";
+
 
 
 const EditClient = () => {
@@ -20,7 +20,6 @@ const EditClient = () => {
   const email = useEdit();
 
   const [telefonos, setTelefonos] = useState([]);
-  const [showNotify, setShowNotify] = useState(false);
 
 
   useEffect(() => {
@@ -58,7 +57,6 @@ const EditClient = () => {
     setTelefonos(nuevos);
   };
 
-  const onCloseNotify = () => setShowNotify(false);
 
   const saveData = async () => {
 
@@ -76,7 +74,6 @@ const EditClient = () => {
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
 
-    setShowNotify(true);
 
     nombre_juridico.clearInput();
     direccion.clearInput();
@@ -96,7 +93,6 @@ const EditClient = () => {
   return (
     <div className="add-client-page">
       <div className="add-client-card">
-        <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
 
         <input
           type="text"
