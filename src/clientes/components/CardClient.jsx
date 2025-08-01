@@ -55,6 +55,7 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
   const handleMouseUp = (e) => {
     clearTimeout(timeRef.current);
+    console.log(e.target.localName)
 
     if (!isPressed && e.target.localName !== "button") {
       onToggle(); // Alternar apertura
@@ -106,11 +107,18 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
         <div className="client-header">
           <div className="titulo-header">{client.nombre_cliente}</div>
           <div className="acciones">
-            <button className="btn-header">
-              <img src="/src/img/edit.png" className="btn-icon" alt="Editar" title="Editar" />
+            <button 
+              className="btn-header"
+              id='btn-edit'
+              onClick={() => navigate('/clientes/edit')}
+              >
+              {/* <img src="/src/img/edit.png" className="btn-icon" alt="Editar" title="Editar" /> */}
             </button>
-            <button className="btn-header">
-              <img src="/src/img/delete.png" className="btn-icon" alt="Eliminar" title="Eliminar" />
+            <button 
+              className="btn-header"
+              id='btn-delete'
+              >
+              {/* <img src="/src/img/delete.png" className="btn-icon" alt="Eliminar" title="Eliminar" /> */}
             </button>
           </div>
         </div>

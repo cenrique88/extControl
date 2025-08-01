@@ -5,7 +5,6 @@ import { useState, useContext, useEffect } from "react";
 import AppContext from "../../app/components/AppContext";
 import useDataBase from "../../hooks/useDataBase.js";
 import useEdit from "../../hooks/useEdit.js";
-import Notify from "../../app/components/Notify.jsx";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";

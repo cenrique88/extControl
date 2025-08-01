@@ -16,8 +16,8 @@ import { useLocation } from "react-router";
 
 const FormExtintor = () => {
 
-    const {getDB, writeDB} = useDataBase();
-    const {handleF_Vencimiento} = useDate();
+    const {writeDB} = useDataBase();
+    const {handleF_Vencimiento, handleTimeLeft} = useDate();
     const { selectedClient, setSelectedPage } = useContext(AppContext);
 
     const navigate = useNavigate();
@@ -47,10 +47,6 @@ const ubicacion = useForm();
 
 
 
-    
-
-
-
 
 
     useEffect(() => {
@@ -63,25 +59,31 @@ const ubicacion = useForm();
 
 
     useEffect(() => {
-        setVencDate(handleF_Vencimiento(recarga.inputValue, tiempo.selectValue));      
+        if (recarga.inputValue && tiempo.selectValue) {
+            const venc = handleF_Vencimiento(recarga.inputValue, tiempo.selectValue);
+            console.log(handleTimeLeft(recarga.inputValue, tiempo.selectValue));
+            setVencDate(venc);
+        } else {
+            setVencDate('0000-00');
+        }      
     }, [recarga.inputValue, tiempo.selectValue])
 
 
 
     const data = {
-        id_extintor: id_extintor.inputValue,
-        ubicacion: ubicacion.inputValue,
+        id_extintor: id_extintor.upperInputValue,
+        ubicacion: ubicacion.upperInputValue,
         cliente: selectedClient,
-        material: material.inputValue,
+        material: material.selectValue,
         sector: sector.inputValue,
-        tipo_extintor: tipo.inputValue,
-        capacidad: capacidad.inputValue,
-        recarga_cada: tiempo.inputValue,
-        ultima_recarga: recarga.inputValue,
+        tipo_extintor: tipo.selectValue,
+        capacidad: capacidad.selectValue,
+        recarga_cada: tiempo.selectValue,
+        fecha_recarga: recarga.inputValue,
         fecha_vencimiento: vencDate,
-        estado_extintor: ext.inputValue,
-        senalizacion: senial.inputValue,
-        soporte_nicho: soporte.inputValue,
+        estado_extintor: ext.selectValue,
+        senalizacion: senial.selectValue,
+        soporte_nicho: soporte.selectValue,
         estado_vencimiento: 'vencido o no',
         observaciones:''
     }
@@ -112,6 +114,17 @@ const ubicacion = useForm();
         setCustomTime(Number(value))
         tiempo.handleChangeSelect(Number(value))
         setIsCustomTime(false);
+    }
+
+
+
+    const handleSaveData = async () => {
+        try {
+            const response = await writeDB('extintores/add', data);
+            navigate('/extintores', { replace: true })
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 
@@ -151,16 +164,24 @@ const ubicacion = useForm();
                 </div>
 
                 <div className="fila-material-sector">
-                    <select >
+                    <select 
+                        id="material"
+                        onChange={(e) => material.handleChangeSelect(e)}
+                        value={material.selectValue}
+                        required
+                    >
                         <option value="">Material</option>
-                        <option>Acero</option>
-                        <option>Aluminio</option>
-                        <option>Inoxidable</option>
+                        <option value='Acero'>Acero</option>
+                        <option value='Aluminio'>Aluminio</option>
+                        <option value='Inoxidable'>Inoxidable</option>
                     </select>
 
                     <input
                         type="text"
-                        placeholder="Sector" maxLength={24} />
+                        placeholder="Sector" 
+                        value={sector.inputValue}
+                        onChange={(e) => sector.handleChangeInput(e)}
+                        maxLength={24} />
                 </div>
 
 
@@ -244,7 +265,7 @@ const ubicacion = useForm();
                         type={!recarga.inputValue ? "month" : "text"} 
                         id="recarga"
                         onChange={(e) => recarga.handleChangeInput(e)}
-                        onKeyDown={(e) => e.key === 'Escape'}
+                        onKeyDown={(e) => e.key === 'Escape' && recarga.clearInput()}
                         value={recarga.inputValue}
                         />
 
@@ -252,10 +273,15 @@ const ubicacion = useForm();
                     <input 
                         type="text" 
                         id="vencimiento" 
-                        value={vencDate}
+                        value={vencDate ? vencDate : '0000-00'}
                         readOnly />
 
-                    <select >
+                    <select 
+                        id='estado_extintor'
+                        onChange={(e) => ext.handleChangeSelect(e)}
+                        value={ext.selectValue}
+                        required
+                    >
                         <option value="">Extintor</option>
                         <option value='Buen Estado'>Buen Estado</option>
                         <option value='Mal Estado'>Mal Estado</option>
@@ -264,30 +290,45 @@ const ubicacion = useForm();
                         <option value='No se Revisó'>No se Revisó</option>
                     </select>
 
-                    <select >
+                    <select 
+                        id='senalizacion'
+                        onChange={(e) => senial.handleChangeSelect(e)}
+                        value={senial.selectValue}
+                        required
+                    >
                         <option value="">Señalización</option>
-                        <option>Buen Estado</option>
-                        <option>Mal Estado</option>
-                        <option>Retirada por Reforma</option>
-                        <option>Falta</option>
-                        <option>No Lleva</option>
-                        <option>No se Revisó</option>
+                        <option value='Buen Estado'>Buen Estado</option>
+                        <option value='Mal Estado'>Mal Estado</option>
+                        <option value= 'Retuirado por Reforma'>Retirada por Reforma</option>
+                        <option value='Falta'>Falta</option>
+                        <option value='No Lleva'>No Lleva</option>
+                        <option value='No se Revisó'>No se Revisó</option>
                     </select>
 
-                    <select >
+                    <select 
+                        id='soporte'
+                        onChange={(e) => soporte.handleChangeSelect(e)}
+                        value={soporte.selectValue}
+                        required
+                    >
                         <option value="">Soporte o Nicho</option>
-                        <option>Buen Estado</option>
-                        <option>Retirado por Reforma</option>
-                        <option>Nicho Dañado</option>
-                        <option>Nicho Faltante</option>
-                        <option>Soporte Dañado</option>
-                        <option>Soporte Faltante</option>
-                        <option>Carro Dañado</option>
+                        <option value='Buen Estado'>Buen Estado</option>
+                        <option value='Mal Estado'>Mal Estado</option>
+                        <option value='Retirado por Reforma'>Retirado por Reforma</option>
+                        <option value='Nicho Dañado'>Nicho Dañado</option>
+                        <option value='Nicho Faltante'>Nicho Faltante</option>
+                        <option value='Soporte Dañado'>Soporte Dañado</option>
+                        <option value='Soporte Faltante'>Soporte Faltante</option>
+                        <option value='Carro Dañado'>Carro Dañado</option>
                     </select>
                 </div>
 
                 <div className="card-footer">
-                    <button className="aceptar" >Aceptar</button>
+                    <button 
+                        className="aceptar"
+                        onClick={() => handleSaveData()}
+                        >Aceptar</button>
+
                     <button
                         className="cancelar"
                         onClick={() => navigate('/extintores')}

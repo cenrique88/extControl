@@ -418,3 +418,16 @@ hr {
 .button4 {
     background-image: url("/src/img/informes_3D.png");
 }
+
+#btn-edit {
+    background-image: url("/src/img/edit.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#btn-delete {
+    background-image: url("/src/img/delete.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
