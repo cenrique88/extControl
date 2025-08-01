@@ -4,7 +4,7 @@ import { AppContext } from "../../app/components/AppContext.jsx";
 
 import useDataBase from "../../hooks/useDataBase";
 import useForm from "../../hooks/useForm";
-import Notify from "../../app/components/Notify.jsx";
+
 
 import "../styles/AddNewClient.css";
 
@@ -20,7 +20,6 @@ const AddNewClient = () => {
   const email = useForm();
 
   const [telefonos, setTelefonos] = useState([""]);
-  const [showNotify, setShowNotify] = useState(false);
 
 
   useEffect(() => {
@@ -40,7 +39,6 @@ const AddNewClient = () => {
     setTelefonos(nuevos);
   };
 
-  const onCloseNotify = () => setShowNotify(false);
 
   const saveData = () => {
     if (!nombre_cliente.inputValue.trim()) return alert("Nombre es obligatorio");
@@ -56,7 +54,6 @@ const AddNewClient = () => {
     };
 
     writeDB("clientes/add", data);
-    setShowNotify(true);
 
     // Limpiar
     nombre_juridico.clearInput();
@@ -81,10 +78,6 @@ const AddNewClient = () => {
             <div className= "titulo-header-form">Formulario Cliente</div>
           </div>
         <div className= "info-form">
-          <div>
-            <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
-          </div>
-
           <div className="row-form">
             <input
               type="text"

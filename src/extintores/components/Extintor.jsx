@@ -4,17 +4,23 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 
 import ExtintorCard from "./ExtintorCard";
-import Notify from "../../app/components/Notify";
 import AppContext from "../../app/components/AppContext";
 import useDataBase from "../../hooks/useDataBase";
 import useDate from "../../hooks/useDate";
 import useNavbarAction from "../../hooks/useNavbarAction";
+
+import ConfirmNotify from "../../app/components/ConfirmNotify";
+import useConfirmNotify from "../../hooks/useConfirmNotify";
+
+
 
 const Extintor = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const { getDB, writeDB, deleteDB } = useDataBase();
+  const { confirm, dialog } = useConfirmNotify();
+
   const fv = useDate();
 
   const {
@@ -31,8 +37,6 @@ const Extintor = () => {
   const [showAddExt, setShowAddExt] = useState(false);
   const [getDataExtintor, setDataExtintor] = useState([]);
   const [filtroNombre, setFiltroNombre] = useState("");
-  const [showNotify, setShowNotify] = useState(false);
-  const [msgNotify, setMsgNotify] = useState("");
   const [openExtId, setOpenExtId] = useState(null);
   const [placeholderFilter, setPlaceholderFilter] = useState("Buscar");
   const [selectSearchFilter, setSelectSearchFilter] = useState('ubicacion')
@@ -47,18 +51,12 @@ const Extintor = () => {
     getAllExtintores();
   }, [showAddExt]);
 
+
   const getAllExtintores = async () => {
     const data = await getDB("extintores");
     if (data) setDataExtintor(data);
   };
 
-  const saveExtintor = async (data_ext) => {
-    await writeDB("extintores", data_ext);
-    getAllExtintores();
-    setMsgNotify("Extintor guardado");
-    setShowNotify(true);
-    setShowAddExt(false);
-  };
 
   const handleDeleteExtintores = () => {
     handleDeleteSelected(elementSeleccionados, "¿Desea eliminar los extintores seleccionados?");
@@ -88,6 +86,25 @@ const Extintor = () => {
     
   }
 
+  const handleDeleteExtintor = async (_id) => {
+    const confirmed = await confirm();
+
+    if(confirmed){
+      deleteDB("extintores", _id);
+      getAllExtintores();
+      console.log('Extintor Eliminado')
+    } else {
+      console.log('Extintor No Eliminado')
+    }
+    
+  }
+
+  const handleEditExtintor = (_id) => {
+    navigate(`/extintores/edit/${_id}`);
+  }
+
+  const [openCloseNotify, setOpenCloseNotify] = useState(false);
+  const [returnValue, setReturnValue] = useState();
 
 
 
@@ -97,6 +114,8 @@ const Extintor = () => {
   return (
     <div className="extintor-page">
       <div className="extintor-container">
+
+      {dialog}
 
           <input
             id="search-input"
@@ -119,7 +138,7 @@ const Extintor = () => {
             <option value="Area o Sector">
               SECTOR
             </option>
-            <option selected value="Ej: Pasillo 1">
+            <option  selected={true} defaultValue="Ej: Pasillo 1">
               UBICACION
             </option>
           </select>
@@ -135,12 +154,8 @@ const Extintor = () => {
           
             <ExtintorCard
               extintor={ext}
-              isOpen={openExtId === ext._id}
-              onToggle={() => setOpenExtId(prev => (prev === ext._id ? null : ext._id))}
-              onClose={() => setOpenExtId(null)}
-              modoEliminar={modoEliminar}
-              seleccionado={elementSeleccionados.includes(ext.id_extintor)}
-              onSeleccionar={() => toggleElementSelected(ext.id_extintor)}
+              deleteFx={handleDeleteExtintor}
+              editFx={handleEditExtintor}
             />
           </div>
         ))}
@@ -154,7 +169,6 @@ const Extintor = () => {
         </button>
       )}
 
-      <Notify msg={msgNotify} open={showNotify} close={() => setShowNotify(false)} />
     </div>
   );
 };

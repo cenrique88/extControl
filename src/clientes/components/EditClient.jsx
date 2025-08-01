@@ -4,7 +4,7 @@ import { AppContext } from "../../app/components/AppContext.jsx";
 
 import useDataBase from "../../hooks/useDataBase.js";
 import useEdit from "../../hooks/useEdit.js";
-import Notify from "../../app/components/Notify.jsx";
+
 
 import "../styles/AddNewClient.css";
 
@@ -21,7 +21,6 @@ const EditClient = () => {
   const email = useEdit();
 
   const [telefonos, setTelefonos] = useState([]);
-  const [showNotify, setShowNotify] = useState(false);
 
 
   useEffect(() => {
@@ -59,7 +58,6 @@ const EditClient = () => {
     setTelefonos(nuevos);
   };
 
-  const onCloseNotify = () => setShowNotify(false);
 
   const saveData = async () => {
 
@@ -77,7 +75,6 @@ const EditClient = () => {
 
     await editDB("clientes/edit-client",targetForEdit._id, data);
 
-    setShowNotify(true);
 
     nombre_juridico.clearInput();
     direccion.clearInput();
@@ -97,21 +94,19 @@ const EditClient = () => {
   return (
     <div className="add-client-page">
       <div className="add-client-card">
+
         <div className="header-form">
           <div className="titulo-header-form">Editar Cliente</div>
         </div>
 
         <div className="info-form">
-          <div>
-            <Notify msg="Cliente Guardado" open={showNotify} close={onCloseNotify} />
-          </div>
 
           <div className="row-form">
             <input
               type="text"
               placeholder="Nombre Jurídico"
               value={nombre_juridico.inputValue}
-              onChange={nombre_juridico.handleChangeInput}
+              onChange={(e)=>nombre_juridico.handleChangeInput(e.target.value)}
             />
           </div>
 
@@ -120,7 +115,7 @@ const EditClient = () => {
               type="text"
               placeholder="Nombre *"
               value={nombre_cliente.inputValue}
-              onChange={nombre_cliente.handleChangeInput}
+              onChange={(e)=>nombre_cliente.handleChangeInput(e.target.value)}
               required
             />
           </div>
@@ -130,7 +125,7 @@ const EditClient = () => {
               type="text"
               placeholder="Dirección"
               value={direccion.inputValue}
-              onChange={direccion.handleChangeInput}
+              onChange={(e)=>direccion.handleChangeInput(e.target.value)}
             />
           </div>
 
@@ -139,7 +134,7 @@ const EditClient = () => {
               type="email"
               placeholder="Email"
               value={email.emailValue}
-              onChange={email.handleChangeEmail}
+              onChange={(e)=>email.handleChangeEmail(e.target.value)}
             />
           </div>
 
