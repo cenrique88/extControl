@@ -163,11 +163,11 @@ const handleTimeLeft = () => {
             </div>
 
             <div className="row">
-                <div className="celda celda-2"><strong>TIEMPO</strong><br /><b>{extintor.recarga_cada}</b></div>
+                <div className="celda celda-2"><strong>TIEMPO</strong><br /><b>{extintor.recarga_cada} Años</b></div>
                 <div className="celda celda-3"><strong>SOPORTE</strong><br /><b>{extintor.soporte_nicho}</b></div>
             </div>
 
-            <div className={`estado-vencimiento ${timeLeft}`}>
+            <div className={`extintor-status-open ${timeLeft}`}>
                 {textTimeLeft}
             </div>
         </div>
