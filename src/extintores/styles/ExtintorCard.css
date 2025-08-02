@@ -383,7 +383,7 @@ hr {
     text-align: center;
 }
 
-.estado-vencimiento {
+.extintor-status-open {
     margin-top: 0.2rem;
     background-color: #0e3d4b;
     font-weight: bold;
@@ -393,4 +393,12 @@ hr {
     font-size: 1.3rem;
     color: #ffffff;
     text-shadow: 0 0 0.5px #00000050;
+}
+
+.extintor-status-open.vencido {
+    background-color: #d9534f;
+}
+
+.extintor-status-open.proximo {
+    background-color: #fad84f;
 }

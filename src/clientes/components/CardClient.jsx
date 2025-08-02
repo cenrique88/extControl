@@ -144,21 +144,21 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
         <div className="tabla-datos-client">
           <div className="row">
-            <div className="celda celda-1"><strong>DIRECCIÓN</strong><br /><b>{client.direccion_cliente || "Av. Franklin Delano Roosevelt 20000 Maldonado, Departamento de Maldonado"}</b></div>
+            <div className="celda celda-1"><strong>DIRECCIÓN</strong><br /><b>{client.direccion_cliente}</b></div>
           </div>
 
           <div className="row">
-            <div className="celda celda-1"><strong>EMAIL</strong><br /><b>{client.email_cliente || "marcosbritos@gmail.com"}</b></div>
+            <div className="celda celda-1"><strong>EMAIL</strong><br /><b>{client.email_cliente}</b></div>
           </div>
 
           <div className="row">
-            <div className="celda celda-4"><strong>RAZÓN SOCIAL</strong><br /><b>{client.nombr_juridico || "CRAME IAMPP"}</b></div>
-            <div className="celda celda-5"><strong>TELEFONO 1</strong><br /><b>{client.telefonos_cliente || "4222 5353"}</b></div>
+            <div className="celda celda-4"><strong>RAZÓN SOCIAL</strong><br /><b>{client.nombre_juridico}</b></div>
+            <div className="celda celda-5"><strong>TELEFONO 1</strong><br /><b>{client.telefono_cliente}</b></div>
           </div>
 
           <div className="row">
-            <div className="celda celda-4"><strong>TELEFONO 2</strong><br /><b>{client.telefonos_cliente || "094 459 267"}</b></div>
-            <div className="celda celda-5"><strong>TELEFONO 3</strong><br /><b>{client.telefonos_cliente || "091 766 462"}</b></div>
+            <div className="celda celda-4"><strong>TELEFONO 2</strong><br /><b>{client.telefono_cliente}</b></div>
+            <div className="celda celda-5"><strong>TELEFONO 3</strong><br /><b>{client.telefono_cliente}</b></div>
           </div>
         </div>
 
