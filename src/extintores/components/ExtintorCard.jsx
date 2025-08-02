@@ -108,13 +108,13 @@ const handleTimeLeft = () => {
             <div className="acciones">
                 <button 
                   className="btn-header"
-                  onClick={()=>editFx(extintor._id)}
+                  onClick={()=>editFx(extintor.id_extintor)}
                   >
                     <img src="/src/img/edit.png" className="btn-icon" alt="Editar" title="Editar" />
                 </button>
                 <button 
                   className="btn-header"
-                  onClick={()=>deleteFx(extintor._id)}
+                  onClick={()=>deleteFx(extintor.id_extintor)}
                   >
                     <img src="/src/img/delete.png" className="btn-icon" alt="Eliminar" title="Eliminar" />
                 </button>
@@ -130,8 +130,8 @@ const handleTimeLeft = () => {
 
                 <div className="titulo-extintor">
                     <h4>{extintor.tipo_extintor}</h4>
-                    <h5>Acero</h5>
-                    <h5>Baja Presión</h5>
+                    <h5>{extintor.material}</h5>
+                    <h5>{extintor.estado_extintor}</h5>
                     <h4>Vto. {fVencimiento}</h4>
                 </div>
             </div>
@@ -143,7 +143,7 @@ const handleTimeLeft = () => {
 
         <div className="tabla-datos">
             <div className="row">
-                <div className="celda-1"><strong>UBICACIÓN</strong><br /><b>Pasillo Enfermería de Emergencia</b></div>
+                <div className="celda-1"><strong>UBICACIÓN</strong><br /><b>{extintor.ubicacion}</b></div>
             </div>
 
             <div className="row">
