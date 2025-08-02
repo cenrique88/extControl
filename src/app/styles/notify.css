@@ -1,23 +1,68 @@
-
-
-
-.confirm-notify-container{
+.confirm-notify-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(20, 20, 20, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 1000;
 }
+
 .confirm-notify-card {
-    width: 20rem;
-    height: 10rem;
-    background-color: rgb(236, 197, 113);
-    padding: 20px;
-    border-radius: 5px;
+    background: #272626;
+    padding: 1.8rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #00000030;
     text-align: center;
+    width: 75%;
+    max-width: 350px;
+    font-family: 'Arial', sans-serif;
+}
+
+.confirm-notify-card h2 {
+    margin: 0 0 0.6rem;
+    font-size: 1.4rem;
+    color: #eee;
+}
+
+.confirm-notify-card p {
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+    color: #bbb;
+}
+
+.notify-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-eliminar {
+    background-color: #d64742;
+    color: #fff;
+}
+
+.btn-eliminar:hover {
+    background-color: #9b180a;
+}
+
+.btn-cancelar {
+    background-color: #7d84869a;
+    color: #fff;
+}
+
+.btn-cancelar:hover {
+    background-color: #313535;
 }
