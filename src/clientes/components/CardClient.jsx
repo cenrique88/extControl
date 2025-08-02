@@ -144,21 +144,21 @@ const CardClient = ({ client, isOpen, onToggle, onClose, modoEliminar, seleccion
 
         <div className="tabla-datos-client">
           <div className="row">
-            <div className="celda celda-1"><strong>DIRECCIÓN</strong><br /><b>{client.direccion_cliente}</b></div>
+            <div className="celda celda-1"><strong>DIRECCIÓN</strong><br /><b>{client.direccion}</b></div>
           </div>
 
           <div className="row">
-            <div className="celda celda-1"><strong>EMAIL</strong><br /><b>{client.email_cliente}</b></div>
+            <div className="celda celda-1"><strong>EMAIL</strong><br /><b>{client.email}</b></div>
           </div>
 
           <div className="row">
             <div className="celda celda-4"><strong>RAZÓN SOCIAL</strong><br /><b>{client.nombre_juridico}</b></div>
-            <div className="celda celda-5"><strong>TELEFONO 1</strong><br /><b>{client.telefono_cliente}</b></div>
+            <div className="celda celda-5"><strong>TELEFONO 1</strong><br /><b>{client.telefono}</b></div>
           </div>
 
           <div className="row">
-            <div className="celda celda-4"><strong>TELEFONO 2</strong><br /><b>{client.telefono_cliente}</b></div>
-            <div className="celda celda-5"><strong>TELEFONO 3</strong><br /><b>{client.telefono_cliente}</b></div>
+            <div className="celda celda-4"><strong>TELEFONO 2</strong><br /><b>{client.telefono1}</b></div>
+            <div className="celda celda-5"><strong>TELEFONO 3</strong><br /><b>{client.telefono2}</b></div>
           </div>
         </div>
 
